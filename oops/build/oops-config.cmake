@@ -45,13 +45,13 @@ endif()
 
 ### export version info
 set(oops_VERSION           "1.8.0")
-set(oops_GIT_SHA1          "d9c7c74e4597172bf8a69d8585df5ad6d0112e0c")
-set(oops_GIT_SHA1_SHORT    "d9c7c74")
+set(oops_GIT_SHA1          "")
+set(oops_GIT_SHA1_SHORT    "")
 
 if(DEFINED ECBUILD_2_COMPAT AND ECBUILD_2_COMPAT)
   set(OOPS_VERSION           "1.8.0" )
-  set(OOPS_GIT_SHA1          "d9c7c74e4597172bf8a69d8585df5ad6d0112e0c" )
-  set(OOPS_GIT_SHA1_SHORT    "d9c7c74" )
+  set(OOPS_GIT_SHA1          "" )
+  set(OOPS_GIT_SHA1_SHORT    "" )
 endif()
 
 ### has this configuration been exported from a build tree?

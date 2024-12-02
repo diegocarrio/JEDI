@@ -1,148 +1,213 @@
-Start testing: Nov 27 19:30 UTC
+Start testing: Dec 02 21:46 UTC
 ----------------------------------------------------------
-64/305 Testing: test_l95_increment
-64/305 Test: test_l95_increment
-Command: "/home/nonroot/shared/oops/build/l95/test/test_l95_increment" "testinput/increment.yaml"
+92/305 Testing: test_l95_genenspert
+92/305 Test: test_l95_genenspert
+Command: "/home/nonroot/shared/oops/build/bin/l95_genpert.x" "testinput/genenspert.yaml"
 Directory: /home/nonroot/shared/oops/build/l95/test
-"test_l95_increment" start time: Nov 27 19:30 UTC
+"test_l95_genenspert" start time: Dec 02 21:46 UTC
 Output:
 ----------------------------------------------------------
-Configuration input file is: testinput/increment.yaml
-OOPS Starting 2024-11-27 19:30:47 (UTC+0000)
-Full configuration is:YAMLConfiguration[path=testinput/increment.yaml, root={geometry => {resol => 40} , inc variables => (x) , increment test => {date => 2010-01-01T03:00:00Z , skip atlas => 1 , skip rms by level test => 1 , skip dirac test => 1}}]
+Configuration input file is: testinput/genenspert.yaml
+OOPS Starting 2024-12-02 21:46:13 (UTC+0000)
+[TestReference] Comparing to reference file: testoutput/genenspert.test
+Relative float tolerance for tests : 1e-06
+Absolute float tolerance for tests : 0
+Full configuration is:YAMLConfiguration[path=testinput/genenspert.yaml, root={members => 10 , geometry => {resol => 40} , model => {name => L95 , f => 8 , tstep => PT1H30M} , perturbed variables => (x) , background error => {covariance model => L95Error , date => 2010-01-01T00:00:00Z , length_scale => 1 , standard_deviation => 0.6} , forecast length => PT27H , initial condition => {date => 2010-01-01T00:00:00Z , filename => Data/forecast.an.2010-01-01T00:00:00Z.l95} , output => {datadir => Data , date => 2010-01-01T00:00:00Z , exp => forecast , frequency => PT1H30M , type => ens} , test => {reference filename => testoutput/genenspert.test}}]
 OOPS_STATS ObjectCountHelper started.
-OOPS_STATS Run start                                - Runtime:      0.02 sec,  Memory: total:    34.78 Mb, per task: min =    34.78 Mb, max =    34.78 Mb
-Run: Starting oops::Test running test::Increment<Lorenz 95>
-Running 16 tests:
-Running case 0: interface/Increment/testIncrementConstructor ...
+OOPS_STATS Run start                                - Runtime:      0.03 sec,  Memory: total:    29.77 Mb, per task: min =    29.77 Mb, max =    29.77 Mb
+Run: Starting oops::GenEnsPertB<Lorenz 95>
 GeometryData: Global tree size = 40, footprint = 2560
-Completed case 0: interface/Increment/testIncrementConstructor
-Running case 1: interface/Increment/testIncrementCopyConstructor ...
-Completed case 1: interface/Increment/testIncrementCopyConstructor
-Running case 2: interface/Increment/testIncrementCopyBoolConstructor ...
-Completed case 2: interface/Increment/testIncrementCopyBoolConstructor
-Running case 3: interface/Increment/testIncrementChangeResConstructor ...
-Completed case 3: interface/Increment/testIncrementChangeResConstructor
-Running case 4: interface/Increment/rmsByLevel ...
-Completed case 4: interface/Increment/rmsByLevel
-Running case 5: interface/Increment/testIncrementTriangle ...
-Completed case 5: interface/Increment/testIncrementTriangle
-Running case 6: interface/Increment/testIncrementOpPlusEq ...
-Completed case 6: interface/Increment/testIncrementOpPlusEq
-Running case 7: interface/Increment/testIncrementDotProduct ...
-Completed case 7: interface/Increment/testIncrementDotProduct
-Running case 8: interface/Increment/testIncrementAxpy ...
-Completed case 8: interface/Increment/testIncrementAxpy
-Running case 9: interface/Increment/testIncrementAccum ...
-Completed case 9: interface/Increment/testIncrementAccum
-Running case 10: interface/Increment/testIncrementDiff ...
-Completed case 10: interface/Increment/testIncrementDiff
-Running case 11: interface/Increment/testIncrementZero ...
-Completed case 11: interface/Increment/testIncrementZero
-Running case 12: interface/Increment/testIncrementDirac ...
-Completed case 12: interface/Increment/testIncrementDirac
-Running case 13: interface/Increment/testIncrementTime ...
-Completed case 13: interface/Increment/testIncrementTime
-Running case 14: interface/Increment/testIncrementSchur ...
-Completed case 14: interface/Increment/testIncrementSchur
-Running case 15: interface/Increment/testIncrementSerialize ...
-Completed case 15: interface/Increment/testIncrementSerialize
-0 tests failed out of 16.
-Finished running the unit tests, result = 0
+Model configuration is:LocalConfiguration[root={name => L95 , f => 8 , tstep => PT1H30M}]
+ModelL95: resol = 40, f = 8, tstep = PT1H30M
+Test     : Initial state: 
+Test     :  Valid time: 2010-01-01T00:00:00Z
+Test     :  Min=7.0000000000000000e+00, Max=8.0000000000000000e+00, Average=7.9749999999999996e+00
+Running forecast from 2010-01-01T00:00:00Z to 2010-01-02T03:00:00Z
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-01T00:00:00Z
+ Min=6.63227, Max=9.15597, Average=8.0628
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T03:00:00Z
+ Min=3.21752, Max=11.6627, Average=7.84602
+Test     : Member 0 final state: 
+Test     :  Valid time: 2010-01-02T03:00:00Z
+Test     :  Min=3.2175157831375367e+00, Max=1.1662738957404729e+01, Average=7.8460235847835635e+00
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-01T00:00:00Z
+ Min=6.38882, Max=9.05078, Average=7.9284
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T03:00:00Z
+ Min=3.37329, Max=11.3831, Average=7.67679
+Test     : Member 1 final state: 
+Test     :  Valid time: 2010-01-02T03:00:00Z
+Test     :  Min=3.3732901003781799e+00, Max=1.1383054721014382e+01, Average=7.6767940210257892e+00
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-01T00:00:00Z
+ Min=6.82121, Max=8.57049, Average=7.86034
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T03:00:00Z
+ Min=4.80264, Max=11.5457, Average=7.77423
+Test     : Member 2 final state: 
+Test     :  Valid time: 2010-01-02T03:00:00Z
+Test     :  Min=4.8026442656459167e+00, Max=1.1545749171348247e+01, Average=7.7742316705155456e+00
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-01T00:00:00Z
+ Min=6.30691, Max=9.23878, Average=7.86105
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T03:00:00Z
+ Min=3.15896, Max=11.4182, Average=7.71317
+Test     : Member 3 final state: 
+Test     :  Valid time: 2010-01-02T03:00:00Z
+Test     :  Min=3.1589576018023502e+00, Max=1.1418160842286722e+01, Average=7.7131744212326323e+00
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-01T00:00:00Z
+ Min=6.82163, Max=9.36287, Average=7.75044
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T03:00:00Z
+ Min=2.58571, Max=11.1087, Average=7.52551
+Test     : Member 4 final state: 
+Test     :  Valid time: 2010-01-02T03:00:00Z
+Test     :  Min=2.5857123521257095e+00, Max=1.1108701423453882e+01, Average=7.5255097088386007e+00
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-01T00:00:00Z
+ Min=7.02973, Max=9.88356, Average=8.02051
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T03:00:00Z
+ Min=2.47211, Max=11.9171, Average=7.73606
+Test     : Member 5 final state: 
+Test     :  Valid time: 2010-01-02T03:00:00Z
+Test     :  Min=2.4721073374290317e+00, Max=1.1917124846855620e+01, Average=7.7360595242115497e+00
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-01T00:00:00Z
+ Min=6.62703, Max=8.61411, Average=7.87768
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T03:00:00Z
+ Min=4.38182, Max=11.3824, Average=7.7142
+Test     : Member 6 final state: 
+Test     :  Valid time: 2010-01-02T03:00:00Z
+Test     :  Min=4.3818236516695457e+00, Max=1.1382415271119338e+01, Average=7.7142015167694478e+00
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-01T00:00:00Z
+ Min=6.71833, Max=8.70103, Average=7.73511
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T03:00:00Z
+ Min=4.1669, Max=11.0728, Average=7.62218
+Test     : Member 7 final state: 
+Test     :  Valid time: 2010-01-02T03:00:00Z
+Test     :  Min=4.1668978573522066e+00, Max=1.1072785876088281e+01, Average=7.6221801355768317e+00
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-01T00:00:00Z
+ Min=6.67545, Max=9.13738, Average=7.95391
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T03:00:00Z
+ Min=3.12835, Max=11.8686, Average=7.71032
+Test     : Member 8 final state: 
+Test     :  Valid time: 2010-01-02T03:00:00Z
+Test     :  Min=3.1283519009196450e+00, Max=1.1868578106947682e+01, Average=7.7103178390683285e+00
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-01T00:00:00Z
+ Min=7.06055, Max=9.0042, Average=8.00243
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T03:00:00Z
+ Min=4.08623, Max=11.7555, Average=7.82686
+Test     : Member 9 final state: 
+Test     :  Valid time: 2010-01-02T03:00:00Z
+Test     :  Min=4.0862325997695050e+00, Max=1.1755546000535038e+01, Average=7.8268571528394775e+00
 
-Run: Finishing oops::Test running test::Increment<Lorenz 95>
+Run: Finishing oops::GenEnsPertB<Lorenz 95>
 OOPS_STATS  
 OOPS_STATS ----------------------------------------------------------------------------------
 OOPS_STATS --------------------------- Object counts ----------------------------------------
 OOPS_STATS ----------------------------------------------------------------------------------
 OOPS_STATS                                      Total  Simult. Remain    Avg (Mb)    HWM (Mb)
-OOPS_STATS lorenz95::IncrementL95          :       31       4        
-OOPS_STATS lorenz95::StateL95              :        3       2        
-OOPS_STATS oops::Geometry                  :        1       1       1
-OOPS_STATS oops::Increment                 :       31       4                0.00        0.00
-OOPS_STATS oops::State                     :        3       2                0.00        0.00
+OOPS_STATS lorenz95::ErrorCovarianceL95    :        1       1        
+OOPS_STATS lorenz95::IncrementL95          :        1       1        
+OOPS_STATS lorenz95::ModelBias             :        1       1        
+OOPS_STATS lorenz95::ModelL95              :        1       1        
+OOPS_STATS lorenz95::ModelTrajectory       :      180       1        
+OOPS_STATS lorenz95::StateL95              :       11       2        
+OOPS_STATS oops::ErrorCovariance           :        1       1                0.17        0.17
+OOPS_STATS oops::Geometry                  :        1       1        
+OOPS_STATS oops::Increment                 :        1       1                0.00        0.00
+OOPS_STATS oops::Model                     :        1       1        
+OOPS_STATS oops::ModelAuxControl           :        1       1        
+OOPS_STATS oops::State                     :       11       2                0.00        0.00
 OOPS_STATS ----------------------------- Object counts --------------------------------------
 OOPS_STATS  
 OOPS_STATS --------------------------------------------------------------------------------------------
 OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
 OOPS_STATS --------------------------------------------------------------------------------------------
 OOPS_STATS Name                                                :   total (ms)   count    time/call (ms)
-OOPS_STATS oops::Geometry::Geometry                            :         1.30       1            1.3014
-OOPS_STATS oops::Geometry::latlon                              :         0.20       2            0.0998
-OOPS_STATS oops::GeometryData::setGlobalTree                   :         0.19       1            0.1854
-OOPS_STATS oops::GeometryData::setLocalTree                    :         0.54       1            0.5425
-OOPS_STATS oops::Increment::Increment                          :         0.32      31            0.0103
-OOPS_STATS oops::Increment::accumul                            :         0.01       1            0.0059
-OOPS_STATS oops::Increment::axpy                               :         0.06       2            0.0324
-OOPS_STATS oops::Increment::deserialize                        :         0.06       1            0.0641
-OOPS_STATS oops::Increment::diff                               :         0.06       1            0.0573
-OOPS_STATS oops::Increment::dot_product_with                   :         0.03       2            0.0161
-OOPS_STATS oops::Increment::norm                               :         0.11      34            0.0032
-OOPS_STATS oops::Increment::ones                               :         0.02       1            0.0190
-OOPS_STATS oops::Increment::operator*=                         :         0.03       1            0.0288
-OOPS_STATS oops::Increment::operator+=                         :         0.04       2            0.0215
-OOPS_STATS oops::Increment::operator+=(State, Increment)       :         0.02       3            0.0079
-OOPS_STATS oops::Increment::operator-=                         :         0.06      10            0.0056
-OOPS_STATS oops::Increment::operator=                          :         0.01       2            0.0046
-OOPS_STATS oops::Increment::print                              :         0.49       2            0.2457
-OOPS_STATS oops::Increment::random                             :         0.24      18            0.0134
-OOPS_STATS oops::Increment::schur_product_with                 :         0.04       3            0.0141
-OOPS_STATS oops::Increment::serialSize                         :         0.00       5            0.0001
-OOPS_STATS oops::Increment::serialize                          :         0.15       2            0.0741
-OOPS_STATS oops::Increment::zero                               :         0.01       3            0.0049
-OOPS_STATS oops::Increment::~Increment                         :         0.13      31            0.0041
-OOPS_STATS oops::State::State                                  :         0.04       3            0.0127
-OOPS_STATS oops::State::zero                                   :         0.15       3            0.0492
-OOPS_STATS oops::State::~State                                 :         0.04       3            0.0144
-OOPS_STATS util::Timers::Total                                 :        15.27       1           15.2666
-OOPS_STATS util::Timers::measured                              :         4.36       1            4.3566
+OOPS_STATS oops::Covariance::L95Error::Constructor             :         0.00       1            0.0006
+OOPS_STATS oops::Covariance::L95Error::randomize               :         0.66      10            0.0657
+OOPS_STATS oops::ErrorCovariance::ErrorCovariance              :         3.35       1            3.3542
+OOPS_STATS oops::ErrorCovariance::doRandomize                  :         0.61      10            0.0613
+OOPS_STATS oops::ErrorCovariance::~ErrorCovariance             :         0.14       1            0.1450
+OOPS_STATS oops::Geometry::Geometry                            :         1.67       1            1.6660
+OOPS_STATS oops::Geometry::latlon                              :         0.13       2            0.0633
+OOPS_STATS oops::Geometry::~Geometry                           :         0.29       1            0.2853
+OOPS_STATS oops::GeometryData::setGlobalTree                   :         0.48       1            0.4752
+OOPS_STATS oops::GeometryData::setLocalTree                    :         0.91       1            0.9069
+OOPS_STATS oops::Increment::Increment                          :         0.06       1            0.0624
+OOPS_STATS oops::Increment::operator+=(State, Increment)       :         0.06      10            0.0059
+OOPS_STATS oops::Increment::~Increment                         :         0.08       1            0.0776
+OOPS_STATS oops::Model::Model                                  :         0.67       1            0.6673
+OOPS_STATS oops::Model::finalize                               :         0.02      10            0.0018
+OOPS_STATS oops::Model::initialize                             :         0.02      10            0.0020
+OOPS_STATS oops::Model::step                                   :         0.97     180            0.0054
+OOPS_STATS oops::Model::~Model                                 :         0.23       1            0.2258
+OOPS_STATS oops::ModelAuxControl::ModelAuxControl              :         0.05       1            0.0454
+OOPS_STATS oops::ModelAuxControl::~ModelAuxControl             :         0.00       1            0.0010
+OOPS_STATS oops::Parameters::deserialize                       :         4.00      12            0.3335
+OOPS_STATS oops::Parameters::serialize                         :         7.65     213            0.0359
+OOPS_STATS oops::Parameters::validate                          :        33.64      12            2.8037
+OOPS_STATS oops::State::State                                  :         2.11      11            0.1918
+OOPS_STATS oops::State::print                                  :         1.32      31            0.0424
+OOPS_STATS oops::State::write                                  :       111.74     190            0.5881
+OOPS_STATS oops::State::~State                                 :         0.17      11            0.0152
+OOPS_STATS util::Timers::Total                                 :       190.59       1          190.5887
+OOPS_STATS util::Timers::measured                              :       170.36       1          170.3649
 OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
 
 OOPS_STATS ------------------------------------------------------------------------------------------------------------------
 OOPS_STATS ---------------------------------- Parallel Timing Statistics (   1 MPI tasks) -----------------------------------
 OOPS_STATS ------------------------------------------------------------------------------------------------------------------
 OOPS_STATS Name                                                :     min (ms)    max (ms)    avg (ms)     % total   imbal (%)
-OOPS_STATS oops::Geometry::Geometry                            :         1.30        1.30        1.30        8.52        0.00
-OOPS_STATS oops::Geometry::latlon                              :         0.20        0.20        0.20        1.31        0.00
-OOPS_STATS oops::GeometryData::setGlobalTree                   :         0.19        0.19        0.19        1.21        0.00
-OOPS_STATS oops::GeometryData::setLocalTree                    :         0.54        0.54        0.54        3.55        0.00
-OOPS_STATS oops::Increment::Increment                          :         0.32        0.32        0.32        2.09        0.00
-OOPS_STATS oops::Increment::axpy                               :         0.06        0.06        0.06        0.42        0.00
-OOPS_STATS oops::Increment::deserialize                        :         0.06        0.06        0.06        0.42        0.00
-OOPS_STATS oops::Increment::diff                               :         0.06        0.06        0.06        0.38        0.00
-OOPS_STATS oops::Increment::dot_product_with                   :         0.03        0.03        0.03        0.21        0.00
-OOPS_STATS oops::Increment::norm                               :         0.11        0.11        0.11        0.71        0.00
-OOPS_STATS oops::Increment::ones                               :         0.02        0.02        0.02        0.12        0.00
-OOPS_STATS oops::Increment::operator*=                         :         0.03        0.03        0.03        0.19        0.00
-OOPS_STATS oops::Increment::operator+=                         :         0.04        0.04        0.04        0.28        0.00
-OOPS_STATS oops::Increment::operator+=(State, Increment)       :         0.02        0.02        0.02        0.16        0.00
-OOPS_STATS oops::Increment::operator-=                         :         0.06        0.06        0.06        0.37        0.00
-OOPS_STATS oops::Increment::print                              :         0.49        0.49        0.49        3.22        0.00
-OOPS_STATS oops::Increment::random                             :         0.24        0.24        0.24        1.58        0.00
-OOPS_STATS oops::Increment::schur_product_with                 :         0.04        0.04        0.04        0.28        0.00
-OOPS_STATS oops::Increment::serialize                          :         0.15        0.15        0.15        0.97        0.00
-OOPS_STATS oops::Increment::~Increment                         :         0.13        0.13        0.13        0.84        0.00
-OOPS_STATS oops::State::State                                  :         0.04        0.04        0.04        0.25        0.00
-OOPS_STATS oops::State::zero                                   :         0.15        0.15        0.15        0.97        0.00
-OOPS_STATS oops::State::~State                                 :         0.04        0.04        0.04        0.28        0.00
-OOPS_STATS util::Timers::Total                                 :        15.27       15.27       15.27      100.00        0.00
-OOPS_STATS util::Timers::measured                              :         4.36        4.36        4.36       28.54        0.00
+OOPS_STATS oops::Covariance::L95Error::randomize               :         0.66        0.66        0.66        0.34        0.00
+OOPS_STATS oops::ErrorCovariance::ErrorCovariance              :         3.35        3.35        3.35        1.76        0.00
+OOPS_STATS oops::ErrorCovariance::doRandomize                  :         0.61        0.61        0.61        0.32        0.00
+OOPS_STATS oops::Geometry::Geometry                            :         1.67        1.67        1.67        0.87        0.00
+OOPS_STATS oops::Geometry::~Geometry                           :         0.29        0.29        0.29        0.15        0.00
+OOPS_STATS oops::GeometryData::setGlobalTree                   :         0.48        0.48        0.48        0.25        0.00
+OOPS_STATS oops::GeometryData::setLocalTree                    :         0.91        0.91        0.91        0.48        0.00
+OOPS_STATS oops::Model::Model                                  :         0.67        0.67        0.67        0.35        0.00
+OOPS_STATS oops::Model::step                                   :         0.97        0.97        0.97        0.51        0.00
+OOPS_STATS oops::Model::~Model                                 :         0.23        0.23        0.23        0.12        0.00
+OOPS_STATS oops::Parameters::deserialize                       :         4.00        4.00        4.00        2.10        0.00
+OOPS_STATS oops::Parameters::serialize                         :         7.65        7.65        7.65        4.01        0.00
+OOPS_STATS oops::Parameters::validate                          :        33.64       33.64       33.64       17.65        0.00
+OOPS_STATS oops::State::State                                  :         2.11        2.11        2.11        1.11        0.00
+OOPS_STATS oops::State::print                                  :         1.32        1.32        1.32        0.69        0.00
+OOPS_STATS oops::State::write                                  :       111.74      111.74      111.74       58.63        0.00
+OOPS_STATS util::Timers::Total                                 :       190.59      190.59      190.59      100.00        0.00
+OOPS_STATS util::Timers::measured                              :       170.36      170.36      170.36       89.39        0.00
 OOPS_STATS ---------------------------------- Parallel Timing Statistics (   1 MPI tasks) -----------------------------------
 
-OOPS_STATS Run end                                  - Runtime:      0.03 sec,  Memory: total:    36.26 Mb, per task: min =    36.26 Mb, max =    36.26 Mb
-Run: Finishing oops::Test running test::Increment<Lorenz 95> with status = 0
-Skipping Increment.rmsByLevel testSkipping Increment.dirac testOOPS Ending   2024-11-27 19:30:47 (UTC+0000)
+OOPS_STATS Run end                                  - Runtime:      0.22 sec,  Memory: total:    34.49 Mb, per task: min =    34.49 Mb, max =    34.49 Mb
+Run: Finishing oops::GenEnsPertB<Lorenz 95> with status = 0
+[TestReference] Comparison is done
+OOPS Ending   2024-12-02 21:46:13 (UTC+0000)
 <end of output>
-Test time =   0.08 sec
+Test time =   0.29 sec
 ----------------------------------------------------------
 Test Passed.
-"test_l95_increment" end time: Nov 27 19:30 UTC
-"test_l95_increment" time elapsed: 00:00:00
+"test_l95_genenspert" end time: Dec 02 21:46 UTC
+"test_l95_genenspert" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Nov 27 19:30 UTC
+End testing: Dec 02 21:46 UTC
 
-executable =   0.08 sec*proc
+oops =   0.29 sec*proc
 
-oops =   0.08 sec*proc
+script =   0.29 sec*proc
 

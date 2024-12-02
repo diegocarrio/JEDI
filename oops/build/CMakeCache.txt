@@ -615,7 +615,7 @@ NetCDF_Fortran_LIBRARY:STRING=/opt/views/view/lib/libnetcdff.so
 NetCDF_INCLUDE_DIRS:STRING=/opt/views/view/include
 
 //NetCDF library targets
-NetCDF_LIBRARIES:STRING=/opt/views/view/lib/libnetcdf.so;/opt/views/view/lib/libnetcdff.so
+NetCDF_LIBRARIES:STRING=/opt/views/view/lib/libnetcdf.so;/opt/views/view/lib/libnetcdff.so;/opt/views/view/lib/libnetcdf.so;/opt/views/view/lib/libnetcdff.so
 
 //NetCDF has parallel IO capability via pnetcdf or hdf5.
 NetCDF_PARALLEL:STRING=TRUE
@@ -1035,7 +1035,7 @@ FIND_PACKAGE_MESSAGE_DETAILS_MPI_CXX:INTERNAL=[/opt/views/view/lib/libmpi.so][mp
 //Details about finding MPI_Fortran
 FIND_PACKAGE_MESSAGE_DETAILS_MPI_Fortran:INTERNAL=[/opt/views/view/lib/libmpi_usempif08.so][/opt/views/view/lib/libmpi_usempi_ignore_tkr.so][/opt/views/view/lib/libmpi_mpifh.so][/opt/views/view/lib/libmpi.so][mpi_usempif08;mpi_usempi_ignore_tkr;mpi_mpifh;mpi][TRUE][v3.1()]
 //Details about finding NetCDF
-FIND_PACKAGE_MESSAGE_DETAILS_NetCDF:INTERNAL=[/opt/views/view/include][/opt/views/view/lib/libnetcdf.so;/opt/views/view/lib/libnetcdff.so][cfound components: C Fortran ][v4.9.2()]
+FIND_PACKAGE_MESSAGE_DETAILS_NetCDF:INTERNAL=[/opt/views/view/include][/opt/views/view/lib/libnetcdf.so;/opt/views/view/lib/libnetcdff.so;/opt/views/view/lib/libnetcdf.so;/opt/views/view/lib/libnetcdff.so][cfound components: C Fortran ][v4.9.2()]
 //Details about finding OpenMP
 FIND_PACKAGE_MESSAGE_DETAILS_OpenMP:INTERNAL=[TRUE][cfound components: CXX ][v4.5()]
 //Details about finding OpenMP_CXX

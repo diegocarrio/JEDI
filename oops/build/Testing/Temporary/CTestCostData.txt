@@ -1,10 +1,10 @@
-test_l95_truth 1 0.109855
-test_l95_makeobs4d 1 0.137322
-test_l95_makeobs4d12h 1 0.130222
+test_l95_truth 2 0.0732707
+test_l95_makeobs4d 2 0.0891606
+test_l95_makeobs4d12h 2 0.0799199
 test_l95_makeobs3d 1 0.132198
 test_l95_forecast 1 0.124278
 test_l95_forecast_pseudomodel 1 0.104568
 test_l95_forecast_identitymodel 1 0.113962
-test_l95_genenspert 1 0.178132
+test_l95_genenspert 2 0.143933
 test_l95_increment 1 0.0844369
 ---

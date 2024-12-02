@@ -58,9 +58,9 @@ P4UpdateOptions:
 P4UpdateCustom: 
 
 # Generic update command
-UpdateCommand: /usr/bin/git
+UpdateCommand: 
 UpdateOptions: 
-UpdateType: git
+UpdateType: 
 
 # Compiler info
 Compiler: /usr/bin/g++
@@ -77,7 +77,7 @@ CudaSanitizerCommandOptions:
 MemoryCheckType: 
 MemoryCheckSanitizerOptions: 
 MemoryCheckCommand: MEMORYCHECK_COMMAND-NOTFOUND
-MemoryCheckCommandOptions: 
+MemoryCheckCommandOptions: --trace-children=yes --leak-check=full --error-exitcode=1
 MemoryCheckSuppressionFile: 
 
 # Coverage
