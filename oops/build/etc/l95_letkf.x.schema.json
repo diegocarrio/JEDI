@@ -1,0 +1,297 @@
+{
+    "additionalProperties": false,
+    "patternProperties": {
+        "^_": {}
+    },
+    "properties": {
+        "background": {
+            "description": "ensemble of backgrounds"
+        },
+        "channels": {
+            "type": ["string", "integer"]
+        },
+        "control member": {
+            "description": "control member that can be used insteead of the ensemble mean"
+        },
+        "driver": {
+            "additionalProperties": false,
+            "description": "options controlling output and observer runs",
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "do posterior observer": {
+                    "default": true,
+                    "description": "controls whether H(x) is computed for the posterior (analysis) ensemble",
+                    "type": "boolean"
+                },
+                "do test prints": {
+                    "default": true,
+                    "description": "controls whether additional output is printed to test stream",
+                    "type": "boolean"
+                },
+                "read HX from disk": {
+                    "default": false,
+                    "description": "controls whether H(x) is read or computed",
+                    "type": "boolean"
+                },
+                "run as observer only": {
+                    "default": false,
+                    "description": "controls whether only observer is run, or observer and solver",
+                    "type": "boolean"
+                },
+                "save posterior ensemble": {
+                    "default": true,
+                    "description": "controls whether posterior (analysis) ensemble is saved",
+                    "type": "boolean"
+                },
+                "save posterior ensemble increments": {
+                    "default": false,
+                    "description": "controls whether posterior (analysis) increments are saved",
+                    "type": "boolean"
+                },
+                "save posterior mean": {
+                    "default": false,
+                    "description": "controls whether posterior (analysis) ensemble mean is saved",
+                    "type": "boolean"
+                },
+                "save posterior mean increment": {
+                    "default": false,
+                    "description": "controls whether posterior (analysis) mean ensemble increment is saved",
+                    "type": "boolean"
+                },
+                "save posterior variance": {
+                    "default": false,
+                    "description": "controls whether posterior (analysis) ensemble variance is saved",
+                    "type": "boolean"
+                },
+                "save prior mean": {
+                    "default": false,
+                    "description": "controls whether prior (background) ensemble mean is saved",
+                    "type": "boolean"
+                },
+                "save prior variance": {
+                    "default": false,
+                    "description": "controls whether prior (background) ensemble variance is saved",
+                    "type": "boolean"
+                },
+                "update obs config with geometry info": {
+                    "default": true,
+                    "description": "controls whether observations config needs to be updated with information about geometry distribution",
+                    "type": "boolean"
+                },
+                "use control member": {
+                    "default": false,
+                    "description": "use control member to center prior ensemble instead of the prior ensemble mean",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "geometry": {
+            "description": "geometry used for all of the ensemble members and increments",
+            "patternProperties": {
+                "^_": {}
+            },
+            "type": "object"
+        },
+        "increment variables": {
+            "description": "analysis increment variables",
+            "items": {
+                "type": ["string", "number"]
+            },
+            "type": "array"
+        },
+        "local ensemble DA": {
+            "description": "local ensemble DA solver and its options"
+        },
+        "observations": {},
+        "output": {
+            "description": "parameters for posterior mean and ensemble output"
+        },
+        "output ensemble increments": {
+            "description": "parameters for posterior ensemble increments output",
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "date": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "date colons": {
+                    "default": true,
+                    "type": "boolean"
+                },
+                "exp": {
+                    "type": ["string", "number"]
+                },
+                "iteration": {
+                    "type": "integer"
+                },
+                "member": {
+                    "type": "integer"
+                },
+                "member pattern": {
+                    "type": ["string", "number"]
+                },
+                "prefix": {
+                    "type": ["string", "number"]
+                },
+                "type": {
+                    "type": ["string", "number"]
+                }
+            },
+            "type": "object"
+        },
+        "output increment": {
+            "description": "parameters for posterior mean increment output",
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "date": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "date colons": {
+                    "default": true,
+                    "type": "boolean"
+                },
+                "exp": {
+                    "type": ["string", "number"]
+                },
+                "iteration": {
+                    "type": "integer"
+                },
+                "member": {
+                    "type": "integer"
+                },
+                "member pattern": {
+                    "type": ["string", "number"]
+                },
+                "prefix": {
+                    "type": ["string", "number"]
+                },
+                "type": {
+                    "type": ["string", "number"]
+                }
+            },
+            "type": "object"
+        },
+        "output mean prior": {
+            "description": "parameters for prior mean output"
+        },
+        "output variance posterior": {
+            "description": "parameters for posterior variance output",
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "date": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "date colons": {
+                    "default": true,
+                    "type": "boolean"
+                },
+                "exp": {
+                    "type": ["string", "number"]
+                },
+                "iteration": {
+                    "type": "integer"
+                },
+                "member": {
+                    "type": "integer"
+                },
+                "member pattern": {
+                    "type": ["string", "number"]
+                },
+                "prefix": {
+                    "type": ["string", "number"]
+                },
+                "type": {
+                    "type": ["string", "number"]
+                }
+            },
+            "type": "object"
+        },
+        "output variance prior": {
+            "description": "parameters for prior variance output",
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "date": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "date colons": {
+                    "default": true,
+                    "type": "boolean"
+                },
+                "exp": {
+                    "type": ["string", "number"]
+                },
+                "iteration": {
+                    "type": "integer"
+                },
+                "member": {
+                    "type": "integer"
+                },
+                "member pattern": {
+                    "type": ["string", "number"]
+                },
+                "prefix": {
+                    "type": ["string", "number"]
+                },
+                "type": {
+                    "type": ["string", "number"]
+                }
+            },
+            "type": "object"
+        },
+        "test": {
+            "additionalProperties": false,
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "float absolute tolerance": {
+                    "type": "number"
+                },
+                "float relative tolerance": {
+                    "type": "number"
+                },
+                "integer tolerance": {
+                    "type": "integer"
+                },
+                "log output filename": {
+                    "type": ["string", "number"]
+                },
+                "mpi pattern": {
+                    "type": ["string", "number"]
+                },
+                "reference filename": {
+                    "type": ["string", "number"]
+                },
+                "test output filename": {
+                    "type": ["string", "number"]
+                }
+            },
+            "required": ["reference filename"],
+            "type": "object"
+        },
+        "window begin": {
+            "format": "date-time",
+            "type": "string"
+        },
+        "window length": {
+            "format": "duration",
+            "type": "string"
+        }
+    },
+    "required": ["background", "geometry", "local ensemble DA", "observations", "window begin", "window length"],
+    "type": "object"
+}

@@ -1,0 +1,19 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/nonroot/shared/oops/build/src/CMakeFiles/oops_test_headers"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops/build/src/CMakeFiles/oops_test_headers.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"oops"
+		],
+		"name" : "oops_test_headers"
+	}
+}

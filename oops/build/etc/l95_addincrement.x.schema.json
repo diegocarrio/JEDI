@@ -1,0 +1,121 @@
+{
+    "additionalProperties": false,
+    "patternProperties": {
+        "^_": {}
+    },
+    "properties": {
+        "increment": {
+            "description": "Increment to add to state",
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "added variables": {
+                    "default": [],
+                    "description": "List of variables to add",
+                    "items": {
+                        "type": ["string", "number"]
+                    },
+                    "type": "array"
+                },
+                "channels": {
+                    "type": ["string", "integer"]
+                },
+                "scaling factor": {
+                    "description": "Scaling factor for the increment",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "increment geometry": {
+            "description": "Increment resolution",
+            "patternProperties": {
+                "^_": {}
+            },
+            "type": "object"
+        },
+        "output": {
+            "description": "Where to write the output",
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "date": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "date colons": {
+                    "default": true,
+                    "type": "boolean"
+                },
+                "exp": {
+                    "type": ["string", "number"]
+                },
+                "iteration": {
+                    "type": "integer"
+                },
+                "member": {
+                    "type": "integer"
+                },
+                "member pattern": {
+                    "type": ["string", "number"]
+                },
+                "prefix": {
+                    "type": ["string", "number"]
+                },
+                "type": {
+                    "type": ["string", "number"]
+                }
+            },
+            "type": "object"
+        },
+        "state": {
+            "description": "State to be incremented",
+            "patternProperties": {
+                "^_": {}
+            },
+            "type": "object"
+        },
+        "state geometry": {
+            "description": "State resolution",
+            "patternProperties": {
+                "^_": {}
+            },
+            "type": "object"
+        },
+        "test": {
+            "additionalProperties": false,
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "float absolute tolerance": {
+                    "type": "number"
+                },
+                "float relative tolerance": {
+                    "type": "number"
+                },
+                "integer tolerance": {
+                    "type": "integer"
+                },
+                "log output filename": {
+                    "type": ["string", "number"]
+                },
+                "mpi pattern": {
+                    "type": ["string", "number"]
+                },
+                "reference filename": {
+                    "type": ["string", "number"]
+                },
+                "test output filename": {
+                    "type": ["string", "number"]
+                }
+            },
+            "required": ["reference filename"],
+            "type": "object"
+        }
+    },
+    "required": ["increment", "increment geometry", "output", "state", "state geometry"],
+    "type": "object"
+}

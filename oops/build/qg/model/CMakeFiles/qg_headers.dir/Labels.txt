@@ -1,0 +1,5 @@
+# Directory labels
+ oops
+# Source files and their labels
+/home/nonroot/shared/oops/build/qg/model/CMakeFiles/qg_headers
+/home/nonroot/shared/oops/build/qg/model/CMakeFiles/qg_headers.rule

@@ -1,0 +1,79 @@
+Determining if the Fortran sgemm exists failed with the following output:
+Change Dir: /home/nonroot/shared/oops/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_333c9/fast && /usr/bin/make  -f CMakeFiles/cmTC_333c9.dir/build.make CMakeFiles/cmTC_333c9.dir/build
+make[1]: Entering directory '/home/nonroot/shared/oops/build/CMakeFiles/CMakeTmp'
+Building Fortran object CMakeFiles/cmTC_333c9.dir/testFortranCompiler.f.o
+/usr/bin/gfortran   -fPIE -c /home/nonroot/shared/oops/build/CMakeFiles/CMakeTmp/testFortranCompiler.f -o CMakeFiles/cmTC_333c9.dir/testFortranCompiler.f.o
+Linking Fortran executable cmTC_333c9
+/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/cmake-3.23.1-p5xbwmjn3ezq3f6cwtktxlrvr6mdm4zu/bin/cmake -E cmake_link_script CMakeFiles/cmTC_333c9.dir/link.txt --verbose=1
+/usr/bin/gfortran     -Wl,--disable-new-dtags  CMakeFiles/cmTC_333c9.dir/testFortranCompiler.f.o -o cmTC_333c9 
+/usr/bin/ld: CMakeFiles/cmTC_333c9.dir/testFortranCompiler.f.o: in function `MAIN__':
+testFortranCompiler.f:(.text+0xa): undefined reference to `sgemm_'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_333c9.dir/build.make:99: cmTC_333c9] Error 1
+make[1]: Leaving directory '/home/nonroot/shared/oops/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_333c9/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/nonroot/shared/oops/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a0312/fast && /usr/bin/make  -f CMakeFiles/cmTC_a0312.dir/build.make CMakeFiles/cmTC_a0312.dir/build
+make[1]: Entering directory '/home/nonroot/shared/oops/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a0312.dir/src.c.o
+/usr/bin/gcc -DCMAKE_HAVE_LIBC_PTHREAD  -pipe  -fPIE -std=c11 -o CMakeFiles/cmTC_a0312.dir/src.c.o -c /home/nonroot/shared/oops/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_a0312
+/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/cmake-3.23.1-p5xbwmjn3ezq3f6cwtktxlrvr6mdm4zu/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a0312.dir/link.txt --verbose=1
+/usr/bin/gcc  -pipe      -Wl,--disable-new-dtags  CMakeFiles/cmTC_a0312.dir/src.c.o -o cmTC_a0312 
+/usr/bin/ld: CMakeFiles/cmTC_a0312.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x5e): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0x6f): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_a0312.dir/build.make:99: cmTC_a0312] Error 1
+make[1]: Leaving directory '/home/nonroot/shared/oops/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_a0312/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/nonroot/shared/oops/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_8b5d4/fast && /usr/bin/make  -f CMakeFiles/cmTC_8b5d4.dir/build.make CMakeFiles/cmTC_8b5d4.dir/build
+make[1]: Entering directory '/home/nonroot/shared/oops/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8b5d4.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -pipe -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE -std=c11 -o CMakeFiles/cmTC_8b5d4.dir/CheckFunctionExists.c.o -c /opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/cmake-3.23.1-p5xbwmjn3ezq3f6cwtktxlrvr6mdm4zu/share/cmake-3.23/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8b5d4
+/opt/software/linux-ubuntu20.04-x86_64/gcc-9.4.0/cmake-3.23.1-p5xbwmjn3ezq3f6cwtktxlrvr6mdm4zu/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8b5d4.dir/link.txt --verbose=1
+/usr/bin/gcc  -pipe -DCHECK_FUNCTION_EXISTS=pthread_create     -Wl,--disable-new-dtags  CMakeFiles/cmTC_8b5d4.dir/CheckFunctionExists.c.o -o cmTC_8b5d4  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_8b5d4.dir/build.make:99: cmTC_8b5d4] Error 1
+make[1]: Leaving directory '/home/nonroot/shared/oops/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_8b5d4/fast] Error 2
+
+
+

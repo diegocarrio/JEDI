@@ -1,0 +1,224 @@
+{
+    "additionalProperties": false,
+    "patternProperties": {
+        "^_": {}
+    },
+    "properties": {
+        "forecast length": {
+            "format": "duration",
+            "type": "string"
+        },
+        "forecast to latlon": {
+            "additionalProperties": false,
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "bottom model level": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "channels": {
+                    "type": ["string", "integer"]
+                },
+                "datapath": {
+                    "default": ".",
+                    "type": ["string", "number"]
+                },
+                "filename prefix": {
+                    "type": ["string", "number"]
+                },
+                "first": {
+                    "default": "PT0S",
+                    "format": "duration",
+                    "type": "string"
+                },
+                "frequency": {
+                    "default": "PT0S",
+                    "format": "duration",
+                    "type": "string"
+                },
+                "local interpolator type": {
+                    "type": ["string", "number"]
+                },
+                "model levels": {
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "pressure levels in hPa": {
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution in degrees": {
+                    "exclusiveMinimum": 0.000000,
+                    "maximum": 90.000000,
+                    "type": "number"
+                },
+                "steps": {
+                    "items": {
+                        "format": "duration",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "times": {
+                    "items": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "variables to output": {
+                    "items": {
+                        "type": ["string", "number"]
+                    },
+                    "type": "array"
+                }
+            },
+            "required": ["filename prefix", "local interpolator type", "resolution in degrees", "variables to output"],
+            "type": "object"
+        },
+        "geometry": {
+            "patternProperties": {
+                "^_": {}
+            },
+            "type": "object"
+        },
+        "initial condition": {
+            "patternProperties": {
+                "^_": {}
+            },
+            "type": "object"
+        },
+        "model": {},
+        "model aux control": {},
+        "output": {
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "date": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "date colons": {
+                    "default": true,
+                    "type": "boolean"
+                },
+                "exp": {
+                    "type": ["string", "number"]
+                },
+                "first": {
+                    "default": "PT0S",
+                    "format": "duration",
+                    "type": "string"
+                },
+                "frequency": {
+                    "default": "PT0S",
+                    "format": "duration",
+                    "type": "string"
+                },
+                "iteration": {
+                    "type": "integer"
+                },
+                "member": {
+                    "type": "integer"
+                },
+                "member pattern": {
+                    "type": ["string", "number"]
+                },
+                "prefix": {
+                    "type": ["string", "number"]
+                },
+                "steps": {
+                    "items": {
+                        "format": "duration",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "times": {
+                    "items": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "type": ["string", "number"]
+                }
+            },
+            "type": "object"
+        },
+        "prints": {
+            "additionalProperties": false,
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "first": {
+                    "default": "PT0S",
+                    "format": "duration",
+                    "type": "string"
+                },
+                "frequency": {
+                    "default": "PT0S",
+                    "format": "duration",
+                    "type": "string"
+                },
+                "steps": {
+                    "items": {
+                        "format": "duration",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "times": {
+                    "items": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "test": {
+            "additionalProperties": false,
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "float absolute tolerance": {
+                    "type": "number"
+                },
+                "float relative tolerance": {
+                    "type": "number"
+                },
+                "integer tolerance": {
+                    "type": "integer"
+                },
+                "log output filename": {
+                    "type": ["string", "number"]
+                },
+                "mpi pattern": {
+                    "type": ["string", "number"]
+                },
+                "reference filename": {
+                    "type": ["string", "number"]
+                },
+                "test output filename": {
+                    "type": ["string", "number"]
+                }
+            },
+            "required": ["reference filename"],
+            "type": "object"
+        }
+    },
+    "required": ["forecast length", "geometry", "initial condition", "model", "output"],
+    "type": "object"
+}

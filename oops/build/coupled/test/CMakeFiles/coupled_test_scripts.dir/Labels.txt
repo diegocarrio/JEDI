@@ -1,0 +1,14 @@
+# Directory labels
+ oops
+# Source files and their labels
+/home/nonroot/shared/oops/coupled/test/testinput/coupledconvertstate.yaml
+/home/nonroot/shared/oops/coupled/test/testinput/coupledgeometry.yaml
+/home/nonroot/shared/oops/coupled/test/testinput/coupledgeometryparallel.yaml
+/home/nonroot/shared/oops/coupled/test/testinput/coupledmodel.yaml
+/home/nonroot/shared/oops/coupled/test/testinput/coupledmodelauxcontrol.yaml
+/home/nonroot/shared/oops/coupled/test/testinput/coupledmodelparallel.yaml
+/home/nonroot/shared/oops/coupled/test/testinput/coupledstate.yaml
+/home/nonroot/shared/oops/coupled/test/testinput/coupledstateparallel.yaml
+/home/nonroot/shared/oops/coupled/test/testinput/coupledincrement.yaml
+/home/nonroot/shared/oops/coupled/test/testinput/forecast_qg_l95.yaml
+/home/nonroot/shared/oops/coupled/test/testinput/hofx3d_qg_qg.yaml

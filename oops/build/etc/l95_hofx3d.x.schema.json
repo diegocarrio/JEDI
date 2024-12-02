@@ -1,0 +1,934 @@
+{
+    "additionalProperties": false,
+    "patternProperties": {
+        "^_": {}
+    },
+    "properties": {
+        "geometry": {
+            "patternProperties": {
+                "^_": {}
+            },
+            "type": "object"
+        },
+        "make obs": {
+            "default": false,
+            "type": "boolean"
+        },
+        "observations": {
+            "additionalProperties": false,
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "get values": {
+                    "additionalProperties": false,
+                    "patternProperties": {
+                        "^_": {}
+                    },
+                    "properties": {
+                        "variable change": {
+                            "patternProperties": {
+                                "^_": {}
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                },
+                "obs perturbations": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "observers": {
+                    "items": {
+                        "additionalProperties": false,
+                        "patternProperties": {
+                            "^_": {}
+                        },
+                        "properties": {
+                            "get values": {},
+                            "linear obs operator": {
+                                "additionalProperties": false,
+                                "patternProperties": {
+                                    "^_": {}
+                                },
+                                "type": "object"
+                            },
+                            "monitoring only": {
+                                "default": false,
+                                "type": "boolean"
+                            },
+                            "obs bias": {
+                                "additionalProperties": false,
+                                "patternProperties": {
+                                    "^_": {}
+                                },
+                                "properties": {
+                                    "bias": {
+                                        "type": "number"
+                                    },
+                                    "covariance": {
+                                        "additionalProperties": false,
+                                        "patternProperties": {
+                                            "^_": {}
+                                        },
+                                        "properties": {
+                                            "standard_deviation": {
+                                                "type": "number"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "obs error": {
+                                "allOf": [
+                                    {
+                                        "if": {
+                                            "properties": {
+                                                "covariance model": {
+                                                    "const": "diagonal"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "then": {
+                                            "additionalProperties": false,
+                                            "patternProperties": {
+                                                "^_": {}
+                                            },
+                                            "properties": {
+                                                "covariance model": {
+                                                    "default": "diagonal",
+                                                    "enum": ["diagonal"],
+                                                    "type": ["string", "number"]
+                                                },
+                                                "member": {
+                                                    "minimum": 1,
+                                                    "type": "integer"
+                                                },
+                                                "number of members": {
+                                                    "minimum": 1,
+                                                    "type": "integer"
+                                                },
+                                                "obs perturbations amplitude": {
+                                                    "default": 1.00000000000000000e+00,
+                                                    "type": "number"
+                                                },
+                                                "zero-mean perturbations": {
+                                                    "default": false,
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }],
+                                "patternProperties": {
+                                    "^_": {}
+                                },
+                                "properties": {
+                                    "covariance model": {
+                                        "default": "diagonal",
+                                        "enum": ["diagonal"],
+                                        "type": ["string", "number"]
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "obs filters": {
+                                "items": {
+                                    "allOf": [
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "Background Check"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "additionalProperties": false,
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "inflate obs error": {
+                                                        "type": "number"
+                                                    },
+                                                    "threshold": {
+                                                        "type": "number"
+                                                    }
+                                                },
+                                                "required": ["filter", "threshold"],
+                                                "type": "object"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "Filter Stage Check"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "additionalProperties": false,
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    }
+                                                },
+                                                "required": ["filter"],
+                                                "type": "object"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "Final Check"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    }
+                                                },
+                                                "required": ["filter"],
+                                                "type": "object"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "GOMsaver"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "additionalProperties": false,
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filename": {
+                                                        "description": "filename for input and output",
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    }
+                                                },
+                                                "required": ["filename", "filter"],
+                                                "type": "object"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "QCmanager"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    }
+                                                },
+                                                "required": ["filter"],
+                                                "type": "object"
+                                            }
+                                        }],
+                                    "patternProperties": {
+                                        "^_": {}
+                                    },
+                                    "properties": {
+                                        "apply at iterations": {
+                                            "type": ["string", "number"]
+                                        },
+                                        "filter": {
+                                            "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                            "type": ["string", "number"]
+                                        }
+                                    },
+                                    "required": ["filter"],
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            },
+                            "obs operator": {
+                                "additionalProperties": false,
+                                "patternProperties": {
+                                    "^_": {}
+                                },
+                                "type": "object"
+                            },
+                            "obs post filters": {
+                                "items": {
+                                    "allOf": [
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "Background Check"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "additionalProperties": false,
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "inflate obs error": {
+                                                        "type": "number"
+                                                    },
+                                                    "threshold": {
+                                                        "type": "number"
+                                                    }
+                                                },
+                                                "required": ["filter", "threshold"],
+                                                "type": "object"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "Filter Stage Check"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "additionalProperties": false,
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    }
+                                                },
+                                                "required": ["filter"],
+                                                "type": "object"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "Final Check"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    }
+                                                },
+                                                "required": ["filter"],
+                                                "type": "object"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "GOMsaver"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "additionalProperties": false,
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filename": {
+                                                        "description": "filename for input and output",
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    }
+                                                },
+                                                "required": ["filename", "filter"],
+                                                "type": "object"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "QCmanager"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    }
+                                                },
+                                                "required": ["filter"],
+                                                "type": "object"
+                                            }
+                                        }],
+                                    "patternProperties": {
+                                        "^_": {}
+                                    },
+                                    "properties": {
+                                        "apply at iterations": {
+                                            "type": ["string", "number"]
+                                        },
+                                        "filter": {
+                                            "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                            "type": ["string", "number"]
+                                        }
+                                    },
+                                    "required": ["filter"],
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            },
+                            "obs pre filters": {
+                                "items": {
+                                    "allOf": [
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "Background Check"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "additionalProperties": false,
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "inflate obs error": {
+                                                        "type": "number"
+                                                    },
+                                                    "threshold": {
+                                                        "type": "number"
+                                                    }
+                                                },
+                                                "required": ["filter", "threshold"],
+                                                "type": "object"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "Filter Stage Check"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "additionalProperties": false,
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    }
+                                                },
+                                                "required": ["filter"],
+                                                "type": "object"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "Final Check"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    }
+                                                },
+                                                "required": ["filter"],
+                                                "type": "object"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "GOMsaver"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "additionalProperties": false,
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filename": {
+                                                        "description": "filename for input and output",
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    }
+                                                },
+                                                "required": ["filename", "filter"],
+                                                "type": "object"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "QCmanager"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    }
+                                                },
+                                                "required": ["filter"],
+                                                "type": "object"
+                                            }
+                                        }],
+                                    "patternProperties": {
+                                        "^_": {}
+                                    },
+                                    "properties": {
+                                        "apply at iterations": {
+                                            "type": ["string", "number"]
+                                        },
+                                        "filter": {
+                                            "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                            "type": ["string", "number"]
+                                        }
+                                    },
+                                    "required": ["filter"],
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            },
+                            "obs prior filters": {
+                                "items": {
+                                    "allOf": [
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "Background Check"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "additionalProperties": false,
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "inflate obs error": {
+                                                        "type": "number"
+                                                    },
+                                                    "threshold": {
+                                                        "type": "number"
+                                                    }
+                                                },
+                                                "required": ["filter", "threshold"],
+                                                "type": "object"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "Filter Stage Check"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "additionalProperties": false,
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    }
+                                                },
+                                                "required": ["filter"],
+                                                "type": "object"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "Final Check"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    }
+                                                },
+                                                "required": ["filter"],
+                                                "type": "object"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "GOMsaver"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "additionalProperties": false,
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filename": {
+                                                        "description": "filename for input and output",
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    }
+                                                },
+                                                "required": ["filename", "filter"],
+                                                "type": "object"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "filter": {
+                                                        "const": "QCmanager"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "then": {
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "apply at iterations": {
+                                                        "type": ["string", "number"]
+                                                    },
+                                                    "filter": {
+                                                        "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                                        "type": ["string", "number"]
+                                                    }
+                                                },
+                                                "required": ["filter"],
+                                                "type": "object"
+                                            }
+                                        }],
+                                    "patternProperties": {
+                                        "^_": {}
+                                    },
+                                    "properties": {
+                                        "apply at iterations": {
+                                            "type": ["string", "number"]
+                                        },
+                                        "filter": {
+                                            "enum": ["Background Check", "Filter Stage Check", "Final Check", "GOMsaver", "QCmanager"],
+                                            "type": ["string", "number"]
+                                        }
+                                    },
+                                    "required": ["filter"],
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            },
+                            "obs space": {
+                                "additionalProperties": false,
+                                "patternProperties": {
+                                    "^_": {}
+                                },
+                                "properties": {
+                                    "generate": {
+                                        "additionalProperties": false,
+                                        "patternProperties": {
+                                            "^_": {}
+                                        },
+                                        "properties": {
+                                            "obs_density": {
+                                                "type": "integer"
+                                            },
+                                            "obs_error": {
+                                                "type": "number"
+                                            },
+                                            "obs_frequency": {
+                                                "format": "duration",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": ["obs_density", "obs_error", "obs_frequency"],
+                                        "type": "object"
+                                    },
+                                    "obs perturbations seed": {
+                                        "default": 0,
+                                        "type": "integer"
+                                    },
+                                    "obsdatain": {
+                                        "additionalProperties": false,
+                                        "patternProperties": {
+                                            "^_": {}
+                                        },
+                                        "properties": {
+                                            "engine": {
+                                                "additionalProperties": false,
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "obsfile": {
+                                                        "type": ["string", "number"]
+                                                    }
+                                                },
+                                                "required": ["obsfile"],
+                                                "type": "object"
+                                            }
+                                        },
+                                        "required": ["engine"],
+                                        "type": "object"
+                                    },
+                                    "obsdataout": {
+                                        "additionalProperties": false,
+                                        "patternProperties": {
+                                            "^_": {}
+                                        },
+                                        "properties": {
+                                            "engine": {
+                                                "additionalProperties": false,
+                                                "patternProperties": {
+                                                    "^_": {}
+                                                },
+                                                "properties": {
+                                                    "obsfile": {
+                                                        "type": ["string", "number"]
+                                                    }
+                                                },
+                                                "required": ["obsfile"],
+                                                "type": "object"
+                                            }
+                                        },
+                                        "required": ["engine"],
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "required": ["obs operator", "obs space"],
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "state": {
+            "patternProperties": {
+                "^_": {}
+            },
+            "type": "object"
+        },
+        "test": {
+            "additionalProperties": false,
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "float absolute tolerance": {
+                    "type": "number"
+                },
+                "float relative tolerance": {
+                    "type": "number"
+                },
+                "integer tolerance": {
+                    "type": "integer"
+                },
+                "log output filename": {
+                    "type": ["string", "number"]
+                },
+                "mpi pattern": {
+                    "type": ["string", "number"]
+                },
+                "reference filename": {
+                    "type": ["string", "number"]
+                },
+                "test output filename": {
+                    "type": ["string", "number"]
+                }
+            },
+            "required": ["reference filename"],
+            "type": "object"
+        },
+        "window begin": {
+            "format": "date-time",
+            "type": "string"
+        },
+        "window length": {
+            "format": "duration",
+            "type": "string"
+        }
+    },
+    "required": ["geometry", "state", "window begin", "window length"],
+    "type": "object"
+}

@@ -1,0 +1,19 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/nonroot/shared/oops/build/qg/mains/CMakeFiles/qg_letkf.x.schema.json"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops/build/qg/mains/CMakeFiles/qg_letkf.x.schema.json.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"oops"
+		],
+		"name" : "qg_letkf.x.schema.json"
+	}
+}

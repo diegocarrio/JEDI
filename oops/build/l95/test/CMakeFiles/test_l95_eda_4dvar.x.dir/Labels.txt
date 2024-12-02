@@ -1,0 +1,5 @@
+# Directory labels
+ oops
+# Source files and their labels
+/home/nonroot/shared/oops/build/l95/test/CMakeFiles/test_l95_eda_4dvar.x
+/home/nonroot/shared/oops/build/l95/test/CMakeFiles/test_l95_eda_4dvar.x.rule

@@ -1,0 +1,19 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/nonroot/shared/oops/build/CMakeFiles/ContinuousConfigure"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops/build/CMakeFiles/ContinuousConfigure.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"oops"
+		],
+		"name" : "ContinuousConfigure"
+	}
+}

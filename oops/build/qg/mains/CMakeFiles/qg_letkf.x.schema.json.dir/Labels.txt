@@ -1,0 +1,5 @@
+# Directory labels
+ oops
+# Source files and their labels
+/home/nonroot/shared/oops/build/qg/mains/CMakeFiles/qg_letkf.x.schema.json
+/home/nonroot/shared/oops/build/qg/mains/CMakeFiles/qg_letkf.x.schema.json.rule

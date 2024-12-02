@@ -1,0 +1,148 @@
+Start testing: Nov 27 19:30 UTC
+----------------------------------------------------------
+64/305 Testing: test_l95_increment
+64/305 Test: test_l95_increment
+Command: "/home/nonroot/shared/oops/build/l95/test/test_l95_increment" "testinput/increment.yaml"
+Directory: /home/nonroot/shared/oops/build/l95/test
+"test_l95_increment" start time: Nov 27 19:30 UTC
+Output:
+----------------------------------------------------------
+Configuration input file is: testinput/increment.yaml
+OOPS Starting 2024-11-27 19:30:47 (UTC+0000)
+Full configuration is:YAMLConfiguration[path=testinput/increment.yaml, root={geometry => {resol => 40} , inc variables => (x) , increment test => {date => 2010-01-01T03:00:00Z , skip atlas => 1 , skip rms by level test => 1 , skip dirac test => 1}}]
+OOPS_STATS ObjectCountHelper started.
+OOPS_STATS Run start                                - Runtime:      0.02 sec,  Memory: total:    34.78 Mb, per task: min =    34.78 Mb, max =    34.78 Mb
+Run: Starting oops::Test running test::Increment<Lorenz 95>
+Running 16 tests:
+Running case 0: interface/Increment/testIncrementConstructor ...
+GeometryData: Global tree size = 40, footprint = 2560
+Completed case 0: interface/Increment/testIncrementConstructor
+Running case 1: interface/Increment/testIncrementCopyConstructor ...
+Completed case 1: interface/Increment/testIncrementCopyConstructor
+Running case 2: interface/Increment/testIncrementCopyBoolConstructor ...
+Completed case 2: interface/Increment/testIncrementCopyBoolConstructor
+Running case 3: interface/Increment/testIncrementChangeResConstructor ...
+Completed case 3: interface/Increment/testIncrementChangeResConstructor
+Running case 4: interface/Increment/rmsByLevel ...
+Completed case 4: interface/Increment/rmsByLevel
+Running case 5: interface/Increment/testIncrementTriangle ...
+Completed case 5: interface/Increment/testIncrementTriangle
+Running case 6: interface/Increment/testIncrementOpPlusEq ...
+Completed case 6: interface/Increment/testIncrementOpPlusEq
+Running case 7: interface/Increment/testIncrementDotProduct ...
+Completed case 7: interface/Increment/testIncrementDotProduct
+Running case 8: interface/Increment/testIncrementAxpy ...
+Completed case 8: interface/Increment/testIncrementAxpy
+Running case 9: interface/Increment/testIncrementAccum ...
+Completed case 9: interface/Increment/testIncrementAccum
+Running case 10: interface/Increment/testIncrementDiff ...
+Completed case 10: interface/Increment/testIncrementDiff
+Running case 11: interface/Increment/testIncrementZero ...
+Completed case 11: interface/Increment/testIncrementZero
+Running case 12: interface/Increment/testIncrementDirac ...
+Completed case 12: interface/Increment/testIncrementDirac
+Running case 13: interface/Increment/testIncrementTime ...
+Completed case 13: interface/Increment/testIncrementTime
+Running case 14: interface/Increment/testIncrementSchur ...
+Completed case 14: interface/Increment/testIncrementSchur
+Running case 15: interface/Increment/testIncrementSerialize ...
+Completed case 15: interface/Increment/testIncrementSerialize
+0 tests failed out of 16.
+Finished running the unit tests, result = 0
+
+Run: Finishing oops::Test running test::Increment<Lorenz 95>
+OOPS_STATS  
+OOPS_STATS ----------------------------------------------------------------------------------
+OOPS_STATS --------------------------- Object counts ----------------------------------------
+OOPS_STATS ----------------------------------------------------------------------------------
+OOPS_STATS                                      Total  Simult. Remain    Avg (Mb)    HWM (Mb)
+OOPS_STATS lorenz95::IncrementL95          :       31       4        
+OOPS_STATS lorenz95::StateL95              :        3       2        
+OOPS_STATS oops::Geometry                  :        1       1       1
+OOPS_STATS oops::Increment                 :       31       4                0.00        0.00
+OOPS_STATS oops::State                     :        3       2                0.00        0.00
+OOPS_STATS ----------------------------- Object counts --------------------------------------
+OOPS_STATS  
+OOPS_STATS --------------------------------------------------------------------------------------------
+OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
+OOPS_STATS --------------------------------------------------------------------------------------------
+OOPS_STATS Name                                                :   total (ms)   count    time/call (ms)
+OOPS_STATS oops::Geometry::Geometry                            :         1.30       1            1.3014
+OOPS_STATS oops::Geometry::latlon                              :         0.20       2            0.0998
+OOPS_STATS oops::GeometryData::setGlobalTree                   :         0.19       1            0.1854
+OOPS_STATS oops::GeometryData::setLocalTree                    :         0.54       1            0.5425
+OOPS_STATS oops::Increment::Increment                          :         0.32      31            0.0103
+OOPS_STATS oops::Increment::accumul                            :         0.01       1            0.0059
+OOPS_STATS oops::Increment::axpy                               :         0.06       2            0.0324
+OOPS_STATS oops::Increment::deserialize                        :         0.06       1            0.0641
+OOPS_STATS oops::Increment::diff                               :         0.06       1            0.0573
+OOPS_STATS oops::Increment::dot_product_with                   :         0.03       2            0.0161
+OOPS_STATS oops::Increment::norm                               :         0.11      34            0.0032
+OOPS_STATS oops::Increment::ones                               :         0.02       1            0.0190
+OOPS_STATS oops::Increment::operator*=                         :         0.03       1            0.0288
+OOPS_STATS oops::Increment::operator+=                         :         0.04       2            0.0215
+OOPS_STATS oops::Increment::operator+=(State, Increment)       :         0.02       3            0.0079
+OOPS_STATS oops::Increment::operator-=                         :         0.06      10            0.0056
+OOPS_STATS oops::Increment::operator=                          :         0.01       2            0.0046
+OOPS_STATS oops::Increment::print                              :         0.49       2            0.2457
+OOPS_STATS oops::Increment::random                             :         0.24      18            0.0134
+OOPS_STATS oops::Increment::schur_product_with                 :         0.04       3            0.0141
+OOPS_STATS oops::Increment::serialSize                         :         0.00       5            0.0001
+OOPS_STATS oops::Increment::serialize                          :         0.15       2            0.0741
+OOPS_STATS oops::Increment::zero                               :         0.01       3            0.0049
+OOPS_STATS oops::Increment::~Increment                         :         0.13      31            0.0041
+OOPS_STATS oops::State::State                                  :         0.04       3            0.0127
+OOPS_STATS oops::State::zero                                   :         0.15       3            0.0492
+OOPS_STATS oops::State::~State                                 :         0.04       3            0.0144
+OOPS_STATS util::Timers::Total                                 :        15.27       1           15.2666
+OOPS_STATS util::Timers::measured                              :         4.36       1            4.3566
+OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
+
+OOPS_STATS ------------------------------------------------------------------------------------------------------------------
+OOPS_STATS ---------------------------------- Parallel Timing Statistics (   1 MPI tasks) -----------------------------------
+OOPS_STATS ------------------------------------------------------------------------------------------------------------------
+OOPS_STATS Name                                                :     min (ms)    max (ms)    avg (ms)     % total   imbal (%)
+OOPS_STATS oops::Geometry::Geometry                            :         1.30        1.30        1.30        8.52        0.00
+OOPS_STATS oops::Geometry::latlon                              :         0.20        0.20        0.20        1.31        0.00
+OOPS_STATS oops::GeometryData::setGlobalTree                   :         0.19        0.19        0.19        1.21        0.00
+OOPS_STATS oops::GeometryData::setLocalTree                    :         0.54        0.54        0.54        3.55        0.00
+OOPS_STATS oops::Increment::Increment                          :         0.32        0.32        0.32        2.09        0.00
+OOPS_STATS oops::Increment::axpy                               :         0.06        0.06        0.06        0.42        0.00
+OOPS_STATS oops::Increment::deserialize                        :         0.06        0.06        0.06        0.42        0.00
+OOPS_STATS oops::Increment::diff                               :         0.06        0.06        0.06        0.38        0.00
+OOPS_STATS oops::Increment::dot_product_with                   :         0.03        0.03        0.03        0.21        0.00
+OOPS_STATS oops::Increment::norm                               :         0.11        0.11        0.11        0.71        0.00
+OOPS_STATS oops::Increment::ones                               :         0.02        0.02        0.02        0.12        0.00
+OOPS_STATS oops::Increment::operator*=                         :         0.03        0.03        0.03        0.19        0.00
+OOPS_STATS oops::Increment::operator+=                         :         0.04        0.04        0.04        0.28        0.00
+OOPS_STATS oops::Increment::operator+=(State, Increment)       :         0.02        0.02        0.02        0.16        0.00
+OOPS_STATS oops::Increment::operator-=                         :         0.06        0.06        0.06        0.37        0.00
+OOPS_STATS oops::Increment::print                              :         0.49        0.49        0.49        3.22        0.00
+OOPS_STATS oops::Increment::random                             :         0.24        0.24        0.24        1.58        0.00
+OOPS_STATS oops::Increment::schur_product_with                 :         0.04        0.04        0.04        0.28        0.00
+OOPS_STATS oops::Increment::serialize                          :         0.15        0.15        0.15        0.97        0.00
+OOPS_STATS oops::Increment::~Increment                         :         0.13        0.13        0.13        0.84        0.00
+OOPS_STATS oops::State::State                                  :         0.04        0.04        0.04        0.25        0.00
+OOPS_STATS oops::State::zero                                   :         0.15        0.15        0.15        0.97        0.00
+OOPS_STATS oops::State::~State                                 :         0.04        0.04        0.04        0.28        0.00
+OOPS_STATS util::Timers::Total                                 :        15.27       15.27       15.27      100.00        0.00
+OOPS_STATS util::Timers::measured                              :         4.36        4.36        4.36       28.54        0.00
+OOPS_STATS ---------------------------------- Parallel Timing Statistics (   1 MPI tasks) -----------------------------------
+
+OOPS_STATS Run end                                  - Runtime:      0.03 sec,  Memory: total:    36.26 Mb, per task: min =    36.26 Mb, max =    36.26 Mb
+Run: Finishing oops::Test running test::Increment<Lorenz 95> with status = 0
+Skipping Increment.rmsByLevel testSkipping Increment.dirac testOOPS Ending   2024-11-27 19:30:47 (UTC+0000)
+<end of output>
+Test time =   0.08 sec
+----------------------------------------------------------
+Test Passed.
+"test_l95_increment" end time: Nov 27 19:30 UTC
+"test_l95_increment" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 27 19:30 UTC
+
+executable =   0.08 sec*proc
+
+oops =   0.08 sec*proc
+

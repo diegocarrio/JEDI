@@ -1,0 +1,19 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/nonroot/shared/oops/build/CMakeFiles/ExperimentalCoverage"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops/build/CMakeFiles/ExperimentalCoverage.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"oops"
+		],
+		"name" : "ExperimentalCoverage"
+	}
+}

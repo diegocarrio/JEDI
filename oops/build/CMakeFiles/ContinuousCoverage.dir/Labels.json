@@ -1,0 +1,19 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/nonroot/shared/oops/build/CMakeFiles/ContinuousCoverage"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops/build/CMakeFiles/ContinuousCoverage.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"oops"
+		],
+		"name" : "ContinuousCoverage"
+	}
+}

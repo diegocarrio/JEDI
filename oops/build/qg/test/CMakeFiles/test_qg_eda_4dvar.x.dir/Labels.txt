@@ -1,0 +1,5 @@
+# Directory labels
+ oops
+# Source files and their labels
+/home/nonroot/shared/oops/build/qg/test/CMakeFiles/test_qg_eda_4dvar.x
+/home/nonroot/shared/oops/build/qg/test/CMakeFiles/test_qg_eda_4dvar.x.rule
