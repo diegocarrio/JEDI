@@ -1,0 +1,16 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/mains/qgGenEnsPertB.cc"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"oops"
+		],
+		"name" : "qg_gen_ens_pert_B.x"
+	}
+}

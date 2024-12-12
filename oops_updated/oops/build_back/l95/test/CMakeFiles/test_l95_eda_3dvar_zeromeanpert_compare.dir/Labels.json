@@ -1,0 +1,16 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/l95/test/lorenz95/ObsErrorDiagZeroMeanPerturbations.cc"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"oops"
+		],
+		"name" : "test_l95_eda_3dvar_zeromeanpert_compare"
+	}
+}

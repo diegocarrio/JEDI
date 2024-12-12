@@ -1,0 +1,16 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/mains/qgGenHybridLinearModelCoeffs.cc"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"oops"
+		],
+		"name" : "qg_gen_hybrid_linear_model_coeffs.x"
+	}
+}

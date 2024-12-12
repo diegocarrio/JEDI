@@ -1,0 +1,69 @@
+{
+    "additionalProperties": false,
+    "patternProperties": {
+        "^_": {}
+    },
+    "properties": {
+        "control": {},
+        "ensemble": {
+            "items": {},
+            "type": "array"
+        },
+        "ensemble mean posterior": {},
+        "ensemble mean prior": {},
+        "geometry": {},
+        "hybrid type": {
+            "type": ["string", "number"]
+        },
+        "hybrid weights": {
+            "additionalProperties": false,
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "control": {
+                    "type": "number"
+                },
+                "ensemble": {
+                    "type": "number"
+                }
+            },
+            "required": ["control", "ensemble"],
+            "type": "object"
+        },
+        "recentered output": {},
+        "test": {
+            "additionalProperties": false,
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "float absolute tolerance": {
+                    "type": "number"
+                },
+                "float relative tolerance": {
+                    "type": "number"
+                },
+                "integer tolerance": {
+                    "type": "integer"
+                },
+                "log output filename": {
+                    "type": ["string", "number"]
+                },
+                "mpi pattern": {
+                    "type": ["string", "number"]
+                },
+                "reference filename": {
+                    "type": ["string", "number"]
+                },
+                "test output filename": {
+                    "type": ["string", "number"]
+                }
+            },
+            "required": ["reference filename"],
+            "type": "object"
+        }
+    },
+    "required": ["control", "ensemble", "ensemble mean posterior", "geometry", "hybrid type", "hybrid weights", "recentered output"],
+    "type": "object"
+}

@@ -4,16 +4,23 @@ model:
   f: 8.0
   name: L95
   tstep: PT1H30M
-forecast length: P1D
+#forecast length: PT24000H
+forecast length : PT26400H
+#forecast length: PT2400H
 initial condition:
   date: 2010-01-01T00:00:00Z
+  #date: 2012-09-27T00:00:00Z
   filename: Data/truth.an.2010-01-01T00:00:00Z.l95
+  #filename: Data/truth.fc.2010-01-01T00:00:00Z.P1000D.l95
 output:
   datadir: Data
   date: 2010-01-01T00:00:00Z
+  #date: 2012-09-27T00:00:00Z
   exp: truth
-  frequency: PT3H
+  #frequency: PT3H
+  frequency: PT2400H
+  #frequency: PT240H
   type: fc
 
-test:
-  reference filename: testoutput/truth.test
+  #test:
+        #  reference filename: testoutput/truth.test

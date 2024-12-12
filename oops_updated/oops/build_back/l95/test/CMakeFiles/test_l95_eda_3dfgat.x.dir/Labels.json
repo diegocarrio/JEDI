@@ -1,0 +1,19 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/build/l95/test/CMakeFiles/test_l95_eda_3dfgat.x"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/build/l95/test/CMakeFiles/test_l95_eda_3dfgat.x.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"oops"
+		],
+		"name" : "test_l95_eda_3dfgat.x"
+	}
+}

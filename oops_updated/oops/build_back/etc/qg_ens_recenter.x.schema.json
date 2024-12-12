@@ -1,0 +1,108 @@
+{
+    "additionalProperties": false,
+    "patternProperties": {
+        "^_": {}
+    },
+    "properties": {
+        "center": {},
+        "ensemble": {
+            "additionalProperties": false,
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "members": {
+                    "description": "members of the state ensemble",
+                    "items": {},
+                    "type": "array"
+                },
+                "members from template": {
+                    "additionalProperties": false,
+                    "description": "template to define members of the state ensemble",
+                    "patternProperties": {
+                        "^_": {}
+                    },
+                    "properties": {
+                        "except": {
+                            "description": "excluded members indices",
+                            "items": {
+                                "type": "integer"
+                            },
+                            "type": "array"
+                        },
+                        "nmembers": {
+                            "description": "number of members",
+                            "type": "integer"
+                        },
+                        "pattern": {
+                            "description": "pattern to be replaced for members",
+                            "type": ["string", "number"]
+                        },
+                        "start": {
+                            "default": 1,
+                            "description": "starting member index",
+                            "type": "integer"
+                        },
+                        "template": {
+                            "description": "template to define a generic member"
+                        },
+                        "zero padding": {
+                            "default": 0,
+                            "description": "zero padding",
+                            "type": "integer"
+                        }
+                    },
+                    "required": ["nmembers", "pattern", "template"],
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "ensemble meanoutput": {},
+        "geometry": {},
+        "recenter variables": {
+            "items": {
+                "type": ["string", "number"]
+            },
+            "type": "array"
+        },
+        "recentered output": {},
+        "test": {
+            "additionalProperties": false,
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "float absolute tolerance": {
+                    "type": "number"
+                },
+                "float relative tolerance": {
+                    "type": "number"
+                },
+                "integer tolerance": {
+                    "type": "integer"
+                },
+                "log output filename": {
+                    "type": ["string", "number"]
+                },
+                "mpi pattern": {
+                    "type": ["string", "number"]
+                },
+                "reference filename": {
+                    "type": ["string", "number"]
+                },
+                "test output filename": {
+                    "type": ["string", "number"]
+                }
+            },
+            "required": ["reference filename"],
+            "type": "object"
+        },
+        "zero center": {
+            "default": false,
+            "type": "boolean"
+        }
+    },
+    "required": ["center", "ensemble", "geometry", "recenter variables", "recentered output"],
+    "type": "object"
+}

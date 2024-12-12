@@ -1,0 +1,16 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/mains/qgForecast.cc"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"oops"
+		],
+		"name" : "qg_forecast.x"
+	}
+}

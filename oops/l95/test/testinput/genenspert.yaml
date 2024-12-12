@@ -1,4 +1,4 @@
-members: 10
+members: 80
 geometry:
   resol: 40
 model:
@@ -9,18 +9,25 @@ perturbed variables: [x]
 background error:
   covariance model: L95Error
   date: 2010-01-01T00:00:00Z
+  #date: 2012-09-27T00:00:00Z
   length_scale: 1.0
   standard_deviation: 0.6
-forecast length: PT27H
+#forecast length: PT27H
+#forecast length: PT24000H
+forecast length: PT26400H
 initial condition:
   date: 2010-01-01T00:00:00Z
+  #date: 2012-09-27T00:00:00Z
   filename: Data/forecast.an.2010-01-01T00:00:00Z.l95
 output:
   datadir: Data
   date: 2010-01-01T00:00:00Z
+  #date: 2012-09-27T00:00:00Z
   exp: forecast
-  frequency: PT1H30M
+  #frequency: PT1H30M
+  frequency: PT2400H
+  #frequency: PT240H
   type: ens
 
-test:
-  reference filename: testoutput/genenspert.test
+  #test:
+        #  reference filename: testoutput/genenspert.test

@@ -1,0 +1,11 @@
+test_l95_letkf_pert 9 0
+test_l95_truth 1 0.113718
+test_l95_makeobs4d 1 0.15072
+test_l95_makeobs4d12h 1 0.186116
+test_l95_makeobs3d 1 0.153217
+test_l95_forecast 1 0.134054
+test_l95_forecast_pseudomodel 1 0.125066
+test_l95_forecast_identitymodel 1 0.122321
+test_l95_genenspert 1 0.276762
+---
+test_l95_letkf_pert

@@ -1,213 +1,2939 @@
-Start testing: Dec 02 21:46 UTC
+Start testing: Dec 06 17:45 UTC
 ----------------------------------------------------------
-92/305 Testing: test_l95_genenspert
-92/305 Test: test_l95_genenspert
-Command: "/home/nonroot/shared/oops/build/bin/l95_genpert.x" "testinput/genenspert.yaml"
+148/305 Testing: test_l95_letkf
+148/305 Test: test_l95_letkf
+Command: "/home/nonroot/shared/oops/build/bin/l95_letkf.x" "testinput/letkf.yaml"
 Directory: /home/nonroot/shared/oops/build/l95/test
-"test_l95_genenspert" start time: Dec 02 21:46 UTC
+"test_l95_letkf" start time: Dec 06 17:45 UTC
 Output:
 ----------------------------------------------------------
-Configuration input file is: testinput/genenspert.yaml
-OOPS Starting 2024-12-02 21:46:13 (UTC+0000)
-[TestReference] Comparing to reference file: testoutput/genenspert.test
-Relative float tolerance for tests : 1e-06
-Absolute float tolerance for tests : 0
-Full configuration is:YAMLConfiguration[path=testinput/genenspert.yaml, root={members => 10 , geometry => {resol => 40} , model => {name => L95 , f => 8 , tstep => PT1H30M} , perturbed variables => (x) , background error => {covariance model => L95Error , date => 2010-01-01T00:00:00Z , length_scale => 1 , standard_deviation => 0.6} , forecast length => PT27H , initial condition => {date => 2010-01-01T00:00:00Z , filename => Data/forecast.an.2010-01-01T00:00:00Z.l95} , output => {datadir => Data , date => 2010-01-01T00:00:00Z , exp => forecast , frequency => PT1H30M , type => ens} , test => {reference filename => testoutput/genenspert.test}}]
+Configuration input file is: testinput/letkf.yaml
+OOPS Starting 2024-12-06 17:45:26 (UTC+0000)
+Full configuration is:YAMLConfiguration[path=testinput/letkf.yaml, root={window begin => 2012-09-26T21:00:00Z , window length => PT6H , geometry => {resol => 40} , background => {members from template => {template => {date => 2012-09-27T00:00:00Z , filename => Data/forecast.ens.%mem%.2010-01-01T00:00:00Z.P1000D.l95} , pattern => %mem% , nmembers => 80}} , observations => {observers => ({obs error => {covariance model => diagonal} , obs localizations => ({localization method => Gaspari-Cohn , lengthscale => 0.1}) , obs space => {obsdatain => {engine => {obsfile => Data/truth3d.2012-09-27T00:00:00Z.obt}} , obsdataout => {engine => {obsfile => Data/letkf.2012-09-27T00:00:00Z.obt}}} , obs operator => {}})} , driver => {save prior mean => true , save posterior mean => true , save posterior mean increment => true , save posterior ensemble increments => true , save prior variance => true , save posterior variance => true , update obs config with geometry info => false} , local ensemble DA => {solver => LETKF , inflation => {rtps => 0.5 , rtpp => 0.5 , mult => 1.1}} , output => {datadir => Data , date => 2012-09-27T00:00:00Z , exp => letkf.%{member}% , type => an} , output increment => {datadir => Data , date => 2012-09-27T00:00:00Z , exp => letkf.increment.%{member}% , type => an} , output ensemble increments => {datadir => Data , date => 2012-09-27T00:00:00Z , exp => letkf.increment.%{member}% , type => an} , output mean prior => {datadir => Data , date => 2012-09-27T00:00:00Z , exp => letkf.xbmean.%{member}% , type => an} , output variance prior => {datadir => Data , date => 2012-09-27T00:00:00Z , exp => letkf.xbvar.%{member}% , type => an} , output variance posterior => {datadir => Data , date => 2012-09-27T00:00:00Z , exp => letkf.xavar.%{member}% , type => an}}]
 OOPS_STATS ObjectCountHelper started.
-OOPS_STATS Run start                                - Runtime:      0.03 sec,  Memory: total:    29.77 Mb, per task: min =    29.77 Mb, max =    29.77 Mb
-Run: Starting oops::GenEnsPertB<Lorenz 95>
+OOPS_STATS Run start                                - Runtime:      0.03 sec,  Memory: total:    29.71 Mb, per task: min =    29.71 Mb, max =    29.71 Mb
+Run: Starting oops::LocalEnsembleDA<Lorenz 95, Lorenz 95 Obs>
+Observation window from 2012-09-26T21:00:00Z to 2012-09-27T03:00:00Z
 GeometryData: Global tree size = 40, footprint = 2560
-Model configuration is:LocalConfiguration[root={name => L95 , f => 8 , tstep => PT1H30M}]
-ModelL95: resol = 40, f = 8, tstep = PT1H30M
-Test     : Initial state: 
-Test     :  Valid time: 2010-01-01T00:00:00Z
-Test     :  Min=7.0000000000000000e+00, Max=8.0000000000000000e+00, Average=7.9749999999999996e+00
-Running forecast from 2010-01-01T00:00:00Z to 2010-01-02T03:00:00Z
+OOPS_STATS LocalEnsembleDA before solver ctor       - Runtime:     0.18 sec,  Local Memory:    34.24 Mb
+Multiplicative inflation will be applied with multCoeff=1.1
+RTPP inflation will be applied with rtppCoeff=0.5
+RTPS inflation will be applied with rtpsCoeff=0.5
+Using EIGEN implementation of LETKF
+OOPS_STATS LocalEnsembleDA before computeHofX       - Runtime:     0.19 sec,  Local Memory:    34.37 Mb
 Model:forecast: forecast starting: 
- Valid time: 2010-01-01T00:00:00Z
- Min=6.63227, Max=9.15597, Average=8.0628
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.15131, Max=8.0385, Average=1.69847
 Model:forecast: forecast finished: 
- Valid time: 2010-01-02T03:00:00Z
- Min=3.21752, Max=11.6627, Average=7.84602
-Test     : Member 0 final state: 
-Test     :  Valid time: 2010-01-02T03:00:00Z
-Test     :  Min=3.2175157831375367e+00, Max=1.1662738957404729e+01, Average=7.8460235847835635e+00
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.15131, Max=8.0385, Average=1.69847
+ObsErrorDiag covariance updated 40
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
 Model:forecast: forecast starting: 
- Valid time: 2010-01-01T00:00:00Z
- Min=6.38882, Max=9.05078, Average=7.9284
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.8109, Max=10.6954, Average=3.20255
 Model:forecast: forecast finished: 
- Valid time: 2010-01-02T03:00:00Z
- Min=3.37329, Max=11.3831, Average=7.67679
-Test     : Member 1 final state: 
-Test     :  Valid time: 2010-01-02T03:00:00Z
-Test     :  Min=3.3732901003781799e+00, Max=1.1383054721014382e+01, Average=7.6767940210257892e+00
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.8109, Max=10.6954, Average=3.20255
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
 Model:forecast: forecast starting: 
- Valid time: 2010-01-01T00:00:00Z
- Min=6.82121, Max=8.57049, Average=7.86034
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.51433, Max=9.95766, Average=2.33834
 Model:forecast: forecast finished: 
- Valid time: 2010-01-02T03:00:00Z
- Min=4.80264, Max=11.5457, Average=7.77423
-Test     : Member 2 final state: 
-Test     :  Valid time: 2010-01-02T03:00:00Z
-Test     :  Min=4.8026442656459167e+00, Max=1.1545749171348247e+01, Average=7.7742316705155456e+00
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.51433, Max=9.95766, Average=2.33834
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
 Model:forecast: forecast starting: 
- Valid time: 2010-01-01T00:00:00Z
- Min=6.30691, Max=9.23878, Average=7.86105
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.4158, Max=10.034, Average=2.91638
 Model:forecast: forecast finished: 
- Valid time: 2010-01-02T03:00:00Z
- Min=3.15896, Max=11.4182, Average=7.71317
-Test     : Member 3 final state: 
-Test     :  Valid time: 2010-01-02T03:00:00Z
-Test     :  Min=3.1589576018023502e+00, Max=1.1418160842286722e+01, Average=7.7131744212326323e+00
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.4158, Max=10.034, Average=2.91638
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
 Model:forecast: forecast starting: 
- Valid time: 2010-01-01T00:00:00Z
- Min=6.82163, Max=9.36287, Average=7.75044
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.76418, Max=7.82047, Average=2.47941
 Model:forecast: forecast finished: 
- Valid time: 2010-01-02T03:00:00Z
- Min=2.58571, Max=11.1087, Average=7.52551
-Test     : Member 4 final state: 
-Test     :  Valid time: 2010-01-02T03:00:00Z
-Test     :  Min=2.5857123521257095e+00, Max=1.1108701423453882e+01, Average=7.5255097088386007e+00
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.76418, Max=7.82047, Average=2.47941
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
 Model:forecast: forecast starting: 
- Valid time: 2010-01-01T00:00:00Z
- Min=7.02973, Max=9.88356, Average=8.02051
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.40297, Max=10.022, Average=2.48674
 Model:forecast: forecast finished: 
- Valid time: 2010-01-02T03:00:00Z
- Min=2.47211, Max=11.9171, Average=7.73606
-Test     : Member 5 final state: 
-Test     :  Valid time: 2010-01-02T03:00:00Z
-Test     :  Min=2.4721073374290317e+00, Max=1.1917124846855620e+01, Average=7.7360595242115497e+00
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.40297, Max=10.022, Average=2.48674
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
 Model:forecast: forecast starting: 
- Valid time: 2010-01-01T00:00:00Z
- Min=6.62703, Max=8.61411, Average=7.87768
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.05146, Max=8.79035, Average=2.577
 Model:forecast: forecast finished: 
- Valid time: 2010-01-02T03:00:00Z
- Min=4.38182, Max=11.3824, Average=7.7142
-Test     : Member 6 final state: 
-Test     :  Valid time: 2010-01-02T03:00:00Z
-Test     :  Min=4.3818236516695457e+00, Max=1.1382415271119338e+01, Average=7.7142015167694478e+00
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.05146, Max=8.79035, Average=2.577
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
 Model:forecast: forecast starting: 
- Valid time: 2010-01-01T00:00:00Z
- Min=6.71833, Max=8.70103, Average=7.73511
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.97063, Max=10.6899, Average=2.61044
 Model:forecast: forecast finished: 
- Valid time: 2010-01-02T03:00:00Z
- Min=4.1669, Max=11.0728, Average=7.62218
-Test     : Member 7 final state: 
-Test     :  Valid time: 2010-01-02T03:00:00Z
-Test     :  Min=4.1668978573522066e+00, Max=1.1072785876088281e+01, Average=7.6221801355768317e+00
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.97063, Max=10.6899, Average=2.61044
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
 Model:forecast: forecast starting: 
- Valid time: 2010-01-01T00:00:00Z
- Min=6.67545, Max=9.13738, Average=7.95391
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.47358, Max=11.3827, Average=2.16164
 Model:forecast: forecast finished: 
- Valid time: 2010-01-02T03:00:00Z
- Min=3.12835, Max=11.8686, Average=7.71032
-Test     : Member 8 final state: 
-Test     :  Valid time: 2010-01-02T03:00:00Z
-Test     :  Min=3.1283519009196450e+00, Max=1.1868578106947682e+01, Average=7.7103178390683285e+00
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.47358, Max=11.3827, Average=2.16164
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
 Model:forecast: forecast starting: 
- Valid time: 2010-01-01T00:00:00Z
- Min=7.06055, Max=9.0042, Average=8.00243
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.57022, Max=9.48568, Average=2.30708
 Model:forecast: forecast finished: 
- Valid time: 2010-01-02T03:00:00Z
- Min=4.08623, Max=11.7555, Average=7.82686
-Test     : Member 9 final state: 
-Test     :  Valid time: 2010-01-02T03:00:00Z
-Test     :  Min=4.0862325997695050e+00, Max=1.1755546000535038e+01, Average=7.8268571528394775e+00
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.57022, Max=9.48568, Average=2.30708
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.84515, Max=9.06618, Average=2.8125
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.84515, Max=9.06618, Average=2.8125
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.38609, Max=9.89469, Average=2.92618
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.38609, Max=9.89469, Average=2.92618
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-2.61239, Max=10.9117, Average=2.89325
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-2.61239, Max=10.9117, Average=2.89325
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.48745, Max=8.38501, Average=3.17448
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.48745, Max=8.38501, Average=3.17448
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.70282, Max=7.26126, Average=1.74297
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.70282, Max=7.26126, Average=1.74297
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.20455, Max=11.928, Average=2.06861
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.20455, Max=11.928, Average=2.06861
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.87383, Max=9.66205, Average=2.03618
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.87383, Max=9.66205, Average=2.03618
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.37201, Max=11.5684, Average=2.86209
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.37201, Max=11.5684, Average=2.86209
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.07913, Max=10.2928, Average=2.8446
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.07913, Max=10.2928, Average=2.8446
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.74729, Max=11.3751, Average=2.39516
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.74729, Max=11.3751, Average=2.39516
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.64389, Max=9.71666, Average=1.96097
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.64389, Max=9.71666, Average=1.96097
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.36313, Max=8.32813, Average=2.6439
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.36313, Max=8.32813, Average=2.6439
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.56035, Max=9.13958, Average=2.24945
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.56035, Max=9.13958, Average=2.24945
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.76961, Max=12.9474, Average=2.9186
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.76961, Max=12.9474, Average=2.9186
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.82026, Max=9.02682, Average=1.87374
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.82026, Max=9.02682, Average=1.87374
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.65101, Max=9.90592, Average=2.03785
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.65101, Max=9.90592, Average=2.03785
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.1178, Max=11.2043, Average=1.89432
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.1178, Max=11.2043, Average=1.89432
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.06141, Max=12.4984, Average=1.93662
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.06141, Max=12.4984, Average=1.93662
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.24642, Max=9.46769, Average=1.71527
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.24642, Max=9.46769, Average=1.71527
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.44521, Max=9.44744, Average=1.91237
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.44521, Max=9.44744, Average=1.91237
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.20554, Max=9.4184, Average=2.51022
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.20554, Max=9.4184, Average=2.51022
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.90601, Max=9.73259, Average=1.86645
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.90601, Max=9.73259, Average=1.86645
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.611, Max=10.646, Average=2.35644
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.611, Max=10.646, Average=2.35644
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.28192, Max=9.75963, Average=2.36402
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.28192, Max=9.75963, Average=2.36402
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.91299, Max=9.78616, Average=2.67209
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.91299, Max=9.78616, Average=2.67209
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.25703, Max=9.1715, Average=1.99901
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.25703, Max=9.1715, Average=1.99901
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.21228, Max=11.3163, Average=2.43469
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.21228, Max=11.3163, Average=2.43469
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.14544, Max=10.817, Average=2.001
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.14544, Max=10.817, Average=2.001
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.13114, Max=9.11934, Average=1.54359
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.13114, Max=9.11934, Average=1.54359
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.06887, Max=8.86182, Average=3.09069
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.06887, Max=8.86182, Average=3.09069
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.36049, Max=9.1058, Average=2.5246
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.36049, Max=9.1058, Average=2.5246
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.10504, Max=8.62064, Average=2.04661
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.10504, Max=8.62064, Average=2.04661
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.94999, Max=9.12852, Average=2.28881
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.94999, Max=9.12852, Average=2.28881
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.58092, Max=9.5962, Average=1.6753
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.58092, Max=9.5962, Average=1.6753
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.90271, Max=9.90905, Average=2.82815
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.90271, Max=9.90905, Average=2.82815
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.82452, Max=11.8222, Average=1.94887
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.82452, Max=11.8222, Average=1.94887
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.08137, Max=10.3049, Average=1.97875
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.08137, Max=10.3049, Average=1.97875
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.00569, Max=9.61912, Average=2.07417
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.00569, Max=9.61912, Average=2.07417
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.84234, Max=8.16654, Average=2.34109
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.84234, Max=8.16654, Average=2.34109
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.1811, Max=10.6993, Average=3.06675
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.1811, Max=10.6993, Average=3.06675
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.73677, Max=11.9262, Average=2.39931
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.73677, Max=11.9262, Average=2.39931
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.62316, Max=10.4658, Average=2.22055
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.62316, Max=10.4658, Average=2.22055
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.17991, Max=11.749, Average=2.21959
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.17991, Max=11.749, Average=2.21959
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.51704, Max=9.48584, Average=2.48837
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.51704, Max=9.48584, Average=2.48837
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.51404, Max=9.6242, Average=2.45565
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.51404, Max=9.6242, Average=2.45565
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.13784, Max=10.4342, Average=2.66447
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.13784, Max=10.4342, Average=2.66447
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.87878, Max=8.38, Average=2.54367
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.87878, Max=8.38, Average=2.54367
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.93246, Max=12.8434, Average=2.06266
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.93246, Max=12.8434, Average=2.06266
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.27718, Max=9.39647, Average=2.62402
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.27718, Max=9.39647, Average=2.62402
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.88104, Max=11.4867, Average=2.78928
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.88104, Max=11.4867, Average=2.78928
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.87894, Max=11.6025, Average=1.71157
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.87894, Max=11.6025, Average=1.71157
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.27174, Max=11.3813, Average=1.81626
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.27174, Max=11.3813, Average=1.81626
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.33871, Max=9.96859, Average=2.63435
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.33871, Max=9.96859, Average=2.63435
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.96355, Max=9.0586, Average=2.13495
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.96355, Max=9.0586, Average=2.13495
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.78551, Max=9.53142, Average=2.18543
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.78551, Max=9.53142, Average=2.18543
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.85052, Max=9.05197, Average=1.92642
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.85052, Max=9.05197, Average=1.92642
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.80275, Max=11.366, Average=2.56035
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.80275, Max=11.366, Average=2.56035
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-2.29025, Max=10.1039, Average=3.17305
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-2.29025, Max=10.1039, Average=3.17305
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.06548, Max=11.6112, Average=2.16851
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.06548, Max=11.6112, Average=2.16851
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.24036, Max=8.64143, Average=1.45055
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.24036, Max=8.64143, Average=1.45055
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.29102, Max=12.0993, Average=2.34286
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.29102, Max=12.0993, Average=2.34286
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.52401, Max=9.5071, Average=2.06053
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.52401, Max=9.5071, Average=2.06053
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.62942, Max=9.08173, Average=2.40513
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.62942, Max=9.08173, Average=2.40513
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.44628, Max=9.50086, Average=2.87137
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.44628, Max=9.50086, Average=2.87137
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.59187, Max=12.1522, Average=2.38734
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.59187, Max=12.1522, Average=2.38734
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.80579, Max=9.33969, Average=1.84762
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.80579, Max=9.33969, Average=1.84762
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.00283, Max=8.62711, Average=1.94128
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.00283, Max=8.62711, Average=1.94128
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.762, Max=12.9719, Average=2.43604
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.762, Max=12.9719, Average=2.43604
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.31132, Max=7.99064, Average=2.4389
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.31132, Max=7.99064, Average=2.4389
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.48444, Max=8.78279, Average=2.56464
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.48444, Max=8.78279, Average=2.56464
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=1.30676, Max=3.04862, Average=2.33516
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=1.30676, Max=3.04862, Average=2.33516
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+ObsTable::putdb over-writing ObsError
+Beginning core local solver...
+OOPS_STATS LocalEnsembleDA before solver            - Runtime:      0.24 sec,  Memory: total:    35.06 Mb, per task: min =    35.06 Mb, max =    35.06 Mb
+Local solver completed.
+OOPS_STATS LocalEnsembleDA after solver             - Runtime:      0.28 sec,  Memory: total:    35.35 Mb, per task: min =    35.35 Mb, max =    35.35 Mb
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.17114, Max=8.48032, Average=1.78643
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.17114, Max=8.48032, Average=1.78643
+ObsErrorDiag covariance updated 40
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.75834, Max=11.3546, Average=2.97968
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.75834, Max=11.3546, Average=2.97968
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.34968, Max=10.9714, Average=2.29809
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.34968, Max=10.9714, Average=2.29809
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.65443, Max=17.1755, Average=2.76523
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.65443, Max=17.1755, Average=2.76523
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.76615, Max=11.3867, Average=2.40538
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.76615, Max=11.3867, Average=2.40538
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.69695, Max=13.3774, Average=2.41908
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.69695, Max=13.3774, Average=2.41908
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.19835, Max=15.2462, Average=2.49477
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.19835, Max=15.2462, Average=2.49477
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.93471, Max=10.6315, Average=2.50808
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-3.93471, Max=10.6315, Average=2.50808
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.28535, Max=12.0832, Average=2.15094
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.28535, Max=12.0832, Average=2.15094
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.49646, Max=12.6134, Average=2.26913
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.49646, Max=12.6134, Average=2.26913
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.86647, Max=12.4169, Average=2.67971
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.86647, Max=12.4169, Average=2.67971
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.70842, Max=15.2876, Average=2.76258
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.70842, Max=15.2876, Average=2.76258
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.21667, Max=11.7591, Average=2.73954
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.21667, Max=11.7591, Average=2.73954
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.62594, Max=10.8488, Average=2.96545
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.62594, Max=10.8488, Average=2.96545
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.58501, Max=13.7266, Average=1.81556
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.58501, Max=13.7266, Average=1.81556
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.11467, Max=18.0145, Average=2.07966
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.11467, Max=18.0145, Average=2.07966
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.25074, Max=10.2481, Average=2.05197
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.25074, Max=10.2481, Average=2.05197
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-9.32235, Max=12.4861, Average=2.7199
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-9.32235, Max=12.4861, Average=2.7199
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.33421, Max=11.42, Average=2.69851
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.33421, Max=11.42, Average=2.69851
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.14207, Max=11.5943, Average=2.33386
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.14207, Max=11.5943, Average=2.33386
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.08212, Max=11.7489, Average=2.00144
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.08212, Max=11.7489, Average=2.00144
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.88287, Max=13.1146, Average=2.54319
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.88287, Max=13.1146, Average=2.54319
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.27998, Max=14.9871, Average=2.22995
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.27998, Max=14.9871, Average=2.22995
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.3586, Max=13.049, Average=2.75605
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.3586, Max=13.049, Average=2.75605
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.03874, Max=14.4063, Average=1.9262
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.03874, Max=14.4063, Average=1.9262
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.8107, Max=12.1027, Average=2.0595
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.8107, Max=12.1027, Average=2.0595
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.26176, Max=12.5332, Average=1.94183
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.26176, Max=12.5332, Average=1.94183
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.15287, Max=10.3748, Average=1.97843
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.15287, Max=10.3748, Average=1.97843
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.89406, Max=11.6088, Average=1.80161
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.89406, Max=11.6088, Average=1.80161
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.90559, Max=12.3612, Average=1.95742
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.90559, Max=12.3612, Average=1.95742
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.16772, Max=16.6975, Average=2.44212
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.16772, Max=16.6975, Average=2.44212
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-9.09947, Max=10.7363, Average=1.92511
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-9.09947, Max=10.7363, Average=1.92511
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.49643, Max=13.0713, Average=2.30866
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.49643, Max=13.0713, Average=2.30866
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.14928, Max=11.2098, Average=2.31288
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.14928, Max=11.2098, Average=2.31288
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.73285, Max=14.2583, Average=2.5633
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.73285, Max=14.2583, Average=2.5633
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-10.7931, Max=11.6802, Average=2.03452
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-10.7931, Max=11.6802, Average=2.03452
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.05481, Max=10.6301, Average=2.3723
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.05481, Max=10.6301, Average=2.3723
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.08377, Max=12.1483, Average=2.02441
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.08377, Max=12.1483, Average=2.02441
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.11, Max=8.7521, Average=1.66204
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.11, Max=8.7521, Average=1.66204
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.60894, Max=11.8542, Average=2.89336
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.60894, Max=11.8542, Average=2.89336
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.20788, Max=10.6515, Average=2.44318
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.20788, Max=10.6515, Average=2.44318
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.26491, Max=11.6861, Average=2.06241
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.26491, Max=11.6861, Average=2.06241
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.05259, Max=11.1399, Average=2.25797
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.05259, Max=11.1399, Average=2.25797
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.17159, Max=9.18086, Average=1.76338
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.17159, Max=9.18086, Average=1.76338
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.80341, Max=10.8097, Average=2.69053
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.80341, Max=10.8097, Average=2.69053
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.70458, Max=10.7962, Average=1.99026
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.70458, Max=10.7962, Average=1.99026
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.85743, Max=11.0493, Average=2.0123
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.85743, Max=11.0493, Average=2.0123
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.62423, Max=9.87837, Average=2.08366
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-4.62423, Max=9.87837, Average=2.08366
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.68953, Max=11.7909, Average=2.29943
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.68953, Max=11.7909, Average=2.29943
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.08993, Max=13.7391, Average=2.87169
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.08993, Max=13.7391, Average=2.87169
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-9.81305, Max=18.0106, Average=2.34314
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-9.81305, Max=18.0106, Average=2.34314
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.3143, Max=11.5698, Average=2.20043
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.3143, Max=11.5698, Average=2.20043
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-10.1618, Max=14.8705, Average=2.20333
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-10.1618, Max=14.8705, Average=2.20333
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.96446, Max=12.103, Average=2.41728
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.96446, Max=12.103, Average=2.41728
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.83294, Max=11.6934, Average=2.38399
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.83294, Max=11.6934, Average=2.38399
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.1894, Max=12.6591, Average=2.56139
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.1894, Max=12.6591, Average=2.56139
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.61645, Max=13.5912, Average=2.45922
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.61645, Max=13.5912, Average=2.45922
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.04472, Max=10.6254, Average=2.07601
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.04472, Max=10.6254, Average=2.07601
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.42093, Max=12.8138, Average=2.51913
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.42093, Max=12.8138, Average=2.51913
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.22559, Max=14.1343, Average=2.66382
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.22559, Max=14.1343, Average=2.66382
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.91194, Max=12.0382, Average=1.80155
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.91194, Max=12.0382, Average=1.80155
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.4363, Max=11.1338, Average=1.88706
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.4363, Max=11.1338, Average=1.88706
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.55811, Max=15.8288, Average=2.5314
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.55811, Max=15.8288, Average=2.5314
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.62501, Max=11.8346, Average=2.13262
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.62501, Max=11.8346, Average=2.13262
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.97208, Max=8.91918, Average=2.17692
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.97208, Max=8.91918, Average=2.17692
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.1394, Max=16.2844, Average=1.96961
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.1394, Max=16.2844, Average=1.96961
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.97138, Max=9.49478, Average=2.46436
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.97138, Max=9.49478, Average=2.46436
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-2.84388, Max=9.987, Average=2.96096
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-2.84388, Max=9.987, Average=2.96096
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.00256, Max=14.421, Average=2.16607
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.00256, Max=14.421, Average=2.16607
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.81129, Max=9.82578, Average=1.58886
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.81129, Max=9.82578, Average=1.58886
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.57592, Max=15.4123, Average=2.29993
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.57592, Max=15.4123, Average=2.29993
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.00686, Max=10.3624, Average=2.06943
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.00686, Max=10.3624, Average=2.06943
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.91521, Max=14.8631, Average=2.35188
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.91521, Max=14.8631, Average=2.35188
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.23592, Max=12.2646, Average=2.72183
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.23592, Max=12.2646, Average=2.72183
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.41471, Max=12.7012, Average=2.33712
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.41471, Max=12.7012, Average=2.33712
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.2636, Max=9.75007, Average=1.90628
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.2636, Max=9.75007, Average=1.90628
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.39671, Max=11.0253, Average=1.97658
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-5.39671, Max=11.0253, Average=1.97658
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.58245, Max=12.4013, Average=2.37441
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-7.58245, Max=12.4013, Average=2.37441
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.71299, Max=12.4189, Average=2.37635
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-6.71299, Max=12.4189, Average=2.37635
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.079, Max=13.4346, Average=2.47288
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=-8.079, Max=13.4346, Average=2.47288
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+Model:forecast: forecast starting: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=1.30676, Max=3.04862, Average=2.33516
+Model:forecast: forecast finished: 
+ Valid time: 2012-09-27T00:00:00Z
+ Min=1.30676, Max=3.04862, Average=2.33516
+ObsErrorDiag covariance updated 40
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 40 Min=0, Max=0, Average=0
+ObsTable::putdb over-writing ObsError
 
-Run: Finishing oops::GenEnsPertB<Lorenz 95>
+Run: Finishing oops::LocalEnsembleDA<Lorenz 95, Lorenz 95 Obs>
 OOPS_STATS  
 OOPS_STATS ----------------------------------------------------------------------------------
 OOPS_STATS --------------------------- Object counts ----------------------------------------
 OOPS_STATS ----------------------------------------------------------------------------------
 OOPS_STATS                                      Total  Simult. Remain    Avg (Mb)    HWM (Mb)
-OOPS_STATS lorenz95::ErrorCovarianceL95    :        1       1        
-OOPS_STATS lorenz95::IncrementL95          :        1       1        
-OOPS_STATS lorenz95::ModelBias             :        1       1        
-OOPS_STATS lorenz95::ModelL95              :        1       1        
-OOPS_STATS lorenz95::ModelTrajectory       :      180       1        
-OOPS_STATS lorenz95::StateL95              :       11       2        
-OOPS_STATS oops::ErrorCovariance           :        1       1                0.17        0.17
+OOPS_STATS lorenz95::GomL95                :      162       1        
+OOPS_STATS lorenz95::IncrementL95          :      405     163        
+OOPS_STATS lorenz95::Iterator              :      124       3        
+OOPS_STATS lorenz95::LocsL95               :      162       1        
+OOPS_STATS lorenz95::ModelBias             :      162       1        
+OOPS_STATS lorenz95::ObsBias               :      162       1        
+OOPS_STATS lorenz95::ObsData1D             :      486       3        
+OOPS_STATS lorenz95::ObsTable              :        1       1        
+OOPS_STATS lorenz95::ObsVec1D              :     1104     171        
+OOPS_STATS lorenz95::ObservationL95        :      162       1        
+OOPS_STATS lorenz95::StateL95              :      488      84        
+OOPS_STATS oops::GeoVaLs                   :      162       1        
 OOPS_STATS oops::Geometry                  :        1       1        
-OOPS_STATS oops::Increment                 :        1       1                0.00        0.00
-OOPS_STATS oops::Model                     :        1       1        
-OOPS_STATS oops::ModelAuxControl           :        1       1        
-OOPS_STATS oops::State                     :       11       2                0.00        0.00
+OOPS_STATS oops::GeometryIterator          :       82       2        
+OOPS_STATS oops::GetValues                 :      162       1        
+OOPS_STATS oops::Increment                 :      405     163                0.00        0.05
+OOPS_STATS oops::LocalInterpolator         :      162       1        
+OOPS_STATS oops::Model                     :      162       1        
+OOPS_STATS oops::ModelAuxControl           :      162       1        
+OOPS_STATS oops::ObsAuxControl             :      162       1        
+OOPS_STATS oops::ObsDataVector             :      486       3        
+OOPS_STATS oops::ObsDiagnostics            :      162       1        
+OOPS_STATS oops::ObsError                  :      162       2        
+OOPS_STATS oops::ObsOperator               :      162       1        
+OOPS_STATS oops::ObsSpace                  :        1       1                2.15        2.15
+OOPS_STATS oops::ObsSpaces                 :        1       1        
+OOPS_STATS oops::ObsVector                 :     1104     171                0.00        0.05
+OOPS_STATS oops::SampledLocations          :      486       3        
+OOPS_STATS oops::State                     :      488      84                0.00        0.03
+OOPS_STATS oops::VariableChange            :      162       1        
 OOPS_STATS ----------------------------- Object counts --------------------------------------
 OOPS_STATS  
 OOPS_STATS --------------------------------------------------------------------------------------------
 OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
 OOPS_STATS --------------------------------------------------------------------------------------------
 OOPS_STATS Name                                                :   total (ms)   count    time/call (ms)
-OOPS_STATS oops::Covariance::L95Error::Constructor             :         0.00       1            0.0006
-OOPS_STATS oops::Covariance::L95Error::randomize               :         0.66      10            0.0657
-OOPS_STATS oops::ErrorCovariance::ErrorCovariance              :         3.35       1            3.3542
-OOPS_STATS oops::ErrorCovariance::doRandomize                  :         0.61      10            0.0613
-OOPS_STATS oops::ErrorCovariance::~ErrorCovariance             :         0.14       1            0.1450
-OOPS_STATS oops::Geometry::Geometry                            :         1.67       1            1.6660
-OOPS_STATS oops::Geometry::latlon                              :         0.13       2            0.0633
-OOPS_STATS oops::Geometry::~Geometry                           :         0.29       1            0.2853
-OOPS_STATS oops::GeometryData::setGlobalTree                   :         0.48       1            0.4752
-OOPS_STATS oops::GeometryData::setLocalTree                    :         0.91       1            0.9069
-OOPS_STATS oops::Increment::Increment                          :         0.06       1            0.0624
-OOPS_STATS oops::Increment::operator+=(State, Increment)       :         0.06      10            0.0059
-OOPS_STATS oops::Increment::~Increment                         :         0.08       1            0.0776
-OOPS_STATS oops::Model::Model                                  :         0.67       1            0.6673
-OOPS_STATS oops::Model::finalize                               :         0.02      10            0.0018
-OOPS_STATS oops::Model::initialize                             :         0.02      10            0.0020
-OOPS_STATS oops::Model::step                                   :         0.97     180            0.0054
-OOPS_STATS oops::Model::~Model                                 :         0.23       1            0.2258
-OOPS_STATS oops::ModelAuxControl::ModelAuxControl              :         0.05       1            0.0454
-OOPS_STATS oops::ModelAuxControl::~ModelAuxControl             :         0.00       1            0.0010
-OOPS_STATS oops::Parameters::deserialize                       :         4.00      12            0.3335
-OOPS_STATS oops::Parameters::serialize                         :         7.65     213            0.0359
-OOPS_STATS oops::Parameters::validate                          :        33.64      12            2.8037
-OOPS_STATS oops::State::State                                  :         2.11      11            0.1918
-OOPS_STATS oops::State::print                                  :         1.32      31            0.0424
-OOPS_STATS oops::State::write                                  :       111.74     190            0.5881
-OOPS_STATS oops::State::~State                                 :         0.17      11            0.0152
-OOPS_STATS util::Timers::Total                                 :       190.59       1          190.5887
-OOPS_STATS util::Timers::measured                              :       170.36       1          170.3649
+OOPS_STATS oops::GeoVaLs::GeoVaLs                              :         0.24     162            0.0015
+OOPS_STATS oops::GeoVaLs::fill                                 :         0.07     162            0.0004
+OOPS_STATS oops::GeoVaLs::~GeoVaLs                             :         0.09     162            0.0006
+OOPS_STATS oops::Geometry::Geometry                            :         2.36       1            2.3617
+OOPS_STATS oops::Geometry::begin                               :         0.25       1            0.2490
+OOPS_STATS oops::Geometry::end                                 :         0.07      41            0.0016
+OOPS_STATS oops::Geometry::latlon                              :         0.44       2            0.2193
+OOPS_STATS oops::Geometry::variableSizes                       :         0.10     486            0.0002
+OOPS_STATS oops::Geometry::~Geometry                           :         0.10       1            0.0978
+OOPS_STATS oops::GeometryData::setGlobalTree                   :         0.32       1            0.3170
+OOPS_STATS oops::GeometryData::setLocalTree                    :         0.96       1            0.9622
+OOPS_STATS oops::GeometryIterator::GeometryIterator            :         0.01      82            0.0002
+OOPS_STATS oops::GeometryIterator::operator!=                  :         0.01      41            0.0003
+OOPS_STATS oops::GeometryIterator::operator++                  :         0.06      40            0.0015
+OOPS_STATS oops::GeometryIterator::~GeometryIterator           :         0.03      82            0.0004
+OOPS_STATS oops::GetValues::GetValues                          :         4.78     162            0.0295
+OOPS_STATS oops::GetValues::fillGeoVaLs                        :         1.34     162            0.0083
+OOPS_STATS oops::GetValues::finalize                           :         1.49     162            0.0092
+OOPS_STATS oops::GetValues::process                            :         4.62     162            0.0285
+OOPS_STATS oops::Increment::Increment                          :         0.49     405            0.0012
+OOPS_STATS oops::Increment::diff                               :         0.22      81            0.0027
+OOPS_STATS oops::Increment::getLocal                           :         2.09    3320            0.0006
+OOPS_STATS oops::Increment::operator*=                         :         0.04       4            0.0088
+OOPS_STATS oops::Increment::operator+=                         :         0.12     320            0.0004
+OOPS_STATS oops::Increment::operator+=(State, Increment)       :         0.12      80            0.0015
+OOPS_STATS oops::Increment::operator-=                         :         0.14     240            0.0006
+OOPS_STATS oops::Increment::print                              :         0.14       3            0.0461
+OOPS_STATS oops::Increment::schur_product_with                 :         0.06     160            0.0004
+OOPS_STATS oops::Increment::setLocal                           :         0.34    3200            0.0001
+OOPS_STATS oops::Increment::~Increment                         :         0.55     405            0.0014
+OOPS_STATS oops::LETKFSolver::applyWeights                     :         5.98      40            0.1495
+OOPS_STATS oops::LETKFSolver::computeWeights                   :        22.44      40            0.5610
+OOPS_STATS oops::LETKFSolver::measurementUpdate                :        34.46      40            0.8615
+OOPS_STATS oops::LocalEnsembleSolver::computeHofX              :        99.15       2           49.5728
+OOPS_STATS oops::LocalInterpolator::LocalInterpolator          :         0.17     162            0.0011
+OOPS_STATS oops::LocalInterpolator::apply                      :         3.04     162            0.0188
+OOPS_STATS oops::LocalInterpolator::~LocalInterpolator         :         0.08     162            0.0005
+OOPS_STATS oops::Model::finalize                               :         0.08     162            0.0005
+OOPS_STATS oops::Model::initialize                             :         0.54     162            0.0033
+OOPS_STATS oops::Model::~Model                                 :         0.04     162            0.0002
+OOPS_STATS oops::ModelAuxControl::ModelAuxControl              :         0.41     162            0.0025
+OOPS_STATS oops::ModelAuxControl::~ModelAuxControl             :         0.03     162            0.0002
+OOPS_STATS oops::ObsAuxControl::ObsAuxControl                  :         0.71     162            0.0044
+OOPS_STATS oops::ObsAuxControl::requiredHdiagnostics           :         0.03     162            0.0002
+OOPS_STATS oops::ObsAuxControl::requiredVars                   :         0.04     324            0.0001
+OOPS_STATS oops::ObsAuxControl::~ObsAuxControl                 :         0.09     162            0.0005
+OOPS_STATS oops::ObsDataVector::ObsDataVector                  :         0.43     486            0.0009
+OOPS_STATS oops::ObsDataVector::mask                           :         0.18     162            0.0011
+OOPS_STATS oops::ObsDataVector::operator=                      :         0.11     486            0.0002
+OOPS_STATS oops::ObsDataVector::print                          :         0.16     162            0.0010
+OOPS_STATS oops::ObsDataVector::save                           :         0.22       4            0.0548
+OOPS_STATS oops::ObsDataVector::~ObsDataVector                 :         0.32     486            0.0007
+OOPS_STATS oops::ObsDiagnostics::ObsDiagnostics                :         0.04     162            0.0002
+OOPS_STATS oops::ObsDiagnostics::~ObsDiagnostics               :         0.10     162            0.0006
+OOPS_STATS oops::ObsError::ObsErrors                           :         2.93     162            0.0181
+OOPS_STATS oops::ObsError::inverseVariance                     :         0.00       2            0.0014
+OOPS_STATS oops::ObsError::obserrors                           :         0.42     162            0.0026
+OOPS_STATS oops::ObsError::save                                :         0.02       2            0.0100
+OOPS_STATS oops::ObsError::update                              :         1.37     162            0.0085
+OOPS_STATS oops::ObsError::~ObsError                           :         0.35     162            0.0022
+OOPS_STATS oops::ObsOperator::Lorenz 95::ObsOperator           :         0.23     162            0.0014
+OOPS_STATS oops::ObsOperator::Lorenz 95::computeReducedVars    :         0.01     162            0.0001
+OOPS_STATS oops::ObsOperator::Lorenz 95::locations             :         1.05     162            0.0065
+OOPS_STATS oops::ObsOperator::Lorenz 95::requiredVars          :         0.01     162            0.0000
+OOPS_STATS oops::ObsOperator::Lorenz 95::simulateObs           :         0.10     162            0.0006
+OOPS_STATS oops::ObsOperator::Lorenz 95::~ObsOperator          :         0.12     162            0.0007
+OOPS_STATS oops::ObsSpace::ObsSpace                            :        48.07       1           48.0677
+OOPS_STATS oops::ObsSpace::obsvariables                        :         0.01     324            0.0000
+OOPS_STATS oops::ObsSpace::save                                :        59.76       1           59.7620
+OOPS_STATS oops::ObsSpace::~ObsSpace                           :         0.16       1            0.1587
+OOPS_STATS oops::ObsVector::ObsVector                          :         0.98    1104            0.0009
+OOPS_STATS oops::ObsVector::dot_product                        :         0.04       2            0.0179
+OOPS_STATS oops::ObsVector::invert                             :         0.14     324            0.0004
+OOPS_STATS oops::ObsVector::mask(ObsVector)                    :         0.07     364            0.0002
+OOPS_STATS oops::ObsVector::ones                               :         0.03      80            0.0003
+OOPS_STATS oops::ObsVector::operator*=                         :         0.14     326            0.0004
+OOPS_STATS oops::ObsVector::operator+=                         :         0.08     160            0.0005
+OOPS_STATS oops::ObsVector::operator-=                         :         0.05     164            0.0003
+OOPS_STATS oops::ObsVector::operator=                          :         0.30     814            0.0004
+OOPS_STATS oops::ObsVector::packEigen                          :         0.93    3320            0.0003
+OOPS_STATS oops::ObsVector::packEigenSize                      :         0.54    3360            0.0002
+OOPS_STATS oops::ObsVector::save                               :         1.24     328            0.0038
+OOPS_STATS oops::ObsVector::zero                               :         0.05     164            0.0003
+OOPS_STATS oops::ObsVector::~ObsVector                         :         0.20    1104            0.0002
+OOPS_STATS oops::Parameters::deserialize                       :         9.93     815            0.0122
+OOPS_STATS oops::Parameters::serialize                         :         7.55     576            0.0131
+OOPS_STATS oops::Parameters::validate                          :        82.26     327            0.2516
+OOPS_STATS oops::SampledLocations::SampledLocations            :         0.05     324            0.0001
+OOPS_STATS oops::SampledLocations::latitudes                   :         0.01     162            0.0001
+OOPS_STATS oops::SampledLocations::longitudes                  :         0.01     162            0.0001
+OOPS_STATS oops::SampledLocations::times                       :         0.04     162            0.0002
+OOPS_STATS oops::SampledLocations::~SampledLocations           :         0.15     486            0.0003
+OOPS_STATS oops::State::State                                  :        25.71     488            0.0527
+OOPS_STATS oops::State::accumul                                :         0.07     160            0.0004
+OOPS_STATS oops::State::operator=                              :         0.23     242            0.0010
+OOPS_STATS oops::State::print                                  :         6.27     406            0.0154
+OOPS_STATS oops::State::toFieldSet                             :         2.23     162            0.0138
+OOPS_STATS oops::State::variables                              :         0.00       1            0.0006
+OOPS_STATS oops::State::write                                  :        37.55      82            0.4580
+OOPS_STATS oops::State::zero                                   :         0.04       2            0.0188
+OOPS_STATS oops::State::~State                                 :         1.23     488            0.0025
+OOPS_STATS oops::VariableChange::VariableChange                :         0.02     162            0.0001
+OOPS_STATS oops::VariableChange::changeVar                     :         0.03     162            0.0002
+OOPS_STATS oops::VariableChange::~VariableChange               :         0.05     162            0.0003
+OOPS_STATS util::Timers::Total                                 :       499.05       1          499.0479
+OOPS_STATS util::Timers::measured                              :       384.57       1          384.5681
 OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
 
 OOPS_STATS ------------------------------------------------------------------------------------------------------------------
 OOPS_STATS ---------------------------------- Parallel Timing Statistics (   1 MPI tasks) -----------------------------------
 OOPS_STATS ------------------------------------------------------------------------------------------------------------------
 OOPS_STATS Name                                                :     min (ms)    max (ms)    avg (ms)     % total   imbal (%)
-OOPS_STATS oops::Covariance::L95Error::randomize               :         0.66        0.66        0.66        0.34        0.00
-OOPS_STATS oops::ErrorCovariance::ErrorCovariance              :         3.35        3.35        3.35        1.76        0.00
-OOPS_STATS oops::ErrorCovariance::doRandomize                  :         0.61        0.61        0.61        0.32        0.00
-OOPS_STATS oops::Geometry::Geometry                            :         1.67        1.67        1.67        0.87        0.00
-OOPS_STATS oops::Geometry::~Geometry                           :         0.29        0.29        0.29        0.15        0.00
-OOPS_STATS oops::GeometryData::setGlobalTree                   :         0.48        0.48        0.48        0.25        0.00
-OOPS_STATS oops::GeometryData::setLocalTree                    :         0.91        0.91        0.91        0.48        0.00
-OOPS_STATS oops::Model::Model                                  :         0.67        0.67        0.67        0.35        0.00
-OOPS_STATS oops::Model::step                                   :         0.97        0.97        0.97        0.51        0.00
-OOPS_STATS oops::Model::~Model                                 :         0.23        0.23        0.23        0.12        0.00
-OOPS_STATS oops::Parameters::deserialize                       :         4.00        4.00        4.00        2.10        0.00
-OOPS_STATS oops::Parameters::serialize                         :         7.65        7.65        7.65        4.01        0.00
-OOPS_STATS oops::Parameters::validate                          :        33.64       33.64       33.64       17.65        0.00
-OOPS_STATS oops::State::State                                  :         2.11        2.11        2.11        1.11        0.00
-OOPS_STATS oops::State::print                                  :         1.32        1.32        1.32        0.69        0.00
-OOPS_STATS oops::State::write                                  :       111.74      111.74      111.74       58.63        0.00
-OOPS_STATS util::Timers::Total                                 :       190.59      190.59      190.59      100.00        0.00
-OOPS_STATS util::Timers::measured                              :       170.36      170.36      170.36       89.39        0.00
+OOPS_STATS oops::Geometry::Geometry                            :         2.36        2.36        2.36        0.47        0.00
+OOPS_STATS oops::GeometryData::setLocalTree                    :         0.96        0.96        0.96        0.19        0.00
+OOPS_STATS oops::GetValues::GetValues                          :         4.78        4.78        4.78        0.96        0.00
+OOPS_STATS oops::GetValues::fillGeoVaLs                        :         1.34        1.34        1.34        0.27        0.00
+OOPS_STATS oops::GetValues::finalize                           :         1.49        1.49        1.49        0.30        0.00
+OOPS_STATS oops::GetValues::process                            :         4.62        4.62        4.62        0.93        0.00
+OOPS_STATS oops::Increment::getLocal                           :         2.09        2.09        2.09        0.42        0.00
+OOPS_STATS oops::Increment::~Increment                         :         0.55        0.55        0.55        0.11        0.00
+OOPS_STATS oops::LETKFSolver::applyWeights                     :         5.98        5.98        5.98        1.20        0.00
+OOPS_STATS oops::LETKFSolver::computeWeights                   :        22.44       22.44       22.44        4.50        0.00
+OOPS_STATS oops::LETKFSolver::measurementUpdate                :        34.46       34.46       34.46        6.91        0.00
+OOPS_STATS oops::LocalEnsembleSolver::computeHofX              :        99.15       99.15       99.15       19.87        0.00
+OOPS_STATS oops::LocalInterpolator::apply                      :         3.04        3.04        3.04        0.61        0.00
+OOPS_STATS oops::Model::initialize                             :         0.54        0.54        0.54        0.11        0.00
+OOPS_STATS oops::ObsAuxControl::ObsAuxControl                  :         0.71        0.71        0.71        0.14        0.00
+OOPS_STATS oops::ObsError::ObsErrors                           :         2.93        2.93        2.93        0.59        0.00
+OOPS_STATS oops::ObsError::update                              :         1.37        1.37        1.37        0.27        0.00
+OOPS_STATS oops::ObsOperator::Lorenz 95::locations             :         1.05        1.05        1.05        0.21        0.00
+OOPS_STATS oops::ObsSpace::ObsSpace                            :        48.07       48.07       48.07        9.63        0.00
+OOPS_STATS oops::ObsSpace::save                                :        59.76       59.76       59.76       11.98        0.00
+OOPS_STATS oops::ObsVector::ObsVector                          :         0.98        0.98        0.98        0.20        0.00
+OOPS_STATS oops::ObsVector::packEigen                          :         0.93        0.93        0.93        0.19        0.00
+OOPS_STATS oops::ObsVector::packEigenSize                      :         0.54        0.54        0.54        0.11        0.00
+OOPS_STATS oops::ObsVector::save                               :         1.24        1.24        1.24        0.25        0.00
+OOPS_STATS oops::Parameters::deserialize                       :         9.93        9.93        9.93        1.99        0.00
+OOPS_STATS oops::Parameters::serialize                         :         7.55        7.55        7.55        1.51        0.00
+OOPS_STATS oops::Parameters::validate                          :        82.26       82.26       82.26       16.48        0.00
+OOPS_STATS oops::State::State                                  :        25.71       25.71       25.71        5.15        0.00
+OOPS_STATS oops::State::print                                  :         6.27        6.27        6.27        1.26        0.00
+OOPS_STATS oops::State::toFieldSet                             :         2.23        2.23        2.23        0.45        0.00
+OOPS_STATS oops::State::write                                  :        37.55       37.55       37.55        7.52        0.00
+OOPS_STATS oops::State::~State                                 :         1.23        1.23        1.23        0.25        0.00
+OOPS_STATS util::Timers::Total                                 :       499.05      499.05      499.05      100.00        0.00
+OOPS_STATS util::Timers::measured                              :       384.57      384.57      384.57       77.06        0.00
 OOPS_STATS ---------------------------------- Parallel Timing Statistics (   1 MPI tasks) -----------------------------------
 
-OOPS_STATS Run end                                  - Runtime:      0.22 sec,  Memory: total:    34.49 Mb, per task: min =    34.49 Mb, max =    34.49 Mb
-Run: Finishing oops::GenEnsPertB<Lorenz 95> with status = 0
-[TestReference] Comparison is done
-OOPS Ending   2024-12-02 21:46:13 (UTC+0000)
+OOPS_STATS Run end                                  - Runtime:      0.53 sec,  Memory: total:    35.66 Mb, per task: min =    35.66 Mb, max =    35.66 Mb
+Run: Finishing oops::LocalEnsembleDA<Lorenz 95, Lorenz 95 Obs> with status = 0
+OOPS Ending   2024-12-06 17:45:27 (UTC+0000)
 <end of output>
-Test time =   0.29 sec
+Test time =   0.61 sec
 ----------------------------------------------------------
 Test Passed.
-"test_l95_genenspert" end time: Dec 02 21:46 UTC
-"test_l95_genenspert" time elapsed: 00:00:00
+"test_l95_letkf" end time: Dec 06 17:45 UTC
+"test_l95_letkf" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Dec 02 21:46 UTC
+149/305 Testing: test_l95_letkf_noobs
+149/305 Test: test_l95_letkf_noobs
+Command: "/home/nonroot/shared/oops/build/bin/l95_letkf.x" "testinput/letkf_noobs.yaml"
+Directory: /home/nonroot/shared/oops/build/l95/test
+"test_l95_letkf_noobs" start time: Dec 06 17:45 UTC
+Output:
+----------------------------------------------------------
+Configuration input file is: testinput/letkf_noobs.yaml
+OOPS Starting 2024-12-06 17:45:27 (UTC+0000)
+[TestReference] Comparing to reference file: testoutput/letkf_noobs.test
+Relative float tolerance for tests : 1e-06
+Absolute float tolerance for tests : 0
+Full configuration is:YAMLConfiguration[path=testinput/letkf_noobs.yaml, root={window begin => 2010-01-01T21:00:00Z , window length => PT6H , geometry => {resol => 40} , background => {members from template => {template => {date => 2010-01-02T00:00:00Z , filename => Data/forecast.ens.%mem%.2010-01-01T00:00:00Z.P1D.l95} , pattern => %mem% , nmembers => 5}} , driver => {update obs config with geometry info => false} , observations => {observers => ({obs error => {covariance model => diagonal} , obs localizations => ({localization method => Gaspari-Cohn , lengthscale => 0.1}) , obs space => {obsdatain => {engine => {obsfile => Data/noobs.obt}}} , obs operator => {}})} , local ensemble DA => {solver => LETKF , inflation => {rtps => 0.5 , rtpp => 0.5 , mult => 1.1}} , output => {datadir => Data , date => 2010-01-02T00:00:00Z , exp => letkf.%{member}% , type => an} , test => {reference filename => testoutput/letkf_noobs.test}}]
+OOPS_STATS ObjectCountHelper started.
+OOPS_STATS Run start                                - Runtime:      0.04 sec,  Memory: total:    29.71 Mb, per task: min =    29.71 Mb, max =    29.71 Mb
+Run: Starting oops::LocalEnsembleDA<Lorenz 95, Lorenz 95 Obs>
+Observation window from 2010-01-01T21:00:00Z to 2010-01-02T03:00:00Z
+GeometryData: Global tree size = 40, footprint = 2560
+OOPS_STATS LocalEnsembleDA before solver ctor       - Runtime:     0.10 sec,  Local Memory:    34.20 Mb
+Multiplicative inflation will be applied with multCoeff=1.1
+RTPP inflation will be applied with rtppCoeff=0.5
+RTPS inflation will be applied with rtpsCoeff=0.5
+Using EIGEN implementation of LETKF
+Test     : Initial state for member 1:
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=3.5360944731346300e+00, Max=1.1197408772662600e+01, Average=7.9097771698488781e+00
+Test     : Initial state for member 2:
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=3.7750714660572902e+00, Max=1.1184390839101701e+01, Average=7.7504740680820658e+00
+Test     : Initial state for member 3:
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=5.3688150613089300e+00, Max=1.0844015150837601e+01, Average=7.8057606908578121e+00
+Test     : Initial state for member 4:
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=4.1463865178134700e+00, Max=1.1673384864377301e+01, Average=7.7600117472793597e+00
+Test     : Initial state for member 5:
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=3.1756287528176999e+00, Max=1.0818287765402999e+01, Average=7.6024271099360359e+00
+OOPS_STATS LocalEnsembleDA before computeHofX       - Runtime:     0.10 sec,  Local Memory:    34.33 Mb
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.53609, Max=11.1974, Average=7.90978
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.53609, Max=11.1974, Average=7.90978
+ObsErrorDiag covariance updated 0
+Observer::finalize QC = Lorenz 95 : No observations
+Test     : H(x) for member 1:
+Test     : Lorenz 95 : No observations
 
-oops =   0.29 sec*proc
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.77507, Max=11.1844, Average=7.75047
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.77507, Max=11.1844, Average=7.75047
+ObsErrorDiag covariance updated 0
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 : No observations
+Test     : H(x) for member 2:
+Test     : Lorenz 95 : No observations
 
-script =   0.29 sec*proc
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.36882, Max=10.844, Average=7.80576
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.36882, Max=10.844, Average=7.80576
+ObsErrorDiag covariance updated 0
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 : No observations
+Test     : H(x) for member 3:
+Test     : Lorenz 95 : No observations
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=4.14639, Max=11.6734, Average=7.76001
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=4.14639, Max=11.6734, Average=7.76001
+ObsErrorDiag covariance updated 0
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 : No observations
+Test     : H(x) for member 4:
+Test     : Lorenz 95 : No observations
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.17563, Max=10.8183, Average=7.60243
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.17563, Max=10.8183, Average=7.60243
+ObsErrorDiag covariance updated 0
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 : No observations
+Test     : H(x) for member 5:
+Test     : Lorenz 95 : No observations
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.25199, Max=9.50208, Average=7.76569
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.25199, Max=9.50208, Average=7.76569
+ObsErrorDiag covariance updated 0
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 : No observations
+ObsTable::putdb over-writing ObsError
+Test     : H(x) ensemble background mean: 
+Test     : Lorenz 95 : No observations
+
+Test     : background y - H(x): 
+Test     : Lorenz 95 : No observations
+
+Test     : Background mean :
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=5.2519885916484164e+00, Max=9.5020752396112176e+00, Average=7.7656901572008321e+00
+Beginning core local solver...
+OOPS_STATS LocalEnsembleDA before solver            - Runtime:      0.13 sec,  Memory: total:    34.46 Mb, per task: min =    34.46 Mb, max =    34.46 Mb
+Local solver completed.
+OOPS_STATS LocalEnsembleDA after solver             - Runtime:      0.13 sec,  Memory: total:    34.46 Mb, per task: min =    34.46 Mb, max =    34.46 Mb
+Test     : Analysis mean :
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=5.2519885916484164e+00, Max=9.5020752396112176e+00, Average=7.7656901572008321e+00
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.53609, Max=11.1974, Average=7.90978
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.53609, Max=11.1974, Average=7.90978
+ObsErrorDiag covariance updated 0
+Observer::finalize QC = Lorenz 95 : No observations
+Test     : H(x) for member 1:
+Test     : Lorenz 95 : No observations
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.77507, Max=11.1844, Average=7.75047
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.77507, Max=11.1844, Average=7.75047
+ObsErrorDiag covariance updated 0
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 : No observations
+Test     : H(x) for member 2:
+Test     : Lorenz 95 : No observations
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.36882, Max=10.844, Average=7.80576
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.36882, Max=10.844, Average=7.80576
+ObsErrorDiag covariance updated 0
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 : No observations
+Test     : H(x) for member 3:
+Test     : Lorenz 95 : No observations
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=4.14639, Max=11.6734, Average=7.76001
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=4.14639, Max=11.6734, Average=7.76001
+ObsErrorDiag covariance updated 0
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 : No observations
+Test     : H(x) for member 4:
+Test     : Lorenz 95 : No observations
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.17563, Max=10.8183, Average=7.60243
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.17563, Max=10.8183, Average=7.60243
+ObsErrorDiag covariance updated 0
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 : No observations
+Test     : H(x) for member 5:
+Test     : Lorenz 95 : No observations
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.25199, Max=9.50208, Average=7.76569
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.25199, Max=9.50208, Average=7.76569
+ObsErrorDiag covariance updated 0
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 : No observations
+ObsTable::putdb over-writing ObsError
+Test     : H(x) ensemble analysis mean: 
+Test     : Lorenz 95 : No observations
+
+Test     : analysis y - H(x): 
+Test     : Lorenz 95 : No observations
+
+Test     : ombg RMS: 0.0000000000000000e+00
+Test     : oman RMS: 0.0000000000000000e+00
+
+Run: Finishing oops::LocalEnsembleDA<Lorenz 95, Lorenz 95 Obs>
+OOPS_STATS  
+OOPS_STATS ----------------------------------------------------------------------------------
+OOPS_STATS --------------------------- Object counts ----------------------------------------
+OOPS_STATS ----------------------------------------------------------------------------------
+OOPS_STATS                                      Total  Simult. Remain    Avg (Mb)    HWM (Mb)
+OOPS_STATS lorenz95::GomL95                :       12       1        
+OOPS_STATS lorenz95::IncrementL95          :       10      10        
+OOPS_STATS lorenz95::Iterator              :      124       3        
+OOPS_STATS lorenz95::LocsL95               :       12       1        
+OOPS_STATS lorenz95::ModelBias             :       12       1        
+OOPS_STATS lorenz95::ObsBias               :       12       1        
+OOPS_STATS lorenz95::ObsData1D             :       36       3        
+OOPS_STATS lorenz95::ObsTable              :        1       1        
+OOPS_STATS lorenz95::ObsVec1D              :      129      21        
+OOPS_STATS lorenz95::ObservationL95        :       12       1        
+OOPS_STATS lorenz95::StateL95              :       38       9        
+OOPS_STATS oops::GeoVaLs                   :       12       1        
+OOPS_STATS oops::Geometry                  :        1       1        
+OOPS_STATS oops::GeometryIterator          :       82       2        
+OOPS_STATS oops::GetValues                 :       12       1        
+OOPS_STATS oops::Increment                 :       10      10                0.00        0.00
+OOPS_STATS oops::LocalInterpolator         :       12       1        
+OOPS_STATS oops::Model                     :       12       1        
+OOPS_STATS oops::ModelAuxControl           :       12       1        
+OOPS_STATS oops::ObsAuxControl             :       12       1        
+OOPS_STATS oops::ObsDataVector             :       36       3        
+OOPS_STATS oops::ObsDiagnostics            :       12       1        
+OOPS_STATS oops::ObsError                  :       12       2        
+OOPS_STATS oops::ObsOperator               :       12       1        
+OOPS_STATS oops::ObsSpace                  :        1       1        
+OOPS_STATS oops::ObsSpaces                 :        1       1        
+OOPS_STATS oops::ObsVector                 :      129      21        
+OOPS_STATS oops::SampledLocations          :       36       3        
+OOPS_STATS oops::State                     :       38       9                0.00        0.00
+OOPS_STATS oops::VariableChange            :       12       1        
+OOPS_STATS ----------------------------- Object counts --------------------------------------
+OOPS_STATS  
+OOPS_STATS --------------------------------------------------------------------------------------------
+OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
+OOPS_STATS --------------------------------------------------------------------------------------------
+OOPS_STATS Name                                                :   total (ms)   count    time/call (ms)
+OOPS_STATS oops::GeoVaLs::GeoVaLs                              :         0.07      12            0.0061
+OOPS_STATS oops::GeoVaLs::~GeoVaLs                             :         0.06      12            0.0052
+OOPS_STATS oops::Geometry::Geometry                            :         2.65       1            2.6470
+OOPS_STATS oops::Geometry::begin                               :         0.29       1            0.2876
+OOPS_STATS oops::Geometry::end                                 :         0.05      41            0.0011
+OOPS_STATS oops::Geometry::latlon                              :         0.30       2            0.1494
+OOPS_STATS oops::Geometry::variableSizes                       :         0.04      36            0.0012
+OOPS_STATS oops::Geometry::~Geometry                           :         0.07       1            0.0688
+OOPS_STATS oops::GeometryData::setGlobalTree                   :         0.33       1            0.3262
+OOPS_STATS oops::GeometryData::setLocalTree                    :         0.74       1            0.7401
+OOPS_STATS oops::GeometryIterator::GeometryIterator            :         0.02      82            0.0002
+OOPS_STATS oops::GeometryIterator::operator!=                  :         0.02      41            0.0005
+OOPS_STATS oops::GeometryIterator::operator++                  :         0.03      40            0.0008
+OOPS_STATS oops::GeometryIterator::~GeometryIterator           :         0.04      82            0.0005
+OOPS_STATS oops::GetValues::GetValues                          :         0.69      12            0.0572
+OOPS_STATS oops::GetValues::fillGeoVaLs                        :         0.00      12            0.0003
+OOPS_STATS oops::GetValues::finalize                           :         0.01      12            0.0007
+OOPS_STATS oops::GetValues::process                            :         1.15      12            0.0957
+OOPS_STATS oops::Increment::Increment                          :         0.06      10            0.0065
+OOPS_STATS oops::Increment::diff                               :         0.30       5            0.0610
+OOPS_STATS oops::Increment::getLocal                           :         0.28     200            0.0014
+OOPS_STATS oops::Increment::operator+=(State, Increment)       :         0.06       5            0.0118
+OOPS_STATS oops::Increment::setLocal                           :         0.04     200            0.0002
+OOPS_STATS oops::Increment::~Increment                         :         0.07      10            0.0068
+OOPS_STATS oops::LETKFSolver::measurementUpdate                :         2.57      40            0.0642
+OOPS_STATS oops::LocalEnsembleSolver::computeHofX              :        27.13       2           13.5630
+OOPS_STATS oops::LocalInterpolator::LocalInterpolator          :         0.07      12            0.0058
+OOPS_STATS oops::LocalInterpolator::apply                      :         0.95      12            0.0790
+OOPS_STATS oops::LocalInterpolator::~LocalInterpolator         :         0.11      12            0.0089
+OOPS_STATS oops::Model::finalize                               :         0.02      12            0.0014
+OOPS_STATS oops::Model::initialize                             :         0.66      12            0.0550
+OOPS_STATS oops::Model::~Model                                 :         0.01      12            0.0008
+OOPS_STATS oops::ModelAuxControl::ModelAuxControl              :         0.14      12            0.0116
+OOPS_STATS oops::ModelAuxControl::~ModelAuxControl             :         0.00      12            0.0003
+OOPS_STATS oops::ObsAuxControl::ObsAuxControl                  :         0.32      12            0.0265
+OOPS_STATS oops::ObsAuxControl::requiredHdiagnostics           :         0.00      12            0.0002
+OOPS_STATS oops::ObsAuxControl::requiredVars                   :         0.00      24            0.0002
+OOPS_STATS oops::ObsAuxControl::~ObsAuxControl                 :         0.01      12            0.0009
+OOPS_STATS oops::ObsDataVector::ObsDataVector                  :         0.10      36            0.0027
+OOPS_STATS oops::ObsDataVector::mask                           :         0.02      12            0.0017
+OOPS_STATS oops::ObsDataVector::operator=                      :         0.04      36            0.0011
+OOPS_STATS oops::ObsDataVector::print                          :         0.06      12            0.0047
+OOPS_STATS oops::ObsDataVector::save                           :         0.23       4            0.0571
+OOPS_STATS oops::ObsDataVector::~ObsDataVector                 :         0.04      36            0.0011
+OOPS_STATS oops::ObsDiagnostics::ObsDiagnostics                :         0.00      12            0.0002
+OOPS_STATS oops::ObsDiagnostics::~ObsDiagnostics               :         0.00      12            0.0003
+OOPS_STATS oops::ObsError::ObsErrors                           :         0.93      12            0.0777
+OOPS_STATS oops::ObsError::inverseVariance                     :         0.00       2            0.0016
+OOPS_STATS oops::ObsError::obserrors                           :         0.18      12            0.0148
+OOPS_STATS oops::ObsError::save                                :         0.03       2            0.0153
+OOPS_STATS oops::ObsError::update                              :         0.22      12            0.0180
+OOPS_STATS oops::ObsError::~ObsError                           :         0.06      12            0.0047
+OOPS_STATS oops::ObsOperator::Lorenz 95::ObsOperator           :         0.07      12            0.0055
+OOPS_STATS oops::ObsOperator::Lorenz 95::computeReducedVars    :         0.00      12            0.0001
+OOPS_STATS oops::ObsOperator::Lorenz 95::locations             :         0.35      12            0.0293
+OOPS_STATS oops::ObsOperator::Lorenz 95::requiredVars          :         0.00      12            0.0000
+OOPS_STATS oops::ObsOperator::Lorenz 95::simulateObs           :         0.06      12            0.0052
+OOPS_STATS oops::ObsOperator::Lorenz 95::~ObsOperator          :         0.23      12            0.0195
+OOPS_STATS oops::ObsSpace::ObsSpace                            :         2.85       1            2.8467
+OOPS_STATS oops::ObsSpace::obsvariables                        :         0.00      24            0.0000
+OOPS_STATS oops::ObsSpace::save                                :         0.01       1            0.0137
+OOPS_STATS oops::ObsSpace::~ObsSpace                           :         0.09       1            0.0943
+OOPS_STATS oops::ObsVector::ObsVector                          :         0.23     129            0.0018
+OOPS_STATS oops::ObsVector::invert                             :         0.02      24            0.0007
+OOPS_STATS oops::ObsVector::mask(ObsVector)                    :         0.04      64            0.0006
+OOPS_STATS oops::ObsVector::ones                               :         0.04      80            0.0005
+OOPS_STATS oops::ObsVector::operator*=                         :         0.04      26            0.0017
+OOPS_STATS oops::ObsVector::operator+=                         :         0.06      10            0.0064
+OOPS_STATS oops::ObsVector::operator-=                         :         0.06      14            0.0042
+OOPS_STATS oops::ObsVector::operator=                          :         0.17      64            0.0026
+OOPS_STATS oops::ObsVector::packEigen                          :         0.07      40            0.0017
+OOPS_STATS oops::ObsVector::packEigenSize                      :         0.06      40            0.0014
+OOPS_STATS oops::ObsVector::save                               :         0.27      28            0.0098
+OOPS_STATS oops::ObsVector::zero                               :         0.02      14            0.0012
+OOPS_STATS oops::ObsVector::~ObsVector                         :         0.02     129            0.0001
+OOPS_STATS oops::Parameters::deserialize                       :         4.49      57            0.0788
+OOPS_STATS oops::Parameters::serialize                         :         0.45      30            0.0150
+OOPS_STATS oops::Parameters::validate                          :        35.19      19            1.8523
+OOPS_STATS oops::SampledLocations::SampledLocations            :         0.01      24            0.0004
+OOPS_STATS oops::SampledLocations::latitudes                   :         0.00      12            0.0001
+OOPS_STATS oops::SampledLocations::longitudes                  :         0.00      12            0.0001
+OOPS_STATS oops::SampledLocations::times                       :         0.00      12            0.0002
+OOPS_STATS oops::SampledLocations::~SampledLocations           :         0.06      36            0.0017
+OOPS_STATS oops::State::State                                  :         4.28      38            0.1127
+OOPS_STATS oops::State::accumul                                :         0.04      10            0.0037
+OOPS_STATS oops::State::operator=                              :         0.38      17            0.0223
+OOPS_STATS oops::State::print                                  :         1.86      31            0.0601
+OOPS_STATS oops::State::toFieldSet                             :         0.60      12            0.0502
+OOPS_STATS oops::State::variables                              :         0.00       1            0.0005
+OOPS_STATS oops::State::write                                  :         8.42       5            1.6849
+OOPS_STATS oops::State::zero                                   :         0.02       2            0.0119
+OOPS_STATS oops::State::~State                                 :         0.52      38            0.0136
+OOPS_STATS oops::VariableChange::VariableChange                :         0.00      12            0.0003
+OOPS_STATS oops::VariableChange::changeVar                     :         0.00      12            0.0003
+OOPS_STATS oops::VariableChange::~VariableChange               :         0.01      12            0.0006
+OOPS_STATS util::Timers::Total                                 :       109.24       1          109.2419
+OOPS_STATS util::Timers::measured                              :        87.93       1           87.9316
+OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
+
+OOPS_STATS ------------------------------------------------------------------------------------------------------------------
+OOPS_STATS ---------------------------------- Parallel Timing Statistics (   1 MPI tasks) -----------------------------------
+OOPS_STATS ------------------------------------------------------------------------------------------------------------------
+OOPS_STATS Name                                                :     min (ms)    max (ms)    avg (ms)     % total   imbal (%)
+OOPS_STATS oops::Geometry::Geometry                            :         2.65        2.65        2.65        2.42        0.00
+OOPS_STATS oops::Geometry::begin                               :         0.29        0.29        0.29        0.26        0.00
+OOPS_STATS oops::Geometry::latlon                              :         0.30        0.30        0.30        0.27        0.00
+OOPS_STATS oops::GeometryData::setGlobalTree                   :         0.33        0.33        0.33        0.30        0.00
+OOPS_STATS oops::GeometryData::setLocalTree                    :         0.74        0.74        0.74        0.68        0.00
+OOPS_STATS oops::GetValues::GetValues                          :         0.69        0.69        0.69        0.63        0.00
+OOPS_STATS oops::GetValues::process                            :         1.15        1.15        1.15        1.05        0.00
+OOPS_STATS oops::Increment::diff                               :         0.30        0.30        0.30        0.28        0.00
+OOPS_STATS oops::Increment::getLocal                           :         0.28        0.28        0.28        0.26        0.00
+OOPS_STATS oops::LETKFSolver::measurementUpdate                :         2.57        2.57        2.57        2.35        0.00
+OOPS_STATS oops::LocalEnsembleSolver::computeHofX              :        27.13       27.13       27.13       24.83        0.00
+OOPS_STATS oops::LocalInterpolator::apply                      :         0.95        0.95        0.95        0.87        0.00
+OOPS_STATS oops::Model::initialize                             :         0.66        0.66        0.66        0.60        0.00
+OOPS_STATS oops::ModelAuxControl::ModelAuxControl              :         0.14        0.14        0.14        0.13        0.00
+OOPS_STATS oops::ObsAuxControl::ObsAuxControl                  :         0.32        0.32        0.32        0.29        0.00
+OOPS_STATS oops::ObsDataVector::save                           :         0.23        0.23        0.23        0.21        0.00
+OOPS_STATS oops::ObsError::ObsErrors                           :         0.93        0.93        0.93        0.85        0.00
+OOPS_STATS oops::ObsError::obserrors                           :         0.18        0.18        0.18        0.16        0.00
+OOPS_STATS oops::ObsError::update                              :         0.22        0.22        0.22        0.20        0.00
+OOPS_STATS oops::ObsOperator::Lorenz 95::locations             :         0.35        0.35        0.35        0.32        0.00
+OOPS_STATS oops::ObsOperator::Lorenz 95::~ObsOperator          :         0.23        0.23        0.23        0.21        0.00
+OOPS_STATS oops::ObsSpace::ObsSpace                            :         2.85        2.85        2.85        2.61        0.00
+OOPS_STATS oops::ObsVector::ObsVector                          :         0.23        0.23        0.23        0.21        0.00
+OOPS_STATS oops::ObsVector::operator=                          :         0.17        0.17        0.17        0.15        0.00
+OOPS_STATS oops::ObsVector::save                               :         0.27        0.27        0.27        0.25        0.00
+OOPS_STATS oops::Parameters::deserialize                       :         4.49        4.49        4.49        4.11        0.00
+OOPS_STATS oops::Parameters::serialize                         :         0.45        0.45        0.45        0.41        0.00
+OOPS_STATS oops::Parameters::validate                          :        35.19       35.19       35.19       32.22        0.00
+OOPS_STATS oops::State::State                                  :         4.28        4.28        4.28        3.92        0.00
+OOPS_STATS oops::State::operator=                              :         0.38        0.38        0.38        0.35        0.00
+OOPS_STATS oops::State::print                                  :         1.86        1.86        1.86        1.71        0.00
+OOPS_STATS oops::State::toFieldSet                             :         0.60        0.60        0.60        0.55        0.00
+OOPS_STATS oops::State::write                                  :         8.42        8.42        8.42        7.71        0.00
+OOPS_STATS oops::State::~State                                 :         0.52        0.52        0.52        0.47        0.00
+OOPS_STATS util::Timers::Total                                 :       109.24      109.24      109.24      100.00        0.00
+OOPS_STATS util::Timers::measured                              :        87.93       87.93       87.93       80.49        0.00
+OOPS_STATS ---------------------------------- Parallel Timing Statistics (   1 MPI tasks) -----------------------------------
+
+OOPS_STATS Run end                                  - Runtime:      0.15 sec,  Memory: total:    34.64 Mb, per task: min =    34.64 Mb, max =    34.64 Mb
+Run: Finishing oops::LocalEnsembleDA<Lorenz 95, Lorenz 95 Obs> with status = 0
+[TestReference] Comparison is done
+OOPS Ending   2024-12-06 17:45:27 (UTC+0000)
+<end of output>
+Test time =   0.26 sec
+----------------------------------------------------------
+Test Passed.
+"test_l95_letkf_noobs" end time: Dec 06 17:45 UTC
+"test_l95_letkf_noobs" time elapsed: 00:00:00
+----------------------------------------------------------
+
+150/305 Testing: test_l95_letkf_qc
+150/305 Test: test_l95_letkf_qc
+Command: "/home/nonroot/shared/oops/build/bin/l95_letkf.x" "testinput/letkf_qc.yaml"
+Directory: /home/nonroot/shared/oops/build/l95/test
+"test_l95_letkf_qc" start time: Dec 06 17:45 UTC
+Output:
+----------------------------------------------------------
+Configuration input file is: testinput/letkf_qc.yaml
+OOPS Starting 2024-12-06 17:45:27 (UTC+0000)
+[TestReference] Comparing to reference file: testoutput/letkf_qc.test
+Relative float tolerance for tests : 1e-06
+Absolute float tolerance for tests : 0
+Full configuration is:YAMLConfiguration[path=testinput/letkf_qc.yaml, root={window begin => 2010-01-01T21:00:00Z , window length => PT6H , geometry => {resol => 40} , background => {members from template => {template => {date => 2010-01-02T00:00:00Z , filename => Data/forecast.ens.%mem%.2010-01-01T00:00:00Z.P1D.l95} , pattern => %mem% , nmembers => 5}} , driver => {update obs config with geometry info => false} , observations => {observers => ({obs error => {covariance model => diagonal} , obs localizations => ({localization method => Gaspari-Cohn , lengthscale => 0.1}) , obs space => {obsdatain => {engine => {obsfile => Data/truth3d.2010-01-02T00:00:00Z.obt}}} , obs operator => {} , obs filters => ({filter => Background Check , threshold => 3})})} , local ensemble DA => {solver => LETKF , inflation => {rtps => 0.5 , rtpp => 0.5 , mult => 1.1}} , output => {datadir => Data , date => 2010-01-02T00:00:00Z , exp => letkf.%{member}% , type => an} , test => {reference filename => testoutput/letkf_qc.test}}]
+OOPS_STATS ObjectCountHelper started.
+OOPS_STATS Run start                                - Runtime:      0.04 sec,  Memory: total:    29.71 Mb, per task: min =    29.71 Mb, max =    29.71 Mb
+Run: Starting oops::LocalEnsembleDA<Lorenz 95, Lorenz 95 Obs>
+Observation window from 2010-01-01T21:00:00Z to 2010-01-02T03:00:00Z
+GeometryData: Global tree size = 40, footprint = 2560
+OOPS_STATS LocalEnsembleDA before solver ctor       - Runtime:     0.10 sec,  Local Memory:    34.19 Mb
+Multiplicative inflation will be applied with multCoeff=1.1
+RTPP inflation will be applied with rtppCoeff=0.5
+RTPS inflation will be applied with rtpsCoeff=0.5
+Using EIGEN implementation of LETKF
+Test     : Initial state for member 1:
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=3.5360944731346300e+00, Max=1.1197408772662600e+01, Average=7.9097771698488781e+00
+Test     : Initial state for member 2:
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=3.7750714660572902e+00, Max=1.1184390839101701e+01, Average=7.7504740680820658e+00
+Test     : Initial state for member 3:
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=5.3688150613089300e+00, Max=1.0844015150837601e+01, Average=7.8057606908578121e+00
+Test     : Initial state for member 4:
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=4.1463865178134700e+00, Max=1.1673384864377301e+01, Average=7.7600117472793597e+00
+Test     : Initial state for member 5:
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=3.1756287528176999e+00, Max=1.0818287765402999e+01, Average=7.6024271099360359e+00
+OOPS_STATS LocalEnsembleDA before computeHofX       - Runtime:     0.11 sec,  Local Memory:    34.32 Mb
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.53609, Max=11.1974, Average=7.90978
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.53609, Max=11.1974, Average=7.90978
+BackgroundCheck::postFilter rejected = 6, inflated = 0
+ObsErrorDiag covariance updated 114
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=1, Average=0
+Test     : H(x) for member 1:
+Test     : Lorenz 95 nobs= 120 Min=3.5360944731346300e+00, Max=1.1197408772662600e+01, Average=7.9097771698488808e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.77507, Max=11.1844, Average=7.75047
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.77507, Max=11.1844, Average=7.75047
+BackgroundCheck::postFilter rejected = 15, inflated = 0
+ObsErrorDiag covariance updated 105
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=1, Average=0
+Test     : H(x) for member 2:
+Test     : Lorenz 95 nobs= 120 Min=3.7750714660572902e+00, Max=1.1184390839101701e+01, Average=7.7504740680820694e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.36882, Max=10.844, Average=7.80576
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.36882, Max=10.844, Average=7.80576
+BackgroundCheck::postFilter rejected = 0, inflated = 0
+ObsErrorDiag covariance updated 120
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+Test     : H(x) for member 3:
+Test     : Lorenz 95 nobs= 120 Min=5.3688150613089300e+00, Max=1.0844015150837601e+01, Average=7.8057606908578174e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=4.14639, Max=11.6734, Average=7.76001
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=4.14639, Max=11.6734, Average=7.76001
+BackgroundCheck::postFilter rejected = 5, inflated = 0
+ObsErrorDiag covariance updated 115
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=1, Average=0
+Test     : H(x) for member 4:
+Test     : Lorenz 95 nobs= 120 Min=4.1463865178134700e+00, Max=1.1673384864377301e+01, Average=7.7600117472793606e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.17563, Max=10.8183, Average=7.60243
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.17563, Max=10.8183, Average=7.60243
+BackgroundCheck::postFilter rejected = 6, inflated = 0
+ObsErrorDiag covariance updated 114
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=1, Average=0
+Test     : H(x) for member 5:
+Test     : Lorenz 95 nobs= 120 Min=3.1756287528176999e+00, Max=1.0818287765402999e+01, Average=7.6024271099360394e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.25199, Max=9.50208, Average=7.76569
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.25199, Max=9.50208, Average=7.76569
+BackgroundCheck::postFilter rejected = 0, inflated = 0
+ObsErrorDiag covariance updated 120
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+ObsTable::putdb over-writing ObsError
+Test     : H(x) ensemble background mean: 
+Test     : Lorenz 95 nobs= 120 Min=5.2519885916484164e+00, Max=9.5020752396112194e+00, Average=7.7656901572008303e+00
+
+Test     : background y - H(x): 
+Test     : Lorenz 95 nobs= 120 Min=-1.4837852396112190e+00, Max=2.7440514083515835e+00, Average=2.4570017613250186e-01
+
+Test     : Background mean :
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=5.2519885916484164e+00, Max=9.5020752396112176e+00, Average=7.7656901572008321e+00
+Beginning core local solver...
+OOPS_STATS LocalEnsembleDA before solver            - Runtime:      0.14 sec,  Memory: total:    34.75 Mb, per task: min =    34.75 Mb, max =    34.75 Mb
+Local solver completed.
+OOPS_STATS LocalEnsembleDA after solver             - Runtime:      0.15 sec,  Memory: total:    34.91 Mb, per task: min =    34.91 Mb, max =    34.91 Mb
+Test     : Analysis mean :
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=6.7304419255861516e+00, Max=9.1900216868057516e+00, Average=7.9883186215836215e+00
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=6.31712, Max=10.1291, Average=8.09746
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=6.31712, Max=10.1291, Average=8.09746
+ObsErrorDiag covariance updated 120
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+Test     : H(x) for member 1:
+Test     : Lorenz 95 nobs= 120 Min=6.3171216804566708e+00, Max=1.0129110758870260e+01, Average=8.0974626321653727e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.53728, Max=9.94295, Average=7.97522
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.53728, Max=9.94295, Average=7.97522
+ObsErrorDiag covariance updated 120
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+Test     : H(x) for member 2:
+Test     : Lorenz 95 nobs= 120 Min=5.5372774149107276e+00, Max=9.9429464772833054e+00, Average=7.9752181974877683e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.98634, Max=10.5924, Average=8.01708
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.98634, Max=10.5924, Average=8.01708
+ObsErrorDiag covariance updated 120
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+Test     : H(x) for member 3:
+Test     : Lorenz 95 nobs= 120 Min=5.9863385719235227e+00, Max=1.0592448741901793e+01, Average=8.0170750609491073e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=4.57542, Max=11.5295, Average=7.98557
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=4.57542, Max=11.5295, Average=7.98557
+ObsErrorDiag covariance updated 120
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+Test     : H(x) for member 4:
+Test     : Lorenz 95 nobs= 120 Min=4.5754170937307954e+00, Max=1.1529525198917629e+01, Average=7.9855706599514216e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.01152, Max=9.81763, Average=7.86627
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.01152, Max=9.81763, Average=7.86627
+ObsErrorDiag covariance updated 120
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+Test     : H(x) for member 5:
+Test     : Lorenz 95 nobs= 120 Min=5.0115186905000044e+00, Max=9.8176333734335017e+00, Average=7.8662665573644404e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.25199, Max=9.50208, Average=7.76569
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.25199, Max=9.50208, Average=7.76569
+ObsErrorDiag covariance updated 120
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+ObsTable::putdb over-writing ObsError
+Test     : H(x) ensemble analysis mean: 
+Test     : Lorenz 95 nobs= 120 Min=6.7304419255861525e+00, Max=9.1900216868057498e+00, Average=7.9883186215836206e+00
+
+Test     : analysis y - H(x): 
+Test     : Lorenz 95 nobs= 120 Min=-2.6570251302323200e-01, Max=4.4146356731631986e-01, Average=2.3071711749710878e-02
+
+Test     : ombg RMS: 8.6409563643508913e-01
+Test     : oman RMS: 1.4632156767719048e-01
+
+Run: Finishing oops::LocalEnsembleDA<Lorenz 95, Lorenz 95 Obs>
+OOPS_STATS  
+OOPS_STATS ----------------------------------------------------------------------------------
+OOPS_STATS --------------------------- Object counts ----------------------------------------
+OOPS_STATS ----------------------------------------------------------------------------------
+OOPS_STATS                                      Total  Simult. Remain    Avg (Mb)    HWM (Mb)
+OOPS_STATS lorenz95::GomL95                :       12       1        
+OOPS_STATS lorenz95::IncrementL95          :       10      10        
+OOPS_STATS lorenz95::Iterator              :      124       3        
+OOPS_STATS lorenz95::LocsL95               :       12       1        
+OOPS_STATS lorenz95::ModelBias             :       12       1        
+OOPS_STATS lorenz95::ObsBias               :       12       1        
+OOPS_STATS lorenz95::ObsData1D             :       36       3        
+OOPS_STATS lorenz95::ObsTable              :        1       1        
+OOPS_STATS lorenz95::ObsVec1D              :      129      21        
+OOPS_STATS lorenz95::ObservationL95        :       12       1        
+OOPS_STATS lorenz95::StateL95              :       38       9        
+OOPS_STATS oops::GeoVaLs                   :       12       1        
+OOPS_STATS oops::Geometry                  :        1       1        
+OOPS_STATS oops::GeometryIterator          :       82       2        
+OOPS_STATS oops::GetValues                 :       12       1        
+OOPS_STATS oops::Increment                 :       10      10                0.00        0.00
+OOPS_STATS oops::LocalInterpolator         :       12       1        
+OOPS_STATS oops::Model                     :       12       1        
+OOPS_STATS oops::ModelAuxControl           :       12       1        
+OOPS_STATS oops::ObsAuxControl             :       12       1        
+OOPS_STATS oops::ObsDataVector             :       36       3        
+OOPS_STATS oops::ObsDiagnostics            :       12       1        
+OOPS_STATS oops::ObsError                  :       12       2        
+OOPS_STATS oops::ObsFilter                 :       54       5        
+OOPS_STATS oops::ObsOperator               :       12       1        
+OOPS_STATS oops::ObsSpace                  :        1       1                2.15        2.15
+OOPS_STATS oops::ObsSpaces                 :        1       1        
+OOPS_STATS oops::ObsVector                 :      129      21                0.00        0.02
+OOPS_STATS oops::SampledLocations          :       36       3        
+OOPS_STATS oops::State                     :       38       9                0.00        0.00
+OOPS_STATS oops::VariableChange            :       12       1        
+OOPS_STATS ----------------------------- Object counts --------------------------------------
+OOPS_STATS  
+OOPS_STATS --------------------------------------------------------------------------------------------
+OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
+OOPS_STATS --------------------------------------------------------------------------------------------
+OOPS_STATS Name                                                :   total (ms)   count    time/call (ms)
+OOPS_STATS oops::GeoVaLs::GeoVaLs                              :         0.07      12            0.0061
+OOPS_STATS oops::GeoVaLs::fill                                 :         0.15      12            0.0125
+OOPS_STATS oops::GeoVaLs::~GeoVaLs                             :         0.02      12            0.0021
+OOPS_STATS oops::Geometry::Geometry                            :         5.13       1            5.1289
+OOPS_STATS oops::Geometry::begin                               :         0.09       1            0.0926
+OOPS_STATS oops::Geometry::end                                 :         0.04      41            0.0009
+OOPS_STATS oops::Geometry::latlon                              :         0.52       2            0.2612
+OOPS_STATS oops::Geometry::variableSizes                       :         0.04      36            0.0012
+OOPS_STATS oops::Geometry::~Geometry                           :         0.14       1            0.1398
+OOPS_STATS oops::GeometryData::setGlobalTree                   :         0.28       1            0.2820
+OOPS_STATS oops::GeometryData::setLocalTree                    :         1.01       1            1.0101
+OOPS_STATS oops::GeometryIterator::GeometryIterator            :         0.01      82            0.0001
+OOPS_STATS oops::GeometryIterator::operator!=                  :         0.01      41            0.0003
+OOPS_STATS oops::GeometryIterator::operator++                  :         0.10      40            0.0025
+OOPS_STATS oops::GeometryIterator::~GeometryIterator           :         0.03      82            0.0003
+OOPS_STATS oops::GetValues::GetValues                          :         2.08      12            0.1734
+OOPS_STATS oops::GetValues::fillGeoVaLs                        :         0.78      12            0.0648
+OOPS_STATS oops::GetValues::finalize                           :         0.80      12            0.0669
+OOPS_STATS oops::GetValues::process                            :         1.68      12            0.1403
+OOPS_STATS oops::Increment::Increment                          :         0.14      10            0.0136
+OOPS_STATS oops::Increment::diff                               :         0.13       5            0.0261
+OOPS_STATS oops::Increment::getLocal                           :         0.37     320            0.0012
+OOPS_STATS oops::Increment::operator+=(State, Increment)       :         0.06       5            0.0121
+OOPS_STATS oops::Increment::setLocal                           :         0.04     200            0.0002
+OOPS_STATS oops::Increment::~Increment                         :         0.07      10            0.0073
+OOPS_STATS oops::LETKFSolver::applyWeights                     :         1.60      40            0.0401
+OOPS_STATS oops::LETKFSolver::computeWeights                   :         3.79      40            0.0946
+OOPS_STATS oops::LETKFSolver::measurementUpdate                :         8.35      40            0.2088
+OOPS_STATS oops::LocalEnsembleSolver::computeHofX              :        35.30       2           17.6491
+OOPS_STATS oops::LocalInterpolator::LocalInterpolator          :         0.11      12            0.0092
+OOPS_STATS oops::LocalInterpolator::apply                      :         1.26      12            0.1052
+OOPS_STATS oops::LocalInterpolator::~LocalInterpolator         :         0.04      12            0.0029
+OOPS_STATS oops::Model::finalize                               :         0.01      12            0.0012
+OOPS_STATS oops::Model::initialize                             :         0.27      12            0.0227
+OOPS_STATS oops::Model::~Model                                 :         0.01      12            0.0007
+OOPS_STATS oops::ModelAuxControl::ModelAuxControl              :         0.19      12            0.0161
+OOPS_STATS oops::ModelAuxControl::~ModelAuxControl             :         0.00      12            0.0003
+OOPS_STATS oops::ObsAuxControl::ObsAuxControl                  :         0.27      12            0.0226
+OOPS_STATS oops::ObsAuxControl::requiredHdiagnostics           :         0.00      12            0.0002
+OOPS_STATS oops::ObsAuxControl::requiredVars                   :         0.00      24            0.0002
+OOPS_STATS oops::ObsAuxControl::~ObsAuxControl                 :         0.01      12            0.0006
+OOPS_STATS oops::ObsDataVector::ObsDataVector                  :         0.14      36            0.0040
+OOPS_STATS oops::ObsDataVector::mask                           :         0.01      12            0.0008
+OOPS_STATS oops::ObsDataVector::operator=                      :         0.07      36            0.0020
+OOPS_STATS oops::ObsDataVector::print                          :         0.06      12            0.0047
+OOPS_STATS oops::ObsDataVector::save                           :         0.12       4            0.0292
+OOPS_STATS oops::ObsDataVector::~ObsDataVector                 :         0.10      36            0.0029
+OOPS_STATS oops::ObsDiagnostics::ObsDiagnostics                :         0.00      12            0.0002
+OOPS_STATS oops::ObsDiagnostics::~ObsDiagnostics               :         0.00      12            0.0002
+OOPS_STATS oops::ObsError::ObsErrors                           :         0.78      12            0.0649
+OOPS_STATS oops::ObsError::inverseVariance                     :         0.00       2            0.0014
+OOPS_STATS oops::ObsError::obserrors                           :         0.10      12            0.0086
+OOPS_STATS oops::ObsError::save                                :         0.04       2            0.0176
+OOPS_STATS oops::ObsError::update                              :         0.60      12            0.0502
+OOPS_STATS oops::ObsError::~ObsError                           :         0.09      12            0.0075
+OOPS_STATS oops::ObsFilter::Background Check::ObsFilter        :         0.12       6            0.0207
+OOPS_STATS oops::ObsFilter::Background Check::postFilter       :         0.21       6            0.0346
+OOPS_STATS oops::ObsFilter::Background Check::preProcess       :         0.00       6            0.0004
+OOPS_STATS oops::ObsFilter::Background Check::priorFilter      :         0.00       6            0.0001
+OOPS_STATS oops::ObsFilter::Final Check::ObsFilter             :         0.03      12            0.0028
+OOPS_STATS oops::ObsFilter::Final Check::postFilter            :         0.01      12            0.0004
+OOPS_STATS oops::ObsFilter::Final Check::preProcess            :         0.00      12            0.0003
+OOPS_STATS oops::ObsFilter::Final Check::priorFilter           :         0.00      12            0.0003
+OOPS_STATS oops::ObsFilter::ObsFilter                          :         0.53      30            0.0178
+OOPS_STATS oops::ObsFilter::QCmanager::ObsFilter               :         0.35      12            0.0290
+OOPS_STATS oops::ObsFilter::QCmanager::postFilter              :         0.01      12            0.0010
+OOPS_STATS oops::ObsFilter::QCmanager::preProcess              :         0.01      12            0.0005
+OOPS_STATS oops::ObsFilter::QCmanager::priorFilter             :         0.01      12            0.0010
+OOPS_STATS oops::ObsFilter::checkFilterData                    :         0.03      90            0.0003
+OOPS_STATS oops::ObsFilter::postFilter                         :         0.24      30            0.0081
+OOPS_STATS oops::ObsFilter::preProcess                         :         0.03      30            0.0011
+OOPS_STATS oops::ObsFilter::priorFilter                        :         0.04      30            0.0012
+OOPS_STATS oops::ObsFilter::~ObsFilter                         :         0.16      54            0.0030
+OOPS_STATS oops::ObsOperator::Lorenz 95::ObsOperator           :         0.07      12            0.0060
+OOPS_STATS oops::ObsOperator::Lorenz 95::computeReducedVars    :         0.00      12            0.0001
+OOPS_STATS oops::ObsOperator::Lorenz 95::locations             :         0.53      12            0.0440
+OOPS_STATS oops::ObsOperator::Lorenz 95::requiredVars          :         0.00      12            0.0001
+OOPS_STATS oops::ObsOperator::Lorenz 95::simulateObs           :         0.15      12            0.0124
+OOPS_STATS oops::ObsOperator::Lorenz 95::~ObsOperator          :         0.05      12            0.0040
+OOPS_STATS oops::ObsSpace::ObsSpace                            :         3.64       1            3.6404
+OOPS_STATS oops::ObsSpace::obsvariables                        :         0.00      24            0.0001
+OOPS_STATS oops::ObsSpace::save                                :         0.01       1            0.0147
+OOPS_STATS oops::ObsSpace::~ObsSpace                           :         0.41       1            0.4123
+OOPS_STATS oops::ObsVector::ObsVector                          :         0.30     129            0.0023
+OOPS_STATS oops::ObsVector::dot_product                        :         0.04       2            0.0181
+OOPS_STATS oops::ObsVector::invert                             :         0.02      24            0.0008
+OOPS_STATS oops::ObsVector::mask(ObsVector)                    :         0.16      64            0.0025
+OOPS_STATS oops::ObsVector::ones                               :         0.02      80            0.0003
+OOPS_STATS oops::ObsVector::operator*=                         :         0.05      26            0.0019
+OOPS_STATS oops::ObsVector::operator+=                         :         0.04      10            0.0042
+OOPS_STATS oops::ObsVector::operator-=                         :         0.08      14            0.0059
+OOPS_STATS oops::ObsVector::operator=                          :         0.13      64            0.0020
+OOPS_STATS oops::ObsVector::packEigen                          :         0.27     320            0.0008
+OOPS_STATS oops::ObsVector::packEigenSize                      :         0.20     360            0.0005
+OOPS_STATS oops::ObsVector::save                               :         0.30      28            0.0107
+OOPS_STATS oops::ObsVector::zero                               :         0.01      14            0.0011
+OOPS_STATS oops::ObsVector::~ObsVector                         :         0.06     129            0.0005
+OOPS_STATS oops::Parameters::deserialize                       :         5.13      81            0.0633
+OOPS_STATS oops::Parameters::serialize                         :         0.48      30            0.0161
+OOPS_STATS oops::Parameters::validate                          :        36.81      19            1.9374
+OOPS_STATS oops::SampledLocations::SampledLocations            :         0.01      24            0.0004
+OOPS_STATS oops::SampledLocations::latitudes                   :         0.00      12            0.0001
+OOPS_STATS oops::SampledLocations::longitudes                  :         0.00      12            0.0002
+OOPS_STATS oops::SampledLocations::times                       :         0.00      12            0.0001
+OOPS_STATS oops::SampledLocations::~SampledLocations           :         0.04      36            0.0011
+OOPS_STATS oops::State::State                                  :         3.15      38            0.0829
+OOPS_STATS oops::State::accumul                                :         0.16      10            0.0159
+OOPS_STATS oops::State::operator=                              :         0.09      17            0.0053
+OOPS_STATS oops::State::print                                  :         2.68      31            0.0865
+OOPS_STATS oops::State::toFieldSet                             :         0.77      12            0.0645
+OOPS_STATS oops::State::variables                              :         0.00       1            0.0004
+OOPS_STATS oops::State::write                                  :         3.62       5            0.7247
+OOPS_STATS oops::State::zero                                   :         0.05       2            0.0241
+OOPS_STATS oops::State::~State                                 :         0.45      38            0.0118
+OOPS_STATS oops::VariableChange::VariableChange                :         0.00      12            0.0002
+OOPS_STATS oops::VariableChange::changeVar                     :         0.00      12            0.0003
+OOPS_STATS oops::VariableChange::~VariableChange               :         0.01      12            0.0006
+OOPS_STATS util::Timers::Total                                 :       121.84       1          121.8418
+OOPS_STATS util::Timers::measured                              :       101.95       1          101.9516
+OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
+
+OOPS_STATS ------------------------------------------------------------------------------------------------------------------
+OOPS_STATS ---------------------------------- Parallel Timing Statistics (   1 MPI tasks) -----------------------------------
+OOPS_STATS ------------------------------------------------------------------------------------------------------------------
+OOPS_STATS Name                                                :     min (ms)    max (ms)    avg (ms)     % total   imbal (%)
+OOPS_STATS oops::GeoVaLs::fill                                 :         0.15        0.15        0.15        0.12        0.00
+OOPS_STATS oops::Geometry::Geometry                            :         5.13        5.13        5.13        4.21        0.00
+OOPS_STATS oops::Geometry::latlon                              :         0.52        0.52        0.52        0.43        0.00
+OOPS_STATS oops::Geometry::~Geometry                           :         0.14        0.14        0.14        0.11        0.00
+OOPS_STATS oops::GeometryData::setGlobalTree                   :         0.28        0.28        0.28        0.23        0.00
+OOPS_STATS oops::GeometryData::setLocalTree                    :         1.01        1.01        1.01        0.83        0.00
+OOPS_STATS oops::GetValues::GetValues                          :         2.08        2.08        2.08        1.71        0.00
+OOPS_STATS oops::GetValues::fillGeoVaLs                        :         0.78        0.78        0.78        0.64        0.00
+OOPS_STATS oops::GetValues::finalize                           :         0.80        0.80        0.80        0.66        0.00
+OOPS_STATS oops::GetValues::process                            :         1.68        1.68        1.68        1.38        0.00
+OOPS_STATS oops::Increment::Increment                          :         0.14        0.14        0.14        0.11        0.00
+OOPS_STATS oops::Increment::diff                               :         0.13        0.13        0.13        0.11        0.00
+OOPS_STATS oops::Increment::getLocal                           :         0.37        0.37        0.37        0.30        0.00
+OOPS_STATS oops::LETKFSolver::applyWeights                     :         1.60        1.60        1.60        1.32        0.00
+OOPS_STATS oops::LETKFSolver::computeWeights                   :         3.79        3.79        3.79        3.11        0.00
+OOPS_STATS oops::LETKFSolver::measurementUpdate                :         8.35        8.35        8.35        6.85        0.00
+OOPS_STATS oops::LocalEnsembleSolver::computeHofX              :        35.30       35.30       35.30       28.97        0.00
+OOPS_STATS oops::LocalInterpolator::apply                      :         1.26        1.26        1.26        1.04        0.00
+OOPS_STATS oops::Model::initialize                             :         0.27        0.27        0.27        0.22        0.00
+OOPS_STATS oops::ModelAuxControl::ModelAuxControl              :         0.19        0.19        0.19        0.16        0.00
+OOPS_STATS oops::ObsAuxControl::ObsAuxControl                  :         0.27        0.27        0.27        0.22        0.00
+OOPS_STATS oops::ObsDataVector::ObsDataVector                  :         0.14        0.14        0.14        0.12        0.00
+OOPS_STATS oops::ObsError::ObsErrors                           :         0.78        0.78        0.78        0.64        0.00
+OOPS_STATS oops::ObsError::update                              :         0.60        0.60        0.60        0.49        0.00
+OOPS_STATS oops::ObsFilter::Background Check::ObsFilter        :         0.12        0.12        0.12        0.10        0.00
+OOPS_STATS oops::ObsFilter::Background Check::postFilter       :         0.21        0.21        0.21        0.17        0.00
+OOPS_STATS oops::ObsFilter::ObsFilter                          :         0.53        0.53        0.53        0.44        0.00
+OOPS_STATS oops::ObsFilter::QCmanager::ObsFilter               :         0.35        0.35        0.35        0.29        0.00
+OOPS_STATS oops::ObsFilter::postFilter                         :         0.24        0.24        0.24        0.20        0.00
+OOPS_STATS oops::ObsFilter::~ObsFilter                         :         0.16        0.16        0.16        0.13        0.00
+OOPS_STATS oops::ObsOperator::Lorenz 95::locations             :         0.53        0.53        0.53        0.43        0.00
+OOPS_STATS oops::ObsOperator::Lorenz 95::simulateObs           :         0.15        0.15        0.15        0.12        0.00
+OOPS_STATS oops::ObsSpace::ObsSpace                            :         3.64        3.64        3.64        2.99        0.00
+OOPS_STATS oops::ObsSpace::~ObsSpace                           :         0.41        0.41        0.41        0.34        0.00
+OOPS_STATS oops::ObsVector::ObsVector                          :         0.30        0.30        0.30        0.24        0.00
+OOPS_STATS oops::ObsVector::mask(ObsVector)                    :         0.16        0.16        0.16        0.13        0.00
+OOPS_STATS oops::ObsVector::operator=                          :         0.13        0.13        0.13        0.11        0.00
+OOPS_STATS oops::ObsVector::packEigen                          :         0.27        0.27        0.27        0.22        0.00
+OOPS_STATS oops::ObsVector::packEigenSize                      :         0.20        0.20        0.20        0.16        0.00
+OOPS_STATS oops::ObsVector::save                               :         0.30        0.30        0.30        0.25        0.00
+OOPS_STATS oops::Parameters::deserialize                       :         5.13        5.13        5.13        4.21        0.00
+OOPS_STATS oops::Parameters::serialize                         :         0.48        0.48        0.48        0.40        0.00
+OOPS_STATS oops::Parameters::validate                          :        36.81       36.81       36.81       30.21        0.00
+OOPS_STATS oops::State::State                                  :         3.15        3.15        3.15        2.59        0.00
+OOPS_STATS oops::State::accumul                                :         0.16        0.16        0.16        0.13        0.00
+OOPS_STATS oops::State::print                                  :         2.68        2.68        2.68        2.20        0.00
+OOPS_STATS oops::State::toFieldSet                             :         0.77        0.77        0.77        0.63        0.00
+OOPS_STATS oops::State::write                                  :         3.62        3.62        3.62        2.97        0.00
+OOPS_STATS oops::State::~State                                 :         0.45        0.45        0.45        0.37        0.00
+OOPS_STATS util::Timers::Total                                 :       121.84      121.84      121.84      100.00        0.00
+OOPS_STATS util::Timers::measured                              :       101.95      101.95      101.95       83.68        0.00
+OOPS_STATS ---------------------------------- Parallel Timing Statistics (   1 MPI tasks) -----------------------------------
+
+OOPS_STATS Run end                                  - Runtime:      0.16 sec,  Memory: total:    35.05 Mb, per task: min =    35.05 Mb, max =    35.05 Mb
+Run: Finishing oops::LocalEnsembleDA<Lorenz 95, Lorenz 95 Obs> with status = 0
+[TestReference] Comparison is done
+OOPS Ending   2024-12-06 17:45:27 (UTC+0000)
+<end of output>
+Test time =   0.25 sec
+----------------------------------------------------------
+Test Passed.
+"test_l95_letkf_qc" end time: Dec 06 17:45 UTC
+"test_l95_letkf_qc" time elapsed: 00:00:00
+----------------------------------------------------------
+
+151/305 Testing: test_l95_letkf_gsi
+151/305 Test: test_l95_letkf_gsi
+Command: "/home/nonroot/shared/oops/build/bin/l95_letkf.x" "testinput/letkf_gsi.yaml"
+Directory: /home/nonroot/shared/oops/build/l95/test
+"test_l95_letkf_gsi" start time: Dec 06 17:45 UTC
+Output:
+----------------------------------------------------------
+Configuration input file is: testinput/letkf_gsi.yaml
+OOPS Starting 2024-12-06 17:45:27 (UTC+0000)
+[TestReference] Comparing to reference file: testoutput/letkf.test
+Relative float tolerance for tests : 0.0001
+Absolute float tolerance for tests : 0
+Full configuration is:YAMLConfiguration[path=testinput/letkf_gsi.yaml, root={window begin => 2010-01-01T21:00:00Z , window length => PT6H , geometry => {resol => 40} , background => {members from template => {template => {date => 2010-01-02T00:00:00Z , filename => Data/forecast.ens.%mem%.2010-01-01T00:00:00Z.P1D.l95} , pattern => %mem% , nmembers => 5}} , observations => {observers => ({obs error => {covariance model => diagonal} , obs localizations => ({localization method => Gaspari-Cohn , lengthscale => 0.1}) , obs space => {obsdatain => {engine => {obsfile => Data/truth3d.2010-01-02T00:00:00Z.obt}} , obsdataout => {engine => {obsfile => Data/letkf_gsi.2010-01-02T00:00:00Z.obt}}} , obs operator => {}})} , driver => {save prior mean => true , save posterior mean => true , save posterior mean increment => true , save prior variance => true , save posterior variance => true , update obs config with geometry info => false} , local ensemble DA => {solver => GSI LETKF , inflation => {rtps => 0.5 , rtpp => 0.5 , mult => 1.1}} , output => {datadir => Data , date => 2010-01-02T00:00:00Z , exp => letkf_gsi.%{member}% , type => an} , output increment => {datadir => Data , date => 2010-01-02T00:00:00Z , exp => letkf_gsi.increment.%{member}% , type => an} , output mean prior => {datadir => Data , date => 2010-01-02T00:00:00Z , exp => letkf_gsi.xbmean.%{member}% , type => an} , output variance prior => {datadir => Data , date => 2010-01-02T00:00:00Z , exp => letkf_gsi.xbvar.%{member}% , type => an} , output variance posterior => {datadir => Data , date => 2010-01-02T00:00:00Z , exp => letkf_gsi.xavar.%{member}% , type => an} , test => {reference filename => testoutput/letkf.test , float relative tolerance => 0.0001}}]
+OOPS_STATS ObjectCountHelper started.
+OOPS_STATS Run start                                - Runtime:      0.03 sec,  Memory: total:    29.84 Mb, per task: min =    29.84 Mb, max =    29.84 Mb
+Run: Starting oops::LocalEnsembleDA<Lorenz 95, Lorenz 95 Obs>
+Observation window from 2010-01-01T21:00:00Z to 2010-01-02T03:00:00Z
+GeometryData: Global tree size = 40, footprint = 2560
+OOPS_STATS LocalEnsembleDA before solver ctor       - Runtime:     0.28 sec,  Local Memory:    34.37 Mb
+Multiplicative inflation will be applied with multCoeff=1.1
+RTPP inflation will be applied with rtppCoeff=0.5
+RTPS inflation will be applied with rtpsCoeff=0.5
+Using EIGEN implementation of LETKF
+Test     : Initial state for member 1:
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=3.5360944731346300e+00, Max=1.1197408772662600e+01, Average=7.9097771698488781e+00
+Test     : Initial state for member 2:
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=3.7750714660572902e+00, Max=1.1184390839101701e+01, Average=7.7504740680820658e+00
+Test     : Initial state for member 3:
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=5.3688150613089300e+00, Max=1.0844015150837601e+01, Average=7.8057606908578121e+00
+Test     : Initial state for member 4:
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=4.1463865178134700e+00, Max=1.1673384864377301e+01, Average=7.7600117472793597e+00
+Test     : Initial state for member 5:
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=3.1756287528176999e+00, Max=1.0818287765402999e+01, Average=7.6024271099360359e+00
+OOPS_STATS LocalEnsembleDA before computeHofX       - Runtime:     0.29 sec,  Local Memory:    34.37 Mb
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.53609, Max=11.1974, Average=7.90978
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.53609, Max=11.1974, Average=7.90978
+ObsErrorDiag covariance updated 120
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+Test     : H(x) for member 1:
+Test     : Lorenz 95 nobs= 120 Min=3.5360944731346300e+00, Max=1.1197408772662600e+01, Average=7.9097771698488808e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.77507, Max=11.1844, Average=7.75047
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.77507, Max=11.1844, Average=7.75047
+ObsErrorDiag covariance updated 120
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+Test     : H(x) for member 2:
+Test     : Lorenz 95 nobs= 120 Min=3.7750714660572902e+00, Max=1.1184390839101701e+01, Average=7.7504740680820694e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.36882, Max=10.844, Average=7.80576
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.36882, Max=10.844, Average=7.80576
+ObsErrorDiag covariance updated 120
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+Test     : H(x) for member 3:
+Test     : Lorenz 95 nobs= 120 Min=5.3688150613089300e+00, Max=1.0844015150837601e+01, Average=7.8057606908578174e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=4.14639, Max=11.6734, Average=7.76001
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=4.14639, Max=11.6734, Average=7.76001
+ObsErrorDiag covariance updated 120
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+Test     : H(x) for member 4:
+Test     : Lorenz 95 nobs= 120 Min=4.1463865178134700e+00, Max=1.1673384864377301e+01, Average=7.7600117472793606e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.17563, Max=10.8183, Average=7.60243
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=3.17563, Max=10.8183, Average=7.60243
+ObsErrorDiag covariance updated 120
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+Test     : H(x) for member 5:
+Test     : Lorenz 95 nobs= 120 Min=3.1756287528176999e+00, Max=1.0818287765402999e+01, Average=7.6024271099360394e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.25199, Max=9.50208, Average=7.76569
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.25199, Max=9.50208, Average=7.76569
+ObsErrorDiag covariance updated 120
+ObsTable::putdb over-writing ObsBias0
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+ObsTable::putdb over-writing ObsError
+Test     : H(x) ensemble background mean: 
+Test     : Lorenz 95 nobs= 120 Min=5.2519885916484164e+00, Max=9.5020752396112194e+00, Average=7.7656901572008303e+00
+
+Test     : background y - H(x): 
+Test     : Lorenz 95 nobs= 120 Min=-1.4837852396112190e+00, Max=2.7440514083515835e+00, Average=2.4570017613250186e-01
+
+Test     : Background mean :
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=5.2519885916484164e+00, Max=9.5020752396112176e+00, Average=7.7656901572008321e+00
+Beginning core local solver...
+OOPS_STATS LocalEnsembleDA before solver            - Runtime:      0.32 sec,  Memory: total:    34.65 Mb, per task: min =    34.65 Mb, max =    34.65 Mb
+Local solver completed.
+OOPS_STATS LocalEnsembleDA after solver             - Runtime:      0.33 sec,  Memory: total:    37.79 Mb, per task: min =    37.79 Mb, max =    37.79 Mb
+Test     : Analysis mean :
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=6.7304417854174021e+00, Max=9.1900215911437062e+00, Average=7.9883188720032283e+00
+Test     : Analysis mean increment :
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=-1.5531557283020998e+00, Max=2.4136226696835186e+00, Average=2.2262871480239532e-01
+Test     : Forecast variance :
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=1.8005268601820407e-01, Max=5.9517881311415444e+00, Average=2.1631132241838325e+00
+Test     : Analysis variance :
+Test     :  Valid time: 2010-01-02T00:00:00Z
+Test     :  Min=1.2782349607623833e-01, Max=3.5305573368128251e+00, Average=1.3172050737298102e+00
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=6.31713, Max=10.1291, Average=8.09746
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=6.31713, Max=10.1291, Average=8.09746
+ObsErrorDiag covariance updated 120
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+Test     : H(x) for member 1:
+Test     : Lorenz 95 nobs= 120 Min=6.3171262932851135e+00, Max=1.0129111366564905e+01, Average=8.0974628882735349e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.53728, Max=9.94295, Average=7.97522
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.53728, Max=9.94295, Average=7.97522
+ObsErrorDiag covariance updated 120
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+Test     : H(x) for member 2:
+Test     : Lorenz 95 nobs= 120 Min=5.5372770966144493e+00, Max=9.9429463991403697e+00, Average=7.9752184655828655e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.98634, Max=10.5925, Average=8.01708
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.98634, Max=10.5925, Average=8.01708
+ObsErrorDiag covariance updated 120
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+Test     : H(x) for member 3:
+Test     : Lorenz 95 nobs= 120 Min=5.9863385857266938e+00, Max=1.0592451297083015e+01, Average=8.0170752825073581e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=4.57542, Max=11.5295, Average=7.98557
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=4.57542, Max=11.5295, Average=7.98557
+ObsErrorDiag covariance updated 120
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+Test     : H(x) for member 4:
+Test     : Lorenz 95 nobs= 120 Min=4.5754164595262843e+00, Max=1.1529525142563621e+01, Average=7.9855709060985580e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.01152, Max=9.81763, Average=7.86627
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.01152, Max=9.81763, Average=7.86627
+ObsErrorDiag covariance updated 120
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+Test     : H(x) for member 5:
+Test     : Lorenz 95 nobs= 120 Min=5.0115201146838997e+00, Max=9.8176338741528788e+00, Average=7.8662668175538206e+00
+
+Model:forecast: forecast starting: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.25199, Max=9.50208, Average=7.76569
+Model:forecast: forecast finished: 
+ Valid time: 2010-01-02T00:00:00Z
+ Min=5.25199, Max=9.50208, Average=7.76569
+ObsErrorDiag covariance updated 120
+ObsTable::putdb over-writing ObsBias1
+Observer::finalize QC = Lorenz 95 nobs= 120 Min=0, Max=0, Average=0
+ObsTable::putdb over-writing ObsError
+Test     : H(x) ensemble analysis mean: 
+Test     : Lorenz 95 nobs= 120 Min=6.7304417854174021e+00, Max=9.1900215911437044e+00, Average=7.9883188720032274e+00
+
+Test     : analysis y - H(x): 
+Test     : Lorenz 95 nobs= 120 Min=-2.6570253892653994e-01, Max=4.4146792676460755e-01, Average=2.3071461330107047e-02
+
+Test     : ombg RMS: 8.6409563643508913e-01
+Test     : oman RMS: 1.4632164931039407e-01
+
+Run: Finishing oops::LocalEnsembleDA<Lorenz 95, Lorenz 95 Obs>
+OOPS_STATS  
+OOPS_STATS ----------------------------------------------------------------------------------
+OOPS_STATS --------------------------- Object counts ----------------------------------------
+OOPS_STATS ----------------------------------------------------------------------------------
+OOPS_STATS                                      Total  Simult. Remain    Avg (Mb)    HWM (Mb)
+OOPS_STATS lorenz95::GomL95                :       12       1        
+OOPS_STATS lorenz95::IncrementL95          :       25      13        
+OOPS_STATS lorenz95::Iterator              :      124       3        
+OOPS_STATS lorenz95::LocsL95               :       12       1        
+OOPS_STATS lorenz95::ModelBias             :       12       1        
+OOPS_STATS lorenz95::ObsBias               :       12       1        
+OOPS_STATS lorenz95::ObsData1D             :       36       3        
+OOPS_STATS lorenz95::ObsTable              :        1       1        
+OOPS_STATS lorenz95::ObsVec1D              :      129      21        
+OOPS_STATS lorenz95::ObservationL95        :       12       1        
+OOPS_STATS lorenz95::StateL95              :       38       9        
+OOPS_STATS oops::GeoVaLs                   :       12       1        
+OOPS_STATS oops::Geometry                  :        1       1        
+OOPS_STATS oops::GeometryIterator          :       82       2        
+OOPS_STATS oops::GetValues                 :       12       1        
+OOPS_STATS oops::Increment                 :       25      13                0.00        0.00
+OOPS_STATS oops::LocalInterpolator         :       12       1        
+OOPS_STATS oops::Model                     :       12       1        
+OOPS_STATS oops::ModelAuxControl           :       12       1        
+OOPS_STATS oops::ObsAuxControl             :       12       1        
+OOPS_STATS oops::ObsDataVector             :       36       3        
+OOPS_STATS oops::ObsDiagnostics            :       12       1        
+OOPS_STATS oops::ObsError                  :       12       2        
+OOPS_STATS oops::ObsOperator               :       12       1        
+OOPS_STATS oops::ObsSpace                  :        1       1                2.15        2.15
+OOPS_STATS oops::ObsSpaces                 :        1       1        
+OOPS_STATS oops::ObsVector                 :      129      21                0.00        0.02
+OOPS_STATS oops::SampledLocations          :       36       3        
+OOPS_STATS oops::State                     :       38       9                0.00        0.00
+OOPS_STATS oops::VariableChange            :       12       1        
+OOPS_STATS ----------------------------- Object counts --------------------------------------
+OOPS_STATS  
+OOPS_STATS --------------------------------------------------------------------------------------------
+OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
+OOPS_STATS --------------------------------------------------------------------------------------------
+OOPS_STATS Name                                                :   total (ms)   count    time/call (ms)
+OOPS_STATS oops::GeoVaLs::GeoVaLs                              :         0.14      12            0.0113
+OOPS_STATS oops::GeoVaLs::fill                                 :         0.07      12            0.0059
+OOPS_STATS oops::GeoVaLs::~GeoVaLs                             :         0.02      12            0.0020
+OOPS_STATS oops::Geometry::Geometry                            :         6.59       1            6.5895
+OOPS_STATS oops::Geometry::begin                               :         0.09       1            0.0864
+OOPS_STATS oops::Geometry::end                                 :         0.07      41            0.0016
+OOPS_STATS oops::Geometry::latlon                              :         0.64       2            0.3183
+OOPS_STATS oops::Geometry::variableSizes                       :         0.04      36            0.0012
+OOPS_STATS oops::Geometry::~Geometry                           :         0.08       1            0.0810
+OOPS_STATS oops::GeometryData::setGlobalTree                   :         0.34       1            0.3372
+OOPS_STATS oops::GeometryData::setLocalTree                    :         0.93       1            0.9292
+OOPS_STATS oops::GeometryIterator::GeometryIterator            :         0.01      82            0.0001
+OOPS_STATS oops::GeometryIterator::operator!=                  :         0.01      41            0.0003
+OOPS_STATS oops::GeometryIterator::operator++                  :         0.06      40            0.0015
+OOPS_STATS oops::GeometryIterator::~GeometryIterator           :         0.03      82            0.0003
+OOPS_STATS oops::GetValues::GetValues                          :         1.56      12            0.1300
+OOPS_STATS oops::GetValues::fillGeoVaLs                        :         0.65      12            0.0541
+OOPS_STATS oops::GetValues::finalize                           :         0.83      12            0.0692
+OOPS_STATS oops::GetValues::process                            :         1.21      12            0.1011
+OOPS_STATS oops::Increment::Increment                          :         0.11      25            0.0043
+OOPS_STATS oops::Increment::diff                               :         0.12       6            0.0207
+OOPS_STATS oops::Increment::getLocal                           :         0.39     320            0.0012
+OOPS_STATS oops::Increment::operator*=                         :         0.03       4            0.0064
+OOPS_STATS oops::Increment::operator+=                         :         0.04      20            0.0019
+OOPS_STATS oops::Increment::operator+=(State, Increment)       :         0.06       5            0.0121
+OOPS_STATS oops::Increment::operator-=                         :         0.05      10            0.0051
+OOPS_STATS oops::Increment::print                              :         0.07       3            0.0244
+OOPS_STATS oops::Increment::schur_product_with                 :         0.04      10            0.0035
+OOPS_STATS oops::Increment::setLocal                           :         0.04     200            0.0002
+OOPS_STATS oops::Increment::~Increment                         :         0.06      25            0.0026
+OOPS_STATS oops::LETKFSolver::applyWeights                     :         1.79      40            0.0446
+OOPS_STATS oops::LETKFSolver::measurementUpdate                :        12.86      40            0.3214
+OOPS_STATS oops::LocalEnsembleSolver::computeHofX              :        26.48       2           13.2415
+OOPS_STATS oops::LocalInterpolator::LocalInterpolator          :         0.12      12            0.0100
+OOPS_STATS oops::LocalInterpolator::apply                      :         0.88      12            0.0733
+OOPS_STATS oops::LocalInterpolator::~LocalInterpolator         :         0.03      12            0.0028
+OOPS_STATS oops::Model::finalize                               :         0.01      12            0.0012
+OOPS_STATS oops::Model::initialize                             :         0.29      12            0.0246
+OOPS_STATS oops::Model::~Model                                 :         0.01      12            0.0007
+OOPS_STATS oops::ModelAuxControl::ModelAuxControl              :         0.08      12            0.0063
+OOPS_STATS oops::ModelAuxControl::~ModelAuxControl             :         0.00      12            0.0003
+OOPS_STATS oops::ObsAuxControl::ObsAuxControl                  :         0.32      12            0.0265
+OOPS_STATS oops::ObsAuxControl::requiredHdiagnostics           :         0.00      12            0.0002
+OOPS_STATS oops::ObsAuxControl::requiredVars                   :         0.00      24            0.0001
+OOPS_STATS oops::ObsAuxControl::~ObsAuxControl                 :         0.01      12            0.0008
+OOPS_STATS oops::ObsDataVector::ObsDataVector                  :         0.11      36            0.0031
+OOPS_STATS oops::ObsDataVector::mask                           :         0.01      12            0.0007
+OOPS_STATS oops::ObsDataVector::operator=                      :         0.05      36            0.0013
+OOPS_STATS oops::ObsDataVector::print                          :         0.18      12            0.0150
+OOPS_STATS oops::ObsDataVector::save                           :         0.12       4            0.0292
+OOPS_STATS oops::ObsDataVector::~ObsDataVector                 :         0.05      36            0.0015
+OOPS_STATS oops::ObsDiagnostics::ObsDiagnostics                :         0.00      12            0.0003
+OOPS_STATS oops::ObsDiagnostics::~ObsDiagnostics               :         0.00      12            0.0002
+OOPS_STATS oops::ObsError::ObsErrors                           :         0.81      12            0.0675
+OOPS_STATS oops::ObsError::inverseVariance                     :         0.00       2            0.0014
+OOPS_STATS oops::ObsError::obserrors                           :         0.11      12            0.0089
+OOPS_STATS oops::ObsError::save                                :         0.06       2            0.0276
+OOPS_STATS oops::ObsError::update                              :         0.26      12            0.0215
+OOPS_STATS oops::ObsError::~ObsError                           :         0.12      12            0.0099
+OOPS_STATS oops::ObsOperator::Lorenz 95::ObsOperator           :         0.07      12            0.0056
+OOPS_STATS oops::ObsOperator::Lorenz 95::computeReducedVars    :         0.00      12            0.0001
+OOPS_STATS oops::ObsOperator::Lorenz 95::locations             :         0.40      12            0.0329
+OOPS_STATS oops::ObsOperator::Lorenz 95::requiredVars          :         0.00      12            0.0001
+OOPS_STATS oops::ObsOperator::Lorenz 95::simulateObs           :         0.07      12            0.0057
+OOPS_STATS oops::ObsOperator::Lorenz 95::~ObsOperator          :         0.06      12            0.0050
+OOPS_STATS oops::ObsSpace::ObsSpace                            :         3.53       1            3.5341
+OOPS_STATS oops::ObsSpace::obsvariables                        :         0.00      24            0.0000
+OOPS_STATS oops::ObsSpace::save                                :         8.53       1            8.5263
+OOPS_STATS oops::ObsSpace::~ObsSpace                           :         0.11       1            0.1109
+OOPS_STATS oops::ObsVector::ObsVector                          :         0.32     129            0.0025
+OOPS_STATS oops::ObsVector::dot_product                        :         0.03       2            0.0162
+OOPS_STATS oops::ObsVector::invert                             :         0.02      24            0.0008
+OOPS_STATS oops::ObsVector::mask(ObsVector)                    :         0.05      64            0.0007
+OOPS_STATS oops::ObsVector::ones                               :         0.03      80            0.0003
+OOPS_STATS oops::ObsVector::operator*=                         :         0.05      26            0.0020
+OOPS_STATS oops::ObsVector::operator+=                         :         0.06      10            0.0060
+OOPS_STATS oops::ObsVector::operator-=                         :         0.03      14            0.0021
+OOPS_STATS oops::ObsVector::operator=                          :         0.38      64            0.0060
+OOPS_STATS oops::ObsVector::packEigen                          :         0.20     320            0.0006
+OOPS_STATS oops::ObsVector::packEigenSize                      :         0.14     360            0.0004
+OOPS_STATS oops::ObsVector::save                               :         0.27      28            0.0096
+OOPS_STATS oops::ObsVector::zero                               :         0.02      14            0.0015
+OOPS_STATS oops::ObsVector::~ObsVector                         :         0.03     129            0.0002
+OOPS_STATS oops::Parameters::deserialize                       :       116.16      60            1.9360
+OOPS_STATS oops::Parameters::serialize                         :         0.72      41            0.0176
+OOPS_STATS oops::Parameters::validate                          :        76.17      22            3.4622
+OOPS_STATS oops::SampledLocations::SampledLocations            :         0.01      24            0.0004
+OOPS_STATS oops::SampledLocations::latitudes                   :         0.00      12            0.0001
+OOPS_STATS oops::SampledLocations::longitudes                  :         0.00      12            0.0001
+OOPS_STATS oops::SampledLocations::times                       :         0.00      12            0.0001
+OOPS_STATS oops::SampledLocations::~SampledLocations           :         0.05      36            0.0015
+OOPS_STATS oops::State::State                                  :        20.92      38            0.5506
+OOPS_STATS oops::State::accumul                                :         0.05      10            0.0052
+OOPS_STATS oops::State::operator=                              :         0.11      17            0.0065
+OOPS_STATS oops::State::print                                  :         1.43      31            0.0461
+OOPS_STATS oops::State::toFieldSet                             :         0.52      12            0.0433
+OOPS_STATS oops::State::variables                              :         0.00       1            0.0010
+OOPS_STATS oops::State::write                                  :         5.19       7            0.7417
+OOPS_STATS oops::State::zero                                   :         0.03       2            0.0145
+OOPS_STATS oops::State::~State                                 :         0.41      38            0.0108
+OOPS_STATS oops::VariableChange::VariableChange                :         0.00      12            0.0002
+OOPS_STATS oops::VariableChange::changeVar                     :         0.00      12            0.0003
+OOPS_STATS oops::VariableChange::~VariableChange               :         0.01      12            0.0005
+OOPS_STATS util::Timers::Total                                 :       323.70       1          323.7016
+OOPS_STATS util::Timers::measured                              :       277.79       1          277.7891
+OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
+
+OOPS_STATS ------------------------------------------------------------------------------------------------------------------
+OOPS_STATS ---------------------------------- Parallel Timing Statistics (   1 MPI tasks) -----------------------------------
+OOPS_STATS ------------------------------------------------------------------------------------------------------------------
+OOPS_STATS Name                                                :     min (ms)    max (ms)    avg (ms)     % total   imbal (%)
+OOPS_STATS oops::Geometry::Geometry                            :         6.59        6.59        6.59        2.04        0.00
+OOPS_STATS oops::Geometry::latlon                              :         0.64        0.64        0.64        0.20        0.00
+OOPS_STATS oops::GeometryData::setGlobalTree                   :         0.34        0.34        0.34        0.10        0.00
+OOPS_STATS oops::GeometryData::setLocalTree                    :         0.93        0.93        0.93        0.29        0.00
+OOPS_STATS oops::GetValues::GetValues                          :         1.56        1.56        1.56        0.48        0.00
+OOPS_STATS oops::GetValues::fillGeoVaLs                        :         0.65        0.65        0.65        0.20        0.00
+OOPS_STATS oops::GetValues::finalize                           :         0.83        0.83        0.83        0.26        0.00
+OOPS_STATS oops::GetValues::process                            :         1.21        1.21        1.21        0.37        0.00
+OOPS_STATS oops::Increment::getLocal                           :         0.39        0.39        0.39        0.12        0.00
+OOPS_STATS oops::LETKFSolver::applyWeights                     :         1.79        1.79        1.79        0.55        0.00
+OOPS_STATS oops::LETKFSolver::measurementUpdate                :        12.86       12.86       12.86        3.97        0.00
+OOPS_STATS oops::LocalEnsembleSolver::computeHofX              :        26.48       26.48       26.48        8.18        0.00
+OOPS_STATS oops::LocalInterpolator::apply                      :         0.88        0.88        0.88        0.27        0.00
+OOPS_STATS oops::ObsError::ObsErrors                           :         0.81        0.81        0.81        0.25        0.00
+OOPS_STATS oops::ObsOperator::Lorenz 95::locations             :         0.40        0.40        0.40        0.12        0.00
+OOPS_STATS oops::ObsSpace::ObsSpace                            :         3.53        3.53        3.53        1.09        0.00
+OOPS_STATS oops::ObsSpace::save                                :         8.53        8.53        8.53        2.63        0.00
+OOPS_STATS oops::ObsVector::operator=                          :         0.38        0.38        0.38        0.12        0.00
+OOPS_STATS oops::Parameters::deserialize                       :       116.16      116.16      116.16       35.89        0.00
+OOPS_STATS oops::Parameters::serialize                         :         0.72        0.72        0.72        0.22        0.00
+OOPS_STATS oops::Parameters::validate                          :        76.17       76.17       76.17       23.53        0.00
+OOPS_STATS oops::State::State                                  :        20.92       20.92       20.92        6.46        0.00
+OOPS_STATS oops::State::print                                  :         1.43        1.43        1.43        0.44        0.00
+OOPS_STATS oops::State::toFieldSet                             :         0.52        0.52        0.52        0.16        0.00
+OOPS_STATS oops::State::write                                  :         5.19        5.19        5.19        1.60        0.00
+OOPS_STATS oops::State::~State                                 :         0.41        0.41        0.41        0.13        0.00
+OOPS_STATS util::Timers::Total                                 :       323.70      323.70      323.70      100.00        0.00
+OOPS_STATS util::Timers::measured                              :       277.79      277.79      277.79       85.82        0.00
+OOPS_STATS ---------------------------------- Parallel Timing Statistics (   1 MPI tasks) -----------------------------------
+
+OOPS_STATS Run end                                  - Runtime:      0.36 sec,  Memory: total:    40.12 Mb, per task: min =    40.12 Mb, max =    40.12 Mb
+Run: Finishing oops::LocalEnsembleDA<Lorenz 95, Lorenz 95 Obs> with status = 0
+[TestReference] Comparison is done
+OOPS Ending   2024-12-06 17:45:28 (UTC+0000)
+<end of output>
+Test time =   0.44 sec
+----------------------------------------------------------
+Test Passed.
+"test_l95_letkf_gsi" end time: Dec 06 17:45 UTC
+"test_l95_letkf_gsi" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Dec 06 17:45 UTC
+
+oops =   1.56 sec*proc
+
+openmp =   0.61 sec*proc
+
+script =   1.56 sec*proc
 

@@ -5,6 +5,7 @@ model:
   name: L95
   tstep: PT1H30M
 forecast length: P3D
+forecast length: PT24000H
 initial condition:
   date: 2010-01-01T00:00:00Z
   filename: Data/forecast.an.2010-01-01T00:00:00Z.l95
@@ -12,8 +13,9 @@ output:
   datadir: Data
   date: 2010-01-01T00:00:00Z
   exp: forecast
-  frequency: PT1H30M
+  #frequency: PT1H30M
+  frequency: PT2400H
   type: fc
 
-test:
-  reference filename: testoutput/forecast.test
+#test:
+#  reference filename: testoutput/forecast.test

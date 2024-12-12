@@ -1,0 +1,11 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/test_l95_obsauxcovariance.dir/executables/TestObsAuxCovariance.cc.o"
+  "CMakeFiles/test_l95_obsauxcovariance.dir/executables/TestObsAuxCovariance.cc.o.d"
+  "test_l95_obsauxcovariance"
+  "test_l95_obsauxcovariance.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/test_l95_obsauxcovariance.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

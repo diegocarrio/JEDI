@@ -1,10 +1,15 @@
-test_l95_truth 2 0.0732707
-test_l95_makeobs4d 2 0.0891606
-test_l95_makeobs4d12h 2 0.0799199
-test_l95_makeobs3d 1 0.132198
-test_l95_forecast 1 0.124278
-test_l95_forecast_pseudomodel 1 0.104568
-test_l95_forecast_identitymodel 1 0.113962
-test_l95_genenspert 2 0.143933
+test_l95_truth 20 0.00725034
+test_l95_makeobs4d 7 0.0256613
+test_l95_makeobs4d12h 8 0.0210355
+test_l95_makeobs3d 17 0.0133775
+test_l95_forecast 3 0.110769
+test_l95_forecast_pseudomodel 3 0.0483439
+test_l95_forecast_identitymodel 3 0.0473843
+test_l95_genenspert 17 0.304093
 test_l95_increment 1 0.0844369
+test_l95_letkf 10 0.0614401
+test_l95_letkf_noobs 20 0.0128018
+test_l95_letkf_qc 20 0.0127454
+test_l95_letkf_gsi 20 0.0217926
+test_qg_letkf 0 0
 ---

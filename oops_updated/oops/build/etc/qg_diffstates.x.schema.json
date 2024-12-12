@@ -1,0 +1,79 @@
+{
+    "additionalProperties": false,
+    "patternProperties": {
+        "^_": {}
+    },
+    "properties": {
+        "increment geometry": {},
+        "output": {
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "date": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "date colons": {
+                    "default": true,
+                    "type": "boolean"
+                },
+                "exp": {
+                    "type": ["string", "number"]
+                },
+                "iteration": {
+                    "type": "integer"
+                },
+                "member": {
+                    "type": "integer"
+                },
+                "member pattern": {
+                    "type": ["string", "number"]
+                },
+                "prefix": {
+                    "type": ["string", "number"]
+                },
+                "type": {
+                    "type": ["string", "number"]
+                }
+            },
+            "type": "object"
+        },
+        "state geometry": {},
+        "state1": {},
+        "state2": {},
+        "test": {
+            "additionalProperties": false,
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "float absolute tolerance": {
+                    "type": "number"
+                },
+                "float relative tolerance": {
+                    "type": "number"
+                },
+                "integer tolerance": {
+                    "type": "integer"
+                },
+                "log output filename": {
+                    "type": ["string", "number"]
+                },
+                "mpi pattern": {
+                    "type": ["string", "number"]
+                },
+                "reference filename": {
+                    "type": ["string", "number"]
+                },
+                "test output filename": {
+                    "type": ["string", "number"]
+                }
+            },
+            "required": ["reference filename"],
+            "type": "object"
+        }
+    },
+    "required": ["increment geometry", "output", "state geometry", "state1", "state2"],
+    "type": "object"
+}

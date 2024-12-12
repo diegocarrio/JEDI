@@ -1,0 +1,67 @@
+{
+    "additionalProperties": false,
+    "patternProperties": {
+        "^_": {}
+    },
+    "properties": {
+        "dfi": {
+            "description": "DFI parameters"
+        },
+        "forecast length": {
+            "description": "forecast length",
+            "format": "duration",
+            "type": "string"
+        },
+        "geometry": {
+            "description": "geometry for initial state"
+        },
+        "initial condition": {
+            "description": "initial state parameters"
+        },
+        "model": {
+            "description": "forecast model parameters"
+        },
+        "model aux control": {
+            "description": "augmented model state"
+        },
+        "output": {
+            "description": "where to write output"
+        },
+        "prints": {
+            "description": "prints during forecast"
+        },
+        "test": {
+            "additionalProperties": false,
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "float absolute tolerance": {
+                    "type": "number"
+                },
+                "float relative tolerance": {
+                    "type": "number"
+                },
+                "integer tolerance": {
+                    "type": "integer"
+                },
+                "log output filename": {
+                    "type": ["string", "number"]
+                },
+                "mpi pattern": {
+                    "type": ["string", "number"]
+                },
+                "reference filename": {
+                    "type": ["string", "number"]
+                },
+                "test output filename": {
+                    "type": ["string", "number"]
+                }
+            },
+            "required": ["reference filename"],
+            "type": "object"
+        }
+    },
+    "required": ["dfi", "forecast length", "geometry", "initial condition", "model", "output"],
+    "type": "object"
+}

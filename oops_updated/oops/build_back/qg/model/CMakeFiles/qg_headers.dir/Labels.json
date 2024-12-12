@@ -1,0 +1,19 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/build/qg/model/CMakeFiles/qg_headers"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/build/qg/model/CMakeFiles/qg_headers.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"oops"
+		],
+		"name" : "qg_headers"
+	}
+}

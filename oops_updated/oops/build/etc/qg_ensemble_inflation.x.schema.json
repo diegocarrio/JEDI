@@ -1,0 +1,64 @@
+{
+    "additionalProperties": false,
+    "patternProperties": {
+        "^_": {}
+    },
+    "properties": {
+        "analysis": {
+            "description": "Analysis ensemble config"
+        },
+        "analysis type": {
+            "enum": ["state", "increment"]
+        },
+        "analysis variables": {
+            "description": "required input when the analysis type is increment, not required for state",
+            "items": {
+                "type": ["string", "number"]
+            },
+            "type": "array"
+        },
+        "background": {
+            "description": "Background ensemble states config"
+        },
+        "geometry": {
+            "description": "Geometry parameters"
+        },
+        "inflation": {},
+        "output": {
+            "description": "analysis mean and ensemble members output"
+        },
+        "test": {
+            "additionalProperties": false,
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "float absolute tolerance": {
+                    "type": "number"
+                },
+                "float relative tolerance": {
+                    "type": "number"
+                },
+                "integer tolerance": {
+                    "type": "integer"
+                },
+                "log output filename": {
+                    "type": ["string", "number"]
+                },
+                "mpi pattern": {
+                    "type": ["string", "number"]
+                },
+                "reference filename": {
+                    "type": ["string", "number"]
+                },
+                "test output filename": {
+                    "type": ["string", "number"]
+                }
+            },
+            "required": ["reference filename"],
+            "type": "object"
+        }
+    },
+    "required": ["analysis", "analysis type", "background", "geometry", "inflation", "output"],
+    "type": "object"
+}

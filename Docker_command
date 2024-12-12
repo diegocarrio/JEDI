@@ -1,0 +1,8 @@
+#
+# Docker command to initialize JEDI/oops:
+#
+
+docker run -u nonroot --rm -it -v /Users/diegocarrio/Dropbox/JEDI_NOAA_Project/JEDI:/home/nonroot/shared jcsda/docker-gnu-openmpi-dev:latest
+
+
+

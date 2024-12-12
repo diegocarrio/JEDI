@@ -1,0 +1,415 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/3densvar.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/3dvar.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/3dvar_change_var.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/3dvar_fc_from_an.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/3dvar_full_inverse.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/3dvar_hybrid.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/3dvar_hybrid_wo_jb_lastj_evaluation.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/3dfgat.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/4dfgat.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/4densvar.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/4densvar_hybrid.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/4dvar_dripcg.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/4dvar_drpcg_lmp.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/4dvar_drpfom.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/4dvar_drplanczos.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/4dvar_drplanczos_hybrid.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/4dvar_forcing.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/4dvar_hybrid_linear_model.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/4dvar_ipcg.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/4dvar_obs_biased.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/4dvar_rpcg.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/addincrement.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/addincrement_scaled.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/analytic_forecast.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/convertincrement.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/convertincrement_inv.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/convertstate.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/dfi.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/diffstates.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/3dvar_single-obs_cov.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/3dvar_single-obs_hyb_field.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/3dvar_single-obs_hyb_value.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/3dvar_single-obs_loc_3d.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/3dvar_single-obs_loc_3d_ensemble_transform.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/3dvar_single-obs_loc_3d_inflation_field.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/3dvar_single-obs_loc_3d_inflation_value.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/4densvar_single-obs_loc_4d_fast.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/4densvar_single-obs_loc_4d_aggressive.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/4densvar_single-obs_loc_4d_standard.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/4densvar_single-obs_loc_4d_time_decay_fast.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/4densvar_single-obs_loc_4d_time_decay_standard.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/4densvar_single-obs_no_loc.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_3dfgat_1.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_3dfgat_2.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_3dfgat_3.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_3dfgat_4.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_3dfgat_with_member_template.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_3dfgat.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_3dvar_2.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_3dvar.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_3dvar_block_1.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_3dvar_block_2.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_3dvar_block_3.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_3dvar_block_4.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_3dvar_block.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_3dvar_control_pert.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_4dvar_1.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_4dvar_2.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_4dvar_3.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_4dvar_4.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_4dvar.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/eda_4dvar_control_pert.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/ens_forecast_1.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/ens_forecast_2.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/ens_forecast.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/ens_hofx_1.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/ens_hofx_2.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/ens_hofx_3.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/ens_hofx_4.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/ens_hofx_5.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/ens_hofx.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/ens_infl_inc.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/ens_infl_states.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/ens_mean_variance.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/ens_recenter.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/error_covariance.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/fieldset4D_par.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/fieldset4D_seq.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/forecast.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/forecast_5level_pert_heat.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/gen_ens_pert_B.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/gen_ens_pert_B_5level_pert_heat.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/gen_hybrid_linear_model_coeffs_pseudo.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/gen_hybrid_linear_model_coeffs_pseudo_multimodel_multigeometry.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/gen_hybrid_linear_model_coeffs_with_subtimestep.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/geometry_iterator.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/geometry.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/geovals.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/getvalues.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/hofx.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/hofx_tinterp.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/hofx3d.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/hybridgain_analysis.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/hybridgain_increment.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/hybrid_linear_model.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/hybrid_linear_model_gen_ens.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/increment.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/letkf.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/linear_model.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/linear_obsoperator.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/linear_variable_change.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/linearization_error.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/localization.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/locations.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/make_obs_3d.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/make_obs_4d_12h.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/make_obs_4d_24h.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/make_obs_4d_24h_5level_pert_heat.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/make_obs_4d_biased.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/make_single-obs_3d.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/make_single-obs_4d_12h.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/model.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/modelauxcovariance.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/modelauxincrement.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/norm.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/obs_aux.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/obs_iterator.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/obs_localization.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/obsoperator.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/obsdatavector.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/obsspace.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/obserror_covariance.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/obs_aux_increment.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/obs_aux_covariance.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/obsvector.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/rescale_ens_perts.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/state.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/truth.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/truth_5level_pert_heat.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/variable_change.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/verticallocev.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/verticallocev_io.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/uniform_field_hybrid.yaml"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/qg/test/testinput/uniform_field_inflation.yaml"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"oops"
+		],
+		"name" : "qg_test_scripts"
+	}
+}

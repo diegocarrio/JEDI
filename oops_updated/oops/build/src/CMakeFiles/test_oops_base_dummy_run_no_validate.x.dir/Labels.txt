@@ -1,0 +1,5 @@
+# Directory labels
+ oops
+# Source files and their labels
+/home/nonroot/shared/oops_updated/oops/build/src/CMakeFiles/test_oops_base_dummy_run_no_validate.x
+/home/nonroot/shared/oops_updated/oops/build/src/CMakeFiles/test_oops_base_dummy_run_no_validate.x.rule

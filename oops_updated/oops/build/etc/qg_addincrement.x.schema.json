@@ -1,0 +1,74 @@
+{
+    "additionalProperties": false,
+    "patternProperties": {
+        "^_": {}
+    },
+    "properties": {
+        "increment": {
+            "description": "Increment to add to state",
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "added variables": {
+                    "default": [],
+                    "description": "List of variables to add",
+                    "items": {
+                        "type": ["string", "number"]
+                    },
+                    "type": "array"
+                },
+                "scaling factor": {
+                    "description": "Scaling factor for the increment",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "increment geometry": {
+            "description": "Increment resolution"
+        },
+        "output": {
+            "description": "Where to write the output"
+        },
+        "state": {
+            "description": "State to be incremented"
+        },
+        "state geometry": {
+            "description": "State resolution"
+        },
+        "test": {
+            "additionalProperties": false,
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "float absolute tolerance": {
+                    "type": "number"
+                },
+                "float relative tolerance": {
+                    "type": "number"
+                },
+                "integer tolerance": {
+                    "type": "integer"
+                },
+                "log output filename": {
+                    "type": ["string", "number"]
+                },
+                "mpi pattern": {
+                    "type": ["string", "number"]
+                },
+                "reference filename": {
+                    "type": ["string", "number"]
+                },
+                "test output filename": {
+                    "type": ["string", "number"]
+                }
+            },
+            "required": ["reference filename"],
+            "type": "object"
+        }
+    },
+    "required": ["increment", "increment geometry", "output", "state", "state geometry"],
+    "type": "object"
+}

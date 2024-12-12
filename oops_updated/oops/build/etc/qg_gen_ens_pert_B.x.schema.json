@@ -1,0 +1,64 @@
+{
+    "additionalProperties": false,
+    "patternProperties": {
+        "^_": {}
+    },
+    "properties": {
+        "background error": {},
+        "forecast length": {
+            "format": "duration",
+            "type": "string"
+        },
+        "geometry": {},
+        "include control": {
+            "default": false,
+            "type": "boolean"
+        },
+        "initial condition": {},
+        "members": {
+            "type": "integer"
+        },
+        "model": {},
+        "model aux control": {},
+        "output": {},
+        "perturbed variables": {
+            "items": {
+                "type": ["string", "number"]
+            },
+            "type": "array"
+        },
+        "test": {
+            "additionalProperties": false,
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "float absolute tolerance": {
+                    "type": "number"
+                },
+                "float relative tolerance": {
+                    "type": "number"
+                },
+                "integer tolerance": {
+                    "type": "integer"
+                },
+                "log output filename": {
+                    "type": ["string", "number"]
+                },
+                "mpi pattern": {
+                    "type": ["string", "number"]
+                },
+                "reference filename": {
+                    "type": ["string", "number"]
+                },
+                "test output filename": {
+                    "type": ["string", "number"]
+                }
+            },
+            "required": ["reference filename"],
+            "type": "object"
+        }
+    },
+    "required": ["background error", "forecast length", "geometry", "initial condition", "members", "model", "output", "perturbed variables"],
+    "type": "object"
+}

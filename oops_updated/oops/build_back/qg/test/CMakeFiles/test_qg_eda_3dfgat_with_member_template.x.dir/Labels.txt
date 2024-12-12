@@ -1,0 +1,5 @@
+# Directory labels
+ oops
+# Source files and their labels
+/home/nonroot/shared/oops_updated/oops/build/qg/test/CMakeFiles/test_qg_eda_3dfgat_with_member_template.x
+/home/nonroot/shared/oops_updated/oops/build/qg/test/CMakeFiles/test_qg_eda_3dfgat_with_member_template.x.rule

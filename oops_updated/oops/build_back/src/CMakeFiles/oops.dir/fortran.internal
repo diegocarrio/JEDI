@@ -1,0 +1,24 @@
+# The fortran modules provided by this target.
+provides
+ datetime_mod.mod
+ dcmip_initial_conditions_test_1_2_3.mod
+ dcmip_initial_conditions_test_4.mod
+ duration_mod.mod
+ fft_init_f.mod
+ fft_pass_proc_f.mod
+ gc99_mod.mod
+ gletkf_interface.mod
+ kinds.mod
+ letkf.mod
+ liboops_mod.mod
+ logger_mod.mod
+ missing_values_mod.mod
+ netcdf_utils_mod.mod
+ obs_variables_mod.mod
+ oops_variables_mod.mod
+ random_mod.mod
+ string_f_c_mod.mod
+ string_utils.mod
+ test_f_c_string.mod
+ test_oops_variables.mod
+ test_random.mod

@@ -1,0 +1,99 @@
+{
+    "additionalProperties": false,
+    "patternProperties": {
+        "^_": {}
+    },
+    "properties": {
+        "increments": {
+            "items": {
+                "additionalProperties": false,
+                "patternProperties": {
+                    "^_": {}
+                },
+                "properties": {
+                    "date": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "input": {
+                        "patternProperties": {
+                            "^_": {}
+                        },
+                        "type": "object"
+                    },
+                    "input variables": {
+                        "items": {
+                            "type": ["string", "number"]
+                        },
+                        "type": "array"
+                    },
+                    "output": {},
+                    "trajectory": {}
+                },
+                "required": ["date", "input", "input variables", "output", "trajectory"],
+                "type": "object"
+            },
+            "type": "array"
+        },
+        "input geometry": {},
+        "linear variable change": {
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "do inverse": {
+                    "default": false,
+                    "description": "apply inverse linear variable change instead of linear variable change",
+                    "type": "boolean"
+                },
+                "input variables": {
+                    "items": {
+                        "type": ["string", "number"]
+                    },
+                    "type": "array"
+                },
+                "output variables": {
+                    "items": {
+                        "type": ["string", "number"]
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "output geometry": {},
+        "test": {
+            "additionalProperties": false,
+            "patternProperties": {
+                "^_": {}
+            },
+            "properties": {
+                "float absolute tolerance": {
+                    "type": "number"
+                },
+                "float relative tolerance": {
+                    "type": "number"
+                },
+                "integer tolerance": {
+                    "type": "integer"
+                },
+                "log output filename": {
+                    "type": ["string", "number"]
+                },
+                "mpi pattern": {
+                    "type": ["string", "number"]
+                },
+                "reference filename": {
+                    "type": ["string", "number"]
+                },
+                "test output filename": {
+                    "type": ["string", "number"]
+                }
+            },
+            "required": ["reference filename"],
+            "type": "object"
+        }
+    },
+    "required": ["increments", "input geometry", "output geometry"],
+    "type": "object"
+}

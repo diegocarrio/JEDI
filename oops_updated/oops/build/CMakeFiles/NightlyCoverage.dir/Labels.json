@@ -1,0 +1,19 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/build/CMakeFiles/NightlyCoverage"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/build/CMakeFiles/NightlyCoverage.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"oops"
+		],
+		"name" : "NightlyCoverage"
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/build/CMakeFiles/NightlyBuild"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/build/CMakeFiles/NightlyBuild.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"oops"
+		],
+		"name" : "NightlyBuild"
+	}
+}

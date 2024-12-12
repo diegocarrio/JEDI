@@ -1,0 +1,19 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/build/qg/test/CMakeFiles/test_qg_ens_hofx.x"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/build/qg/test/CMakeFiles/test_qg_ens_hofx.x.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"oops"
+		],
+		"name" : "test_qg_ens_hofx.x"
+	}
+}

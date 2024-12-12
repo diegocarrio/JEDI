@@ -1,0 +1,19 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/build/qg/mains/CMakeFiles/qg_hybridgain.x.schema.json"
+		},
+		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/build/qg/mains/CMakeFiles/qg_hybridgain.x.schema.json.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"oops"
+		],
+		"name" : "qg_hybridgain.x.schema.json"
+	}
+}
