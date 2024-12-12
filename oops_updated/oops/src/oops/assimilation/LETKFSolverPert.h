@@ -203,7 +203,7 @@ void LETKFSolverPert<MODEL, OBS>::measurementUpdate(const IncrementEnsemble4D_ &
 	   this->copyLocalIncrement(bkg_pert, i, ana_pert);
       } else { 	      
 	      Log::info() << "DCC: Obs found in this local volume. Do normal LETKF update" << std::endl;
-	      Eigen::MatrixXd local_Yb_mat = (this->Yb_).packEigen(locvector);
+	      Eigen::MatrixXd local_Yb_mat = (this->Yb_).packEigen(locvector); // the Eigen::MatrixXd function is used to convert the DeparturesEnsemble_ to Eigen::MatrixXd
 	      Eigen::MatrixXd local_YobsPert_mat = YobsPert_.packEigen(locvector);
 	      Eigen::MatrixXd local_HXb_mat = (this->HXb_).packEigen(locvector);
 	      // Create local obs errors:
@@ -234,7 +234,7 @@ void LETKFSolverPert<MODEL, OBS>::computeWeights(const Eigen::MatrixXd & YobsPer
 	const LocalEnsembleSolverInflationParameters & inflopt = (this->options_).infl;
 
         
-        Eigen::MatrixXf Yb_f       = Yb.cast<float>();
+        Eigen::MatrixXf Yb_f       = Yb.cast<float>(); // cast function converts double to float
 	Eigen::MatrixXf YobsPert_f = YobsPert.cast<float>();
 	Eigen::VectorXf diagInvR_f = diagInvR.cast<float>();
 	Eigen::MatrixXf HXb_f      = HXb.cast<float>();
@@ -255,7 +255,7 @@ void LETKFSolverPert<MODEL, OBS>::computeWeights(const Eigen::MatrixXd & YobsPer
 	eivec_ = es.eigenvectors().real();
 
 	// Computing Pa = [ (Yb^T) R^(-1) Yb + (nens-1)/infl I  ]^(-1):
-	work = eivec_ * (eival_.cwiseInverse().asDiagonal()) * eivec_.transpose();
+	work = eivec_ * (eival_.cwiseInverse().asDiagonal()) * eivec_.transpose(); // cwiseInverse() computes the inverse of the eigenvalues
 
 	
 	// Computing Wa = Pa * (Yb^T) * R^(-1) * (YobsPert - HXb):
@@ -263,7 +263,7 @@ void LETKFSolverPert<MODEL, OBS>::computeWeights(const Eigen::MatrixXd & YobsPer
 	Wa_f = work * ( Yb_f * (diagInvR_f.asDiagonal()) * (YobsPert_f - HXb_f).transpose() );
 
 	Log::info() << "DCC: ComputeWeights in the PERTURBED LETKF COMPLETED" << std::endl;
-	this->Wa_ = Wa_f.cast<double>();
+	this->Wa_ = Wa_f.cast<double>(); // cast function converts float to double
 
 } // End function computeWeights
 
