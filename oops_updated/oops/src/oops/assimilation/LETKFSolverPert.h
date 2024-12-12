@@ -29,12 +29,11 @@
 #include "oops/util/Logger.h"
 
 namespace oops {
-  class Variables;
+  class Variables; 
 
 /*!
  * An implementation of the perturbed form of the LETKF from Hunt et al. 2007
  */
-
 
 template <typename MODEL, typename OBS>
 class LETKFSolverPert : public LETKFSolver<MODEL, OBS> {
@@ -79,23 +78,25 @@ class LETKFSolverPert : public LETKFSolver<MODEL, OBS> {
   virtual void applyWeights(const IncrementEnsemble4D_ &, IncrementEnsemble4D_ &,
                             const GeometryIterator_ &);
 
-
+  // Protected variables:
   protected:
   DeparturesEnsemble_ HXb_;    ///< full background ensemble in the observation space;
 
+  // Private variables:
   private:
-  // eigen solver matrices
+  // eigen solver matrices and vectors:
   Eigen::VectorXf eival_;
   Eigen::MatrixXf eivec_;
 
   DeparturesEnsemble_ YobsPert_;
-  eckit::LocalConfiguration observationsConfig_;
+  eckit::LocalConfiguration observationsConfig_; // Configuration for observations
 
 
 };
 
 
 // -----------------------------------------------------------------------------
+//  Constructor of the LETKF solver:
 template <typename MODEL, typename OBS>
 LETKFSolverPert<MODEL, OBS>::LETKFSolverPert(ObsSpaces_ & obspaces, const Geometry_ & geometry,
                                      const eckit::Configuration & config, size_t nens,
@@ -116,6 +117,7 @@ LETKFSolverPert<MODEL, OBS>::LETKFSolverPert(ObsSpaces_ & obspaces, const Geomet
 
 
 // -----------------------------------------------------------------------------
+//  Compute HofX for the perturbed LETKF:
 template <typename MODEL, typename OBS>
 Observations<OBS> LETKFSolverPert<MODEL, OBS>::computeHofX(const StateEnsemble4D_ & ens_xx,
 		                                          size_t iteration, bool readFromFile) {
@@ -176,6 +178,7 @@ Observations<OBS> LETKFSolverPert<MODEL, OBS>::computeHofX(const StateEnsemble4D
 
 
 // -----------------------------------------------------------------------------
+//  Measurement update for the perturbed LETKF:
 template <typename MODEL, typename OBS>
 void LETKFSolverPert<MODEL, OBS>::measurementUpdate(const IncrementEnsemble4D_ & bkg_pert,
 		                                    const GeometryIterator_ & i,
@@ -218,6 +221,7 @@ void LETKFSolverPert<MODEL, OBS>::measurementUpdate(const IncrementEnsemble4D_ &
 
 
 // -----------------------------------------------------------------------------
+// Compute weights for the perturbed LETKF:
 template <typename MODEL, typename OBS>
 void LETKFSolverPert<MODEL, OBS>::computeWeights(const Eigen::MatrixXd & YobsPert,
 						 const Eigen::MatrixXd & Yb,
@@ -267,6 +271,7 @@ void LETKFSolverPert<MODEL, OBS>::computeWeights(const Eigen::MatrixXd & YobsPer
 
 
 // -----------------------------------------------------------------------------
+// Apply weights and add posterior inflation for the perturbed LETKF:
 template <typename MODEL, typename OBS>
 void LETKFSolverPert<MODEL, OBS>:: applyWeights(const IncrementEnsemble4D_ & bkg_pert,
      						IncrementEnsemble4D_ & ana_pert,
