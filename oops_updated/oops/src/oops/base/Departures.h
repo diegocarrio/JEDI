@@ -19,6 +19,7 @@
 #include <string>
 #include <vector>
 
+// #include "oops/base/Observations.h"          // DCC
 #include "oops/base/GeneralizedDepartures.h"
 #include "oops/base/ObsSpaces.h"
 #include "oops/base/ObsVector.h"
@@ -38,6 +39,12 @@ namespace oops {
  */
 
 // -----------------------------------------------------------------------------
+//template <typename OBS>                         //DCC
+//class Observations;  // Forward declaration     //DCC
+
+
+
+	
 template <typename OBS>
 class Departures : public GeneralizedDepartures {
   typedef ObsSpaces<OBS>           ObsSpaces_;
@@ -56,10 +63,15 @@ class Departures : public GeneralizedDepartures {
 
 // Linear algebra operators
   Departures & operator+=(const Departures &);
-//  Departures & operator+(const Departures &);   //DCC
+  Departures & operator+(const Departures &);   // DCC
   Departures & operator-=(const Departures &);
   Departures & operator*=(const double &);
   Departures & operator*=(const Departures &);
+//  Departures & operator*(const Departures &);  // DCC
+//  Eigen::VectorXd data_;  // DCC
+//  // Constructor
+//  Departures(const Eigen::VectorXd& data) : data_(data) {} // DCC
+//  Departures<OBS> & operator*=(const Observations<OBS> & rhs); // DCC
   Departures & operator/=(const Departures &);
   void zero();
   void ones();
@@ -106,14 +118,13 @@ Departures<OBS>::Departures(const ObsSpaces_ & obsdb,
 
 // -----------------------------------------------------------------------------
 // DCC:
-//template<typename OBS>
-//Departures<OBS> & Departures<OBS>::operator+(const Departures &rhs) {
-//  for (size_t jj = 0; jj < dep_.size(); ++jj) {
-//    dep_[jj] + rhs[jj];
-//  }
-//  return *this;
-//}
-
+template<typename OBS>
+Departures<OBS> & Departures<OBS>::operator+(const Departures & rhs) {
+  for (size_t jj = 0; jj < dep_.size(); ++jj) {
+    dep_[jj] += rhs[jj];
+  }
+  return *this;
+}
 // -----------------------------------------------------------------------------
 template<typename OBS>
 Departures<OBS> & Departures<OBS>::operator+=(const Departures & rhs) {
@@ -139,6 +150,15 @@ Departures<OBS> & Departures<OBS>::operator*=(const double & zz) {
   return *this;
 }
 // -----------------------------------------------------------------------------
+// DCC:
+//template<typename OBS>
+//Departures<OBS> & Departures<OBS>::operator*=(const Observations & rhs) {
+//  for (size_t jj = 0; jj < dep_.size(); ++jj) {
+//    dep_[jj] *= rhs[jj];
+//  }
+//  return *this;  // Return reference for chaining
+//}
+// -----------------------------------------------------------------------------
 template<typename OBS>
 Departures<OBS> & Departures<OBS>::operator*=(const Departures & rhs) {
   for (size_t jj = 0; jj < dep_.size(); ++jj) {
@@ -154,6 +174,21 @@ Departures<OBS> & Departures<OBS>::operator/=(const Departures & rhs) {
   }
   return *this;
 }
+// -----------------------------------------------------------------------------
+// DCC:
+template<typename OBS>
+Departures<OBS> operator*(const Departures<OBS> & lhs, const Departures<OBS> & rhs) {
+    Departures<OBS> result(lhs);  // Copy the left-hand side
+    result *= rhs;               // Use the already defined operator*=
+    return result;
+}
+//template<typename OBS>
+//Departures<OBS> & Departures<OBS>::operator*(const Departures & rhs) {
+//  for (size_t jj = 0; jj < dep_.size(); ++jj) {
+//    dep_[jj] * rhs[jj];
+//  }
+//  return *this;
+//}
 // -----------------------------------------------------------------------------
 template<typename OBS>
 void Departures<OBS>::zero() {

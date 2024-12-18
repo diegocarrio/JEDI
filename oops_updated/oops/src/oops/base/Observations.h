@@ -60,6 +60,9 @@ template <typename OBS> class Observations : public util::Printable {
 
 /// DCC:
   Departures_ operator+(const Departures_ & other) const;
+//  Departures_ operator*=(const Observations &);
+//  Departures & operator*=(const Observations & );
+//  Departures_ & operator*=(const Observations &);
 //  Departures_ operator+(const Observations & other) const;
 //  Observations & operator+(const Departures_ &);
 
@@ -77,6 +80,11 @@ template <typename OBS> class Observations : public util::Printable {
 
   Departures_ obstodep();
 
+/// DCC:  
+// const std::vector<oops::ObsVector<OBS>>& getObs() const {
+//   return obs_;
+// }
+
  private:
   void print(std::ostream &) const;
   size_t nobs() const;
@@ -85,6 +93,10 @@ template <typename OBS> class Observations : public util::Printable {
   const ObsSpaces_ &      obsdb_;
   std::vector<ObsVector_> obs_;
 };
+
+
+
+
 
 // =============================================================================
 
@@ -147,6 +159,57 @@ Departures<OBS> Observations<OBS>::operator+(const Departures_ & other) const {
   return sum;
 }
 // -----------------------------------------------------------------------------
+// DCC:
+//template <typename OBS>
+//Departures<OBS> & Departures<OBS>::operator*=(const Observations<OBS>& rhs) {
+//	const auto& obs_rhs = rhs.getObs();
+//
+//    // Check for size consistency
+//    if (static_cast<std::size_t>(data_.size()) != obs_rhs.size()) {
+//        throw std::invalid_argument("Size mismatch in operator*=: Departures and Observations.");
+//    }
+//
+//    // Perform elementwise multiplication
+//    for (std::size_t i = 0; i < obs_rhs.size(); ++i) {
+//        data_[i] *= obs_rhs[i];
+//    }
+//    return *this;  // Return reference for chaining
+//}
+
+//DCC does not work:
+//template<typename OBS>
+//Departures<OBS> Observations<OBS>::operator*=(const Observations & other) const {
+//  Departures_ mult(obsdb_);	
+//  for (std::size_t jj = 0; jj < obs_.size(); ++jj) {
+//    mult[jj] = obs_[jj];
+//    mult[jj] *= other[jj];
+//  }
+//  return mult;
+//}
+//template<typename OBS>
+//Departures<OBS> & Observations<OBS>::operator*=(const Observations & rhs) {
+//  Departures_ sum(obsdb_);
+//  Log::info() << "DCC: operator *=" << std::endl;  
+//  for (std::size_t jj = 0; jj < obs_.size(); ++jj) {
+//    sum[jj] *= rhs[jj];
+//  }
+//  return *this;
+//}
+// -----------------------------------------------------------------------------
+//DCC:
+//template <typename OBS>
+//Departures<OBS> operator*(const Observations<OBS>& lhs, const Observations<OBS>& rhs) {
+//    if (lhs.data().size() != rhs.data().size()) {
+//        throw std::invalid_argument("Size mismatch in Observations multiplication.");
+//    }
+//
+//    // Perform elementwise multiplication
+//    Eigen::VectorXd result = lhs.data().array() * rhs.data().array();
+//
+//    // Return a Departure_ object
+//    return Departures<OBS>(result);
+//}
+// -----------------------------------------------------------------------------
 template <typename OBS>
 Observations<OBS> & Observations<OBS>::operator+=(const Departures_ & dy) {
   for (std::size_t jj = 0; jj < obs_.size(); ++jj) {
@@ -154,6 +217,15 @@ Observations<OBS> & Observations<OBS>::operator+=(const Departures_ & dy) {
   }
   return *this;
 }
+// -----------------------------------------------------------------------------
+//DCC:
+//template <typename OBS>
+//Observations<OBS> & Observations<OBS>::operator+(Observations && other) {
+//  for (std::size_t jj = 0; jj < obs_.size(); ++jj) {
+//    obs_[jj] += other[jj];
+//  }
+//  return *this;
+//}
 // -----------------------------------------------------------------------------
 template <typename OBS>
 void Observations<OBS>::save(const std::string & name) const {

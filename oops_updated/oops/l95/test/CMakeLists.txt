@@ -94,6 +94,7 @@ list( APPEND l95_test_input
   testinput/letkf_gsi.yaml
   testinput/letkf.yaml
   testinput/letkf_perturbed.yaml
+  testinput/letkf_bounded.yaml
   testinput/letkf_linearobserver.yaml
   testinput/letkf_noobs.yaml
   testinput/letkf_qc.yaml
@@ -819,12 +820,21 @@ ecbuild_add_test( TARGET test_l95_letkf
                   OMP 2
                   TEST_DEPENDS test_l95_makeobs3d test_l95_genenspert )
 
+# DCC: Perturbed LETKF	  
 ecbuild_add_test( TARGET test_l95_letkf_pert
                   COMMAND l95_letkf.x
                   ARGS testinput/letkf_perturbed.yaml
                   OMP 2
                   TEST_DEPENDS test_l95_makeobs3d test_l95_genenspert )
 
+# DCC: Bounded LETKF
+ecbuild_add_test( TARGET test_l95_letkf_bound
+                  COMMAND l95_letkf.x
+                  ARGS testinput/letkf_bounded.yaml
+                  OMP 2
+                  TEST_DEPENDS test_l95_makeobs3d test_l95_genenspert )
+
+	  
 ecbuild_add_test( TARGET test_l95_letkf_noobs
                   COMMAND l95_letkf.x
                   ARGS testinput/letkf_noobs.yaml

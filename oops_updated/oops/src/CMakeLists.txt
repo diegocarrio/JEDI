@@ -60,6 +60,7 @@ oops/assimilation/LBHessianMatrix.h
 oops/assimilation/LBMinimizer.h
 oops/assimilation/LETKFSolver.h
 oops/assimilation/LETKFSolverPert.h
+oops/assimilation/LETKFSolverBounded.h
 oops/assimilation/LETKFSolverGSI.h
 oops/assimilation/LocalEnsembleSolverParameters.h
 oops/assimilation/LocalEnsembleSolver.h

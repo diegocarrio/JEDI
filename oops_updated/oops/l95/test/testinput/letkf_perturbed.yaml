@@ -82,4 +82,4 @@ output variance posterior:
 
 test:
   reference filename: testoutput/letkf.test
-  test output filename: testoutput/letkf_pert.out
+  test output filename: testoutput/letkf_bound.out
