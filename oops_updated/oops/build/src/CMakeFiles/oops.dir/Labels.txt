@@ -59,6 +59,7 @@
 /home/nonroot/shared/oops_updated/oops/src/oops/assimilation/LBMinimizer.h
 /home/nonroot/shared/oops_updated/oops/src/oops/assimilation/LETKFSolver.h
 /home/nonroot/shared/oops_updated/oops/src/oops/assimilation/LETKFSolverPert.h
+/home/nonroot/shared/oops_updated/oops/src/oops/assimilation/LETKFSolverBounded.h
 /home/nonroot/shared/oops_updated/oops/src/oops/assimilation/LETKFSolverGSI.h
 /home/nonroot/shared/oops_updated/oops/src/oops/assimilation/LocalEnsembleSolverParameters.h
 /home/nonroot/shared/oops_updated/oops/src/oops/assimilation/LocalEnsembleSolver.h

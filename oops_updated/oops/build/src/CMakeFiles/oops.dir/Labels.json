@@ -176,6 +176,9 @@
 			"file" : "/home/nonroot/shared/oops_updated/oops/src/oops/assimilation/LETKFSolverPert.h"
 		},
 		{
+			"file" : "/home/nonroot/shared/oops_updated/oops/src/oops/assimilation/LETKFSolverBounded.h"
+		},
+		{
 			"file" : "/home/nonroot/shared/oops_updated/oops/src/oops/assimilation/LETKFSolverGSI.h"
 		},
 		{

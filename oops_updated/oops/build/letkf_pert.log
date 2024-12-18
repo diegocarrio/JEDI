@@ -16,20 +16,20 @@ test 159
 159: Environment variables: 
 159:  OMP_NUM_THREADS=2
 159: Test timeout computed to be: 1500
-159: OOPS Starting 2024-12-12 21:07:06 (UTC+0000)
+159: OOPS Starting 2024-12-17 17:51:24 (UTC+0000)
 159: [TestReference] Comparing to reference file: testoutput/letkf.test
 159: Relative float tolerance for tests : 1e-06
 159: Absolute float tolerance for tests : 0
-159: [TestReference] Saving Test output to: testoutput/letkf_pert.out
+159: [TestReference] Saving Test output to: testoutput/letkf_bound.out
 159: Configuration input file is: testinput/letkf_perturbed.yaml
-159: Full configuration is:YAMLConfiguration[path=testinput/letkf_perturbed.yaml, root={time window => {begin => 2010-01-01T21:00:00Z , length => PT6H} , geometry => {resol => 40} , background => {members from template => {template => {date => 2010-01-02T00:00:00Z , filename => Data/forecast.ens.%mem%.2010-01-01T00:00:00Z.P1D.l95} , pattern => %mem% , nmembers => 5}} , observations => {observers => ({obs error => {covariance model => diagonal} , obs localizations => ({localization method => Gaspari-Cohn , lengthscale => 0.1}) , obs space => {obsdatain => {obsfile => Data/truth3d.2010-01-02T00:00:00Z.obt} , obsdataout => {obsfile => Data/letkf.2010-01-02T00:00:00Z.obt}} , obs operator => {}})} , driver => {save prior mean => true , save posterior mean => true , save posterior mean increment => true , save posterior ensemble increments => true , save prior variance => true , save posterior variance => true , update obs config with geometry info => false} , local ensemble DA => {solver => LETKF PERT , inflation => {rtps => 0.5 , rtpp => 0.5 , mult => 1.1}} , output => {datadir => Data , date => 2010-01-02T00:00:00Z , exp => letkf.%{member}% , type => an} , output increment => {datadir => Data , date => 2010-01-02T00:00:00Z , exp => letkf.increment.%{member}% , type => an} , output ensemble increments => {datadir => Data , date => 2010-01-02T00:00:00Z , exp => letkf.increment.%{member}% , type => an} , output mean prior => {datadir => Data , date => 2010-01-02T00:00:00Z , exp => letkf.xbmean.%{member}% , type => an} , output variance prior => {datadir => Data , date => 2010-01-02T00:00:00Z , exp => letkf.xbvar.%{member}% , type => an} , output variance posterior => {datadir => Data , date => 2010-01-02T00:00:00Z , exp => letkf.xavar.%{member}% , type => an} , test => {reference filename => testoutput/letkf.test , test output filename => testoutput/letkf_pert.out}}]
+159: Full configuration is:YAMLConfiguration[path=testinput/letkf_perturbed.yaml, root={time window => {begin => 2010-01-01T21:00:00Z , length => PT6H} , geometry => {resol => 40} , background => {members from template => {template => {date => 2010-01-02T00:00:00Z , filename => Data/forecast.ens.%mem%.2010-01-01T00:00:00Z.P1D.l95} , pattern => %mem% , nmembers => 5}} , observations => {observers => ({obs error => {covariance model => diagonal} , obs localizations => ({localization method => Gaspari-Cohn , lengthscale => 0.1}) , obs space => {obsdatain => {obsfile => Data/truth3d.2010-01-02T00:00:00Z.obt} , obsdataout => {obsfile => Data/letkf.2010-01-02T00:00:00Z.obt}} , obs operator => {}})} , driver => {save prior mean => true , save posterior mean => true , save posterior mean increment => true , save posterior ensemble increments => true , save prior variance => true , save posterior variance => true , update obs config with geometry info => false} , local ensemble DA => {solver => LETKF PERT , inflation => {rtps => 0.5 , rtpp => 0.5 , mult => 1.1}} , output => {datadir => Data , date => 2010-01-02T00:00:00Z , exp => letkf.%{member}% , type => an} , output increment => {datadir => Data , date => 2010-01-02T00:00:00Z , exp => letkf.increment.%{member}% , type => an} , output ensemble increments => {datadir => Data , date => 2010-01-02T00:00:00Z , exp => letkf.increment.%{member}% , type => an} , output mean prior => {datadir => Data , date => 2010-01-02T00:00:00Z , exp => letkf.xbmean.%{member}% , type => an} , output variance prior => {datadir => Data , date => 2010-01-02T00:00:00Z , exp => letkf.xbvar.%{member}% , type => an} , output variance posterior => {datadir => Data , date => 2010-01-02T00:00:00Z , exp => letkf.xavar.%{member}% , type => an} , test => {reference filename => testoutput/letkf.test , test output filename => testoutput/letkf_bound.out}}]
 159: OOPS_STATS ObjectCountHelper started.
-159: OOPS_STATS Run start                                - Runtime:      0.03 sec,  Memory: total:    30.42 Mb, per task: min =    30.42 Mb, max =    30.42 Mb
+159: OOPS_STATS Run start                                - Runtime:      0.03 sec,  Memory: total:    30.40 Mb, per task: min =    30.40 Mb, max =    30.40 Mb
 159: Run: Starting oops::LocalEnsembleDA<Lorenz 95, Lorenz 95 Obs>
 159: Observation window: TimeWindow: start = 2010-01-01T21:00:00Z, end = 2010-01-02T03:00:00Z, inclusive upper bound.
 159: 
 159: GeometryData::GeometryData received uninitialized FunctionSpace, so skipping set up of interpolation data structures.
-159: OOPS_STATS LocalEnsembleDA before solver ctor       - Runtime:     0.12 sec,  Local Memory:    34.56 Mb
+159: OOPS_STATS LocalEnsembleDA before solver ctor       - Runtime:     0.08 sec,  Local Memory:    34.34 Mb
 159: Multiplicative inflation will be applied with multCoeff=1.1
 159: RTPP inflation will be applied with rtppCoeff=0.5
 159: RTPS inflation will be applied with rtpsCoeff=0.5
@@ -50,7 +50,7 @@ test 159
 159: Test     : Initial state for member 5:
 159: Test     :  Valid time: 2010-01-02T00:00:00Z
 159: Test     :  Min=3.1756287528176999e+00, Max=1.0818287765402999e+01, Average=7.6024271099360359e+00
-159: OOPS_STATS LocalEnsembleDA before computeHofX       - Runtime:     0.12 sec,  Local Memory:    34.56 Mb
+159: OOPS_STATS LocalEnsembleDA before computeHofX       - Runtime:     0.08 sec,  Local Memory:    34.34 Mb
 159: config: LocalConfiguration[root={}]
 159: Model:forecast: forecast starting: 
 159:  Valid time: 2010-01-02T00:00:00Z
@@ -139,7 +139,7 @@ test 159
 159: Test     :  Valid time: 2010-01-02T00:00:00Z
 159: Test     :  Min=5.2519885916484164e+00, Max=9.5020752396112176e+00, Average=7.7656901572008321e+00
 159: Beginning core local solver...
-159: OOPS_STATS LocalEnsembleDA before solver            - Runtime:      0.14 sec,  Memory: total:    35.10 Mb, per task: min =    35.10 Mb, max =    35.10 Mb
+159: OOPS_STATS LocalEnsembleDA before solver            - Runtime:      0.10 sec,  Memory: total:    34.93 Mb, per task: min =    34.93 Mb, max =    34.93 Mb
 159: DCC: Using measurementUpdate in the PERTURBED LETKF
 159: DCC: iens: 0
 159: DCC: iens: 1
@@ -2171,7 +2171,7 @@ test 159
 159: DCC: Using applyWeights in the PERTURBED LETKF
 159: DCC: ApplyWeights in the PERTURBED LETKF COMPLETED
 159: Local solver completed.
-159: OOPS_STATS LocalEnsembleDA after solver             - Runtime:      0.17 sec,  Memory: total:    35.23 Mb, per task: min =    35.23 Mb, max =    35.23 Mb
+159: OOPS_STATS LocalEnsembleDA after solver             - Runtime:      0.15 sec,  Memory: total:    35.06 Mb, per task: min =    35.06 Mb, max =    35.06 Mb
 159: Test     : Analysis mean :
 159: Test     :  Valid time: 2010-01-02T00:00:00Z
 159: Test     :  Min=6.7304426353864368e+00, Max=9.1900214857185247e+00, Average=7.9883188901596487e+00
@@ -2321,157 +2321,157 @@ test 159
 159: OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
 159: OOPS_STATS --------------------------------------------------------------------------------------------
 159: OOPS_STATS Name                                                :   total (ms)   count    time/call (ms)
-159: OOPS_STATS oops::GeoVaLs::GeoVaLs                              :         0.15      12            0.0123
-159: OOPS_STATS oops::GeoVaLs::fill                                 :         0.04      12            0.0030
+159: OOPS_STATS oops::GeoVaLs::GeoVaLs                              :         0.08      12            0.0069
+159: OOPS_STATS oops::GeoVaLs::fill                                 :         0.03      12            0.0029
 159: OOPS_STATS oops::GeoVaLs::~GeoVaLs                             :         0.02      12            0.0018
-159: OOPS_STATS oops::Geometry::Geometry                            :         0.13       1            0.1309
-159: OOPS_STATS oops::Geometry::begin                               :         0.14       1            0.1385
-159: OOPS_STATS oops::Geometry::end                                 :         0.06      41            0.0013
+159: OOPS_STATS oops::Geometry::Geometry                            :         0.22       1            0.2188
+159: OOPS_STATS oops::Geometry::begin                               :         0.09       1            0.0912
+159: OOPS_STATS oops::Geometry::end                                 :         0.07      41            0.0017
 159: OOPS_STATS oops::Geometry::variableSizes                       :         0.04      36            0.0012
-159: OOPS_STATS oops::Geometry::~Geometry                           :         0.10       1            0.1005
-159: OOPS_STATS oops::GeometryIterator::GeometryIterator            :         0.05      42            0.0011
+159: OOPS_STATS oops::Geometry::~Geometry                           :         0.11       1            0.1090
+159: OOPS_STATS oops::GeometryIterator::GeometryIterator            :         0.01      42            0.0001
 159: OOPS_STATS oops::GeometryIterator::operator!=                  :         0.01      41            0.0003
-159: OOPS_STATS oops::GeometryIterator::operator++                  :         0.01      40            0.0003
-159: OOPS_STATS oops::GeometryIterator::~GeometryIterator           :         0.03      42            0.0007
-159: OOPS_STATS oops::GetValues::GetValues                          :         0.77      12            0.0645
-159: OOPS_STATS oops::GetValues::fillGeoVaLs                        :         0.43      12            0.0356
-159: OOPS_STATS oops::GetValues::finalize                           :         0.91      12            0.0759
-159: OOPS_STATS oops::GetValues::process                            :         0.43      12            0.0362
-159: OOPS_STATS oops::Increment::Increment                          :         0.13      30            0.0045
-159: OOPS_STATS oops::Increment::diff                               :         0.09       6            0.0147
+159: OOPS_STATS oops::GeometryIterator::operator++                  :         0.08      40            0.0021
+159: OOPS_STATS oops::GeometryIterator::~GeometryIterator           :         0.02      42            0.0006
+159: OOPS_STATS oops::GetValues::GetValues                          :         1.05      12            0.0876
+159: OOPS_STATS oops::GetValues::fillGeoVaLs                        :         0.48      12            0.0402
+159: OOPS_STATS oops::GetValues::finalize                           :         0.59      12            0.0494
+159: OOPS_STATS oops::GetValues::process                            :         0.42      12            0.0349
+159: OOPS_STATS oops::Increment::Increment                          :         0.14      30            0.0046
+159: OOPS_STATS oops::Increment::diff                               :         0.10       6            0.0162
 159: OOPS_STATS oops::Increment::getLocal                           :         0.28     320            0.0009
-159: OOPS_STATS oops::Increment::operator*=                         :         0.03       4            0.0072
-159: OOPS_STATS oops::Increment::operator+=                         :         0.05      20            0.0023
-159: OOPS_STATS oops::Increment::operator+=(State, Increment)       :         0.09       5            0.0182
-159: OOPS_STATS oops::Increment::operator-=                         :         0.07      15            0.0045
-159: OOPS_STATS oops::Increment::print                              :         0.10       3            0.0326
-159: OOPS_STATS oops::Increment::schur_product_with                 :         0.07      10            0.0073
-159: OOPS_STATS oops::Increment::setLocal                           :         0.04     200            0.0002
-159: OOPS_STATS oops::Increment::~Increment                         :         0.09      30            0.0029
-159: OOPS_STATS oops::LETKFSolverPert::applyWeights                 :         1.01      40            0.0253
-159: OOPS_STATS oops::LETKFSolverPert::computeHofX                  :        18.37       2            9.1852
-159: OOPS_STATS oops::LETKFSolverPert::computeWeights               :        28.60      40            0.7151
-159: OOPS_STATS oops::LETKFSolverPert::measurementUpdate            :        32.50      40            0.8125
-159: OOPS_STATS oops::LocalEnsembleSolver::computeHofX              :        17.02       2            8.5078
-159: OOPS_STATS oops::LocalEnsembleSolver::computeHofXNonLinear     :        16.71       2            8.3574
-159: OOPS_STATS oops::LocalInterpolator::LocalInterpolator          :         0.09      12            0.0079
-159: OOPS_STATS oops::LocalInterpolator::apply                      :         0.04      12            0.0032
+159: OOPS_STATS oops::Increment::operator*=                         :         0.05       4            0.0123
+159: OOPS_STATS oops::Increment::operator+=                         :         0.03      20            0.0017
+159: OOPS_STATS oops::Increment::operator+=(State, Increment)       :         0.06       5            0.0113
+159: OOPS_STATS oops::Increment::operator-=                         :         0.05      15            0.0035
+159: OOPS_STATS oops::Increment::print                              :         0.06       3            0.0206
+159: OOPS_STATS oops::Increment::schur_product_with                 :         0.03      10            0.0035
+159: OOPS_STATS oops::Increment::setLocal                           :         0.05     200            0.0002
+159: OOPS_STATS oops::Increment::~Increment                         :         0.11      30            0.0037
+159: OOPS_STATS oops::LETKFSolverPert::applyWeights                 :         1.27      40            0.0316
+159: OOPS_STATS oops::LETKFSolverPert::computeHofX                  :        19.21       2            9.6066
+159: OOPS_STATS oops::LETKFSolverPert::computeWeights               :        47.69      40            1.1924
+159: OOPS_STATS oops::LETKFSolverPert::measurementUpdate            :        51.79      40            1.2948
+159: OOPS_STATS oops::LocalEnsembleSolver::computeHofX              :        17.36       2            8.6780
+159: OOPS_STATS oops::LocalEnsembleSolver::computeHofXNonLinear     :        17.07       2            8.5327
+159: OOPS_STATS oops::LocalInterpolator::LocalInterpolator          :         0.09      12            0.0075
+159: OOPS_STATS oops::LocalInterpolator::apply                      :         0.04      12            0.0031
 159: OOPS_STATS oops::LocalInterpolator::~LocalInterpolator         :         0.02      12            0.0014
-159: OOPS_STATS oops::Model::finalize                               :         0.03      12            0.0023
-159: OOPS_STATS oops::Model::initialize                             :         0.27      12            0.0224
+159: OOPS_STATS oops::Model::finalize                               :         0.03      12            0.0028
+159: OOPS_STATS oops::Model::initialize                             :         0.30      12            0.0248
 159: OOPS_STATS oops::Model::~Model                                 :         0.01      12            0.0006
-159: OOPS_STATS oops::ModelAuxControl::ModelAuxControl              :         0.05      12            0.0045
+159: OOPS_STATS oops::ModelAuxControl::ModelAuxControl              :         0.06      12            0.0048
 159: OOPS_STATS oops::ModelAuxControl::~ModelAuxControl             :         0.00      12            0.0002
-159: OOPS_STATS oops::ModelAuxIncrement::ModelAuxIncrement          :         0.06      12            0.0046
-159: OOPS_STATS oops::ModelAuxIncrement::~ModelAuxIncrement         :         0.00      12            0.0002
-159: OOPS_STATS oops::ObsAuxControl::ObsAuxControl                  :         0.07      12            0.0060
+159: OOPS_STATS oops::ModelAuxIncrement::ModelAuxIncrement          :         0.04      12            0.0035
+159: OOPS_STATS oops::ModelAuxIncrement::~ModelAuxIncrement         :         0.03      12            0.0024
+159: OOPS_STATS oops::ObsAuxControl::ObsAuxControl                  :         0.09      12            0.0079
 159: OOPS_STATS oops::ObsAuxControl::requiredHdiagnostics           :         0.00      12            0.0002
 159: OOPS_STATS oops::ObsAuxControl::requiredVars                   :         0.00      24            0.0001
-159: OOPS_STATS oops::ObsAuxControl::~ObsAuxControl                 :         0.03      12            0.0026
-159: OOPS_STATS oops::ObsAuxIncrement::ObsAuxIncrement              :         0.05      12            0.0039
+159: OOPS_STATS oops::ObsAuxControl::~ObsAuxControl                 :         0.00      12            0.0003
+159: OOPS_STATS oops::ObsAuxIncrement::ObsAuxIncrement              :         0.05      12            0.0040
 159: OOPS_STATS oops::ObsAuxIncrement::serialSize                   :         0.00      12            0.0001
 159: OOPS_STATS oops::ObsAuxIncrement::~ObsAuxIncrement             :         0.00      12            0.0002
-159: OOPS_STATS oops::ObsDataVector::ObsDataVector                  :         0.10      28            0.0034
+159: OOPS_STATS oops::ObsDataVector::ObsDataVector                  :         0.10      28            0.0035
 159: OOPS_STATS oops::ObsDataVector::mask                           :         0.01      12            0.0005
-159: OOPS_STATS oops::ObsDataVector::operator=                      :         0.03      12            0.0029
-159: OOPS_STATS oops::ObsDataVector::print                          :         0.04      12            0.0036
-159: OOPS_STATS oops::ObsDataVector::save                           :         0.08       4            0.0207
-159: OOPS_STATS oops::ObsDataVector::~ObsDataVector                 :         0.02      28            0.0007
-159: OOPS_STATS oops::ObsDiagnostics::ObsDiagnostics                :         0.00      12            0.0002
+159: OOPS_STATS oops::ObsDataVector::operator=                      :         0.04      12            0.0033
+159: OOPS_STATS oops::ObsDataVector::print                          :         0.05      12            0.0042
+159: OOPS_STATS oops::ObsDataVector::save                           :         0.09       4            0.0230
+159: OOPS_STATS oops::ObsDataVector::~ObsDataVector                 :         0.02      28            0.0008
+159: OOPS_STATS oops::ObsDiagnostics::ObsDiagnostics                :         0.02      12            0.0015
 159: OOPS_STATS oops::ObsDiagnostics::~ObsDiagnostics               :         0.00      12            0.0002
-159: OOPS_STATS oops::ObsError::ObsErrors                           :         0.91      12            0.0757
-159: OOPS_STATS oops::ObsError::inverseVariance                     :         0.00       2            0.0011
-159: OOPS_STATS oops::ObsError::obserrors                           :         0.09      12            0.0072
-159: OOPS_STATS oops::ObsError::randomize                           :         0.50      10            0.0502
-159: OOPS_STATS oops::ObsError::save                                :         0.00       2            0.0018
-159: OOPS_STATS oops::ObsError::update                              :         0.10      12            0.0081
-159: OOPS_STATS oops::ObsError::~ObsError                           :         0.07      12            0.0059
-159: OOPS_STATS oops::ObsOperator::Lorenz 95::ObsOperator           :         0.04      12            0.0035
+159: OOPS_STATS oops::ObsError::ObsErrors                           :         0.73      12            0.0607
+159: OOPS_STATS oops::ObsError::inverseVariance                     :         0.00       2            0.0012
+159: OOPS_STATS oops::ObsError::obserrors                           :         0.12      12            0.0104
+159: OOPS_STATS oops::ObsError::randomize                           :         0.64      10            0.0638
+159: OOPS_STATS oops::ObsError::save                                :         0.00       2            0.0019
+159: OOPS_STATS oops::ObsError::update                              :         0.10      12            0.0085
+159: OOPS_STATS oops::ObsError::~ObsError                           :         0.11      12            0.0092
+159: OOPS_STATS oops::ObsOperator::Lorenz 95::ObsOperator           :         0.05      12            0.0040
 159: OOPS_STATS oops::ObsOperator::Lorenz 95::computeReducedVars    :         0.00      12            0.0001
-159: OOPS_STATS oops::ObsOperator::Lorenz 95::locations             :         0.33      12            0.0274
+159: OOPS_STATS oops::ObsOperator::Lorenz 95::locations             :         0.38      12            0.0321
 159: OOPS_STATS oops::ObsOperator::Lorenz 95::requiredVars          :         0.00      12            0.0001
-159: OOPS_STATS oops::ObsOperator::Lorenz 95::simulateObs           :         0.05      12            0.0040
-159: OOPS_STATS oops::ObsOperator::Lorenz 95::~ObsOperator          :         0.03      12            0.0028
-159: OOPS_STATS oops::ObsSpace::ObsSpace                            :        41.25       1           41.2483
-159: OOPS_STATS oops::ObsSpace::obsvariables                        :         0.00      26            0.0000
-159: OOPS_STATS oops::ObsSpace::save                                :         8.48       1            8.4831
-159: OOPS_STATS oops::ObsSpace::~ObsSpace                           :         0.11       1            0.1093
-159: OOPS_STATS oops::ObsVector::ObsVector                          :         0.29     215            0.0014
-159: OOPS_STATS oops::ObsVector::axpy                               :         0.04      10            0.0042
-159: OOPS_STATS oops::ObsVector::dot_product                        :         0.03       2            0.0153
-159: OOPS_STATS oops::ObsVector::invert                             :         0.02      24            0.0009
-159: OOPS_STATS oops::ObsVector::mask(ObsVector)                    :         0.09     274            0.0003
-159: OOPS_STATS oops::ObsVector::ones                               :         0.13      80            0.0016
-159: OOPS_STATS oops::ObsVector::operator*=                         :         0.05      46            0.0012
-159: OOPS_STATS oops::ObsVector::operator+=                         :         0.04      50            0.0009
-159: OOPS_STATS oops::ObsVector::operator-=                         :         0.03      14            0.0021
-159: OOPS_STATS oops::ObsVector::operator=                          :         0.17      96            0.0018
-159: OOPS_STATS oops::ObsVector::packEigen                          :         0.39     720            0.0005
-159: OOPS_STATS oops::ObsVector::packEigenSize                      :         0.26     840            0.0003
-159: OOPS_STATS oops::ObsVector::random                             :         0.40      10            0.0403
-159: OOPS_STATS oops::ObsVector::save                               :         0.13      28            0.0047
-159: OOPS_STATS oops::ObsVector::zero                               :         0.02      14            0.0013
-159: OOPS_STATS oops::ObsVector::~ObsVector                         :         0.03     215            0.0001
-159: OOPS_STATS oops::Parameters::deserialize                       :         3.56      47            0.0758
-159: OOPS_STATS oops::Parameters::serialize                         :         0.60      40            0.0149
-159: OOPS_STATS oops::Parameters::validate                          :        23.11       9            2.5674
+159: OOPS_STATS oops::ObsOperator::Lorenz 95::simulateObs           :         0.04      12            0.0036
+159: OOPS_STATS oops::ObsOperator::Lorenz 95::~ObsOperator          :         0.05      12            0.0038
+159: OOPS_STATS oops::ObsSpace::ObsSpace                            :         3.60       1            3.5971
+159: OOPS_STATS oops::ObsSpace::obsvariables                        :         0.00      26            0.0001
+159: OOPS_STATS oops::ObsSpace::save                                :         7.51       1            7.5063
+159: OOPS_STATS oops::ObsSpace::~ObsSpace                           :         0.12       1            0.1200
+159: OOPS_STATS oops::ObsVector::ObsVector                          :         0.33     215            0.0015
+159: OOPS_STATS oops::ObsVector::axpy                               :         0.11      10            0.0105
+159: OOPS_STATS oops::ObsVector::dot_product                        :         0.03       2            0.0147
+159: OOPS_STATS oops::ObsVector::invert                             :         0.02      24            0.0008
+159: OOPS_STATS oops::ObsVector::mask(ObsVector)                    :         0.10     274            0.0004
+159: OOPS_STATS oops::ObsVector::ones                               :         0.02      80            0.0003
+159: OOPS_STATS oops::ObsVector::operator*=                         :         0.08      46            0.0017
+159: OOPS_STATS oops::ObsVector::operator+=                         :         0.05      50            0.0009
+159: OOPS_STATS oops::ObsVector::operator-=                         :         0.04      14            0.0030
+159: OOPS_STATS oops::ObsVector::operator=                          :         0.13      96            0.0013
+159: OOPS_STATS oops::ObsVector::packEigen                          :         0.46     720            0.0006
+159: OOPS_STATS oops::ObsVector::packEigenSize                      :         0.30     840            0.0004
+159: OOPS_STATS oops::ObsVector::random                             :         0.59      10            0.0588
+159: OOPS_STATS oops::ObsVector::save                               :         0.11      28            0.0040
+159: OOPS_STATS oops::ObsVector::zero                               :         0.01      14            0.0009
+159: OOPS_STATS oops::ObsVector::~ObsVector                         :         0.03     215            0.0002
+159: OOPS_STATS oops::Parameters::deserialize                       :         4.42      47            0.0941
+159: OOPS_STATS oops::Parameters::serialize                         :         0.56      40            0.0140
+159: OOPS_STATS oops::Parameters::validate                          :        22.29       9            2.4771
 159: OOPS_STATS oops::SampledLocations::SampledLocations            :         0.01      24            0.0003
 159: OOPS_STATS oops::SampledLocations::latitudes                   :         0.00      12            0.0001
 159: OOPS_STATS oops::SampledLocations::longitudes                  :         0.00      12            0.0001
 159: OOPS_STATS oops::SampledLocations::times                       :         0.00      12            0.0001
-159: OOPS_STATS oops::SampledLocations::~SampledLocations           :         0.03      36            0.0009
-159: OOPS_STATS oops::State::State                                  :         3.34      38            0.0880
-159: OOPS_STATS oops::State::accumul                                :         0.05      10            0.0053
-159: OOPS_STATS oops::State::operator=                              :         0.16      17            0.0095
-159: OOPS_STATS oops::State::print                                  :         0.33      31            0.0106
-159: OOPS_STATS oops::State::variables                              :         0.00       1            0.0003
-159: OOPS_STATS oops::State::write                                  :         3.18       7            0.4542
-159: OOPS_STATS oops::State::zero                                   :         0.04       2            0.0223
-159: OOPS_STATS oops::State::~State                                 :         0.08      38            0.0021
+159: OOPS_STATS oops::SampledLocations::~SampledLocations           :         0.03      36            0.0010
+159: OOPS_STATS oops::State::State                                  :         3.49      38            0.0919
+159: OOPS_STATS oops::State::accumul                                :         0.09      10            0.0087
+159: OOPS_STATS oops::State::operator=                              :         0.13      17            0.0078
+159: OOPS_STATS oops::State::print                                  :         0.32      31            0.0103
+159: OOPS_STATS oops::State::variables                              :         0.00       1            0.0002
+159: OOPS_STATS oops::State::write                                  :         2.92       7            0.4164
+159: OOPS_STATS oops::State::zero                                   :         0.02       2            0.0098
+159: OOPS_STATS oops::State::~State                                 :         0.10      38            0.0026
 159: OOPS_STATS oops::VariableChange::VariableChange                :         0.00      12            0.0002
 159: OOPS_STATS oops::VariableChange::changeVar                     :         0.00      12            0.0002
-159: OOPS_STATS oops::VariableChange::~VariableChange               :         0.01      12            0.0004
-159: OOPS_STATS util::Timers::Total                                 :       169.46       1          169.4645
-159: OOPS_STATS util::Timers::measured                              :       135.85       1          135.8466
+159: OOPS_STATS oops::VariableChange::~VariableChange               :         0.01      12            0.0005
+159: OOPS_STATS util::Timers::Total                                 :       145.04       1          145.0398
+159: OOPS_STATS util::Timers::measured                              :       117.33       1          117.3250
 159: OOPS_STATS ------------------------------------ Timing Statistics -------------------------------------
 159: 
 159: OOPS_STATS ------------------------------------------------------------------------------------------------------------------
 159: OOPS_STATS ---------------------------------- Parallel Timing Statistics (   1 MPI tasks) -----------------------------------
 159: OOPS_STATS ------------------------------------------------------------------------------------------------------------------
 159: OOPS_STATS Name                                                :     min (ms)    max (ms)    avg (ms)     % total   imbal (%)
-159: OOPS_STATS oops::GetValues::GetValues                          :         0.77        0.77        0.77        0.46        0.00
-159: OOPS_STATS oops::GetValues::fillGeoVaLs                        :         0.43        0.43        0.43        0.25        0.00
-159: OOPS_STATS oops::GetValues::finalize                           :         0.91        0.91        0.91        0.54        0.00
-159: OOPS_STATS oops::GetValues::process                            :         0.43        0.43        0.43        0.26        0.00
-159: OOPS_STATS oops::Increment::getLocal                           :         0.28        0.28        0.28        0.16        0.00
-159: OOPS_STATS oops::LETKFSolverPert::applyWeights                 :         1.01        1.01        1.01        0.60        0.00
-159: OOPS_STATS oops::LETKFSolverPert::computeHofX                  :        18.37       18.37       18.37       10.84        0.00
-159: OOPS_STATS oops::LETKFSolverPert::computeWeights               :        28.60       28.60       28.60       16.88        0.00
-159: OOPS_STATS oops::LETKFSolverPert::measurementUpdate            :        32.50       32.50       32.50       19.18        0.00
-159: OOPS_STATS oops::LocalEnsembleSolver::computeHofX              :        17.02       17.02       17.02       10.04        0.00
-159: OOPS_STATS oops::LocalEnsembleSolver::computeHofXNonLinear     :        16.71       16.71       16.71        9.86        0.00
-159: OOPS_STATS oops::Model::initialize                             :         0.27        0.27        0.27        0.16        0.00
-159: OOPS_STATS oops::ObsError::ObsErrors                           :         0.91        0.91        0.91        0.54        0.00
-159: OOPS_STATS oops::ObsError::randomize                           :         0.50        0.50        0.50        0.30        0.00
-159: OOPS_STATS oops::ObsOperator::Lorenz 95::locations             :         0.33        0.33        0.33        0.19        0.00
-159: OOPS_STATS oops::ObsSpace::ObsSpace                            :        41.25       41.25       41.25       24.34        0.00
-159: OOPS_STATS oops::ObsSpace::save                                :         8.48        8.48        8.48        5.01        0.00
-159: OOPS_STATS oops::ObsVector::ObsVector                          :         0.29        0.29        0.29        0.17        0.00
-159: OOPS_STATS oops::ObsVector::operator=                          :         0.17        0.17        0.17        0.10        0.00
-159: OOPS_STATS oops::ObsVector::packEigen                          :         0.39        0.39        0.39        0.23        0.00
-159: OOPS_STATS oops::ObsVector::packEigenSize                      :         0.26        0.26        0.26        0.15        0.00
-159: OOPS_STATS oops::ObsVector::random                             :         0.40        0.40        0.40        0.24        0.00
-159: OOPS_STATS oops::Parameters::deserialize                       :         3.56        3.56        3.56        2.10        0.00
-159: OOPS_STATS oops::Parameters::serialize                         :         0.60        0.60        0.60        0.35        0.00
-159: OOPS_STATS oops::Parameters::validate                          :        23.11       23.11       23.11       13.63        0.00
-159: OOPS_STATS oops::State::State                                  :         3.34        3.34        3.34        1.97        0.00
-159: OOPS_STATS oops::State::print                                  :         0.33        0.33        0.33        0.19        0.00
-159: OOPS_STATS oops::State::write                                  :         3.18        3.18        3.18        1.88        0.00
-159: OOPS_STATS util::Timers::Total                                 :       169.46      169.46      169.46      100.00        0.00
-159: OOPS_STATS util::Timers::measured                              :       135.85      135.85      135.85       80.16        0.00
+159: OOPS_STATS oops::Geometry::Geometry                            :         0.22        0.22        0.22        0.15        0.00
+159: OOPS_STATS oops::GetValues::GetValues                          :         1.05        1.05        1.05        0.73        0.00
+159: OOPS_STATS oops::GetValues::fillGeoVaLs                        :         0.48        0.48        0.48        0.33        0.00
+159: OOPS_STATS oops::GetValues::finalize                           :         0.59        0.59        0.59        0.41        0.00
+159: OOPS_STATS oops::GetValues::process                            :         0.42        0.42        0.42        0.29        0.00
+159: OOPS_STATS oops::Increment::getLocal                           :         0.28        0.28        0.28        0.19        0.00
+159: OOPS_STATS oops::LETKFSolverPert::applyWeights                 :         1.27        1.27        1.27        0.87        0.00
+159: OOPS_STATS oops::LETKFSolverPert::computeHofX                  :        19.21       19.21       19.21       13.25        0.00
+159: OOPS_STATS oops::LETKFSolverPert::computeWeights               :        47.69       47.69       47.69       32.88        0.00
+159: OOPS_STATS oops::LETKFSolverPert::measurementUpdate            :        51.79       51.79       51.79       35.71        0.00
+159: OOPS_STATS oops::LocalEnsembleSolver::computeHofX              :        17.36       17.36       17.36       11.97        0.00
+159: OOPS_STATS oops::LocalEnsembleSolver::computeHofXNonLinear     :        17.07       17.07       17.07       11.77        0.00
+159: OOPS_STATS oops::Model::initialize                             :         0.30        0.30        0.30        0.21        0.00
+159: OOPS_STATS oops::ObsError::ObsErrors                           :         0.73        0.73        0.73        0.50        0.00
+159: OOPS_STATS oops::ObsError::randomize                           :         0.64        0.64        0.64        0.44        0.00
+159: OOPS_STATS oops::ObsOperator::Lorenz 95::locations             :         0.38        0.38        0.38        0.27        0.00
+159: OOPS_STATS oops::ObsSpace::ObsSpace                            :         3.60        3.60        3.60        2.48        0.00
+159: OOPS_STATS oops::ObsSpace::save                                :         7.51        7.51        7.51        5.18        0.00
+159: OOPS_STATS oops::ObsVector::ObsVector                          :         0.33        0.33        0.33        0.23        0.00
+159: OOPS_STATS oops::ObsVector::packEigen                          :         0.46        0.46        0.46        0.32        0.00
+159: OOPS_STATS oops::ObsVector::packEigenSize                      :         0.30        0.30        0.30        0.20        0.00
+159: OOPS_STATS oops::ObsVector::random                             :         0.59        0.59        0.59        0.41        0.00
+159: OOPS_STATS oops::Parameters::deserialize                       :         4.42        4.42        4.42        3.05        0.00
+159: OOPS_STATS oops::Parameters::serialize                         :         0.56        0.56        0.56        0.39        0.00
+159: OOPS_STATS oops::Parameters::validate                          :        22.29       22.29       22.29       15.37        0.00
+159: OOPS_STATS oops::State::State                                  :         3.49        3.49        3.49        2.41        0.00
+159: OOPS_STATS oops::State::print                                  :         0.32        0.32        0.32        0.22        0.00
+159: OOPS_STATS oops::State::write                                  :         2.92        2.92        2.92        2.01        0.00
+159: OOPS_STATS util::Timers::Total                                 :       145.04      145.04      145.04      100.00        0.00
+159: OOPS_STATS util::Timers::measured                              :       117.33      117.33      117.33       80.89        0.00
 159: OOPS_STATS ---------------------------------- Parallel Timing Statistics (   1 MPI tasks) -----------------------------------
 159: 
-159: OOPS_STATS Run end                                  - Runtime:      0.20 sec,  Memory: total:    37.57 Mb, per task: min =    37.57 Mb, max =    37.57 Mb
+159: OOPS_STATS Run end                                  - Runtime:      0.17 sec,  Memory: total:    35.32 Mb, per task: min =    35.32 Mb, max =    35.32 Mb
 159: Run: Finishing oops::LocalEnsembleDA<Lorenz 95, Lorenz 95 Obs> with status = 0
 159: terminate called after throwing an instance of 'oops::TestReferenceFloatMismatchError'
 159:   what():  Test reference Float mismatch @ Line:52

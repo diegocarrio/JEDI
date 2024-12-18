@@ -1264,6 +1264,7 @@ l95/src/executables/CMakeFiles/l95_letkf.x.dir/LETKF.cc.o: ../l95/src/executable
   ../src/oops/util/printRunStats.h \
   ../src/oops/assimilation/LETKFSolver.h \
   ../src/oops/assimilation/LETKFSolverPert.h \
+  ../src/oops/assimilation/LETKFSolverBound.h \
   ../src/oops/assimilation/LETKFSolverGSI.h \
   ../src/oops/generic/instantiateObsErrorFactory.h \
   ../src/oops/generic/ObsErrorDiag.h \
@@ -1280,6 +1281,8 @@ l95/src/executables/CMakeFiles/l95_letkf.x.dir/LETKF.cc.o: ../l95/src/executable
 ../src/oops/runs/Application.h:
 
 ../src/oops/assimilation/LETKFSolverGSI.h:
+
+../src/oops/assimilation/LETKFSolverBound.h:
 
 ../src/oops/util/printRunStats.h:
 

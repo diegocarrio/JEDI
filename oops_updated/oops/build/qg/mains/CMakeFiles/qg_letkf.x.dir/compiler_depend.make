@@ -1255,6 +1255,7 @@ qg/mains/CMakeFiles/qg_letkf.x.dir/qgLETKF.cc.o: ../qg/mains/qgLETKF.cc \
   ../src/oops/util/printRunStats.h \
   ../src/oops/assimilation/LETKFSolver.h \
   ../src/oops/assimilation/LETKFSolverPert.h \
+  ../src/oops/assimilation/LETKFSolverBound.h \
   ../src/oops/assimilation/LETKFSolverGSI.h \
   ../src/oops/generic/instantiateObsErrorFactory.h \
   ../src/oops/generic/ObsErrorDiag.h \
@@ -1271,6 +1272,8 @@ qg/mains/CMakeFiles/qg_letkf.x.dir/qgLETKF.cc.o: ../qg/mains/qgLETKF.cc \
 ../src/oops/runs/Application.h:
 
 ../src/oops/assimilation/LETKFSolverGSI.h:
+
+../src/oops/assimilation/LETKFSolverBound.h:
 
 ../src/oops/util/printRunStats.h:
 

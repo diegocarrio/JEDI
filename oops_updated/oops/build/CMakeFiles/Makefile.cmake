@@ -7,8 +7,6 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "../.git/HEAD"
-  "../.git/refs/heads/develop"
   "../CMakeLists.txt"
   "CMakeFiles/3.23.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.23.1/CMakeCXXCompiler.cmake"
@@ -19,7 +17,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/FindMPI/test_mpi.f90"
   "CMakeFiles/FindOpenMP/OpenMPTryFlag.f90"
   "CMakeFiles/FindOpenMP/OpenMPTryFlag.f90_in"
-  "CMakeFiles/git-data/grabRef.cmake"
   "../cmake/backtrace_deps.cmake"
   "../cmake/compiler_flags_GNU_CXX.cmake"
   "../cmake/compiler_flags_GNU_Fortran.cmake"
@@ -124,7 +121,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/views/._view/cimg64v3ckgivk7zqxf3vyx3wfc3nvek/share/ecbuild/cmake/compiler_flags/GNU_CXX.cmake"
   "/opt/views/._view/cimg64v3ckgivk7zqxf3vyx3wfc3nvek/share/ecbuild/cmake/compiler_flags/GNU_Fortran.cmake"
   "/opt/views/._view/cimg64v3ckgivk7zqxf3vyx3wfc3nvek/share/ecbuild/cmake/contrib/GetGitRevisionDescription.cmake"
-  "/opt/views/._view/cimg64v3ckgivk7zqxf3vyx3wfc3nvek/share/ecbuild/cmake/contrib/GetGitRevisionDescription.cmake.in"
   "/opt/views/._view/cimg64v3ckgivk7zqxf3vyx3wfc3nvek/share/ecbuild/cmake/ecbuild.cmake"
   "/opt/views/._view/cimg64v3ckgivk7zqxf3vyx3wfc3nvek/share/ecbuild/cmake/ecbuild_add_c_flags.cmake"
   "/opt/views/._view/cimg64v3ckgivk7zqxf3vyx3wfc3nvek/share/ecbuild/cmake/ecbuild_add_cxx_flags.cmake"
@@ -247,9 +243,6 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "DartConfiguration.tcl"
-  "CMakeFiles/git-data/HEAD"
-  "CMakeFiles/git-data/grabRef.cmake"
-  "CMakeFiles/git-data/head-ref"
   "CMakeFiles/FindOpenMP/OpenMPTryFlag.f90"
   "CMakeFiles/FindOpenMP/OpenMPTryFlag.f90"
   "CMakeFiles/FindMPI/test_mpi.cpp"

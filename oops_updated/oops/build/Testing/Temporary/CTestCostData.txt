@@ -7,5 +7,5 @@ test_l95_forecast 1 0.134054
 test_l95_forecast_pseudomodel 1 0.125066
 test_l95_forecast_identitymodel 1 0.122321
 test_l95_genenspert 1 0.276762
+test_l95_letkf_bound 2 0.275968
 ---
-test_l95_letkf_pert

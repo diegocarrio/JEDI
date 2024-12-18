@@ -276,6 +276,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/oops/assimilation" TYPE FILE FILES "/home/nonroot/shared/oops_updated/oops/src/oops/assimilation/LETKFSolverBounded.h")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/oops/assimilation" TYPE FILE FILES "/home/nonroot/shared/oops_updated/oops/src/oops/assimilation/LETKFSolverGSI.h")
 endif()
 
