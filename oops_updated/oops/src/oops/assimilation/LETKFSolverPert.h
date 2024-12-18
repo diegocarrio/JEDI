@@ -72,15 +72,13 @@ class LETKFSolverPert : public LETKFSolver<MODEL, OBS> {
                               const Eigen::MatrixXd & HXb,  const Eigen::VectorXd & diagInvR);
 
 
-
-
   /// Applies weights and adds posterior inflation
   virtual void applyWeights(const IncrementEnsemble4D_ &, IncrementEnsemble4D_ &,
                             const GeometryIterator_ &);
 
   // Protected variables:
   protected:
-  DeparturesEnsemble_ HXb_;    ///< full background ensemble in the observation space;
+  DeparturesEnsemble_ HXb_;    ///< full background ensemble in the observation space HXb;
 
   // Private variables:
   private:
@@ -108,7 +106,7 @@ LETKFSolverPert<MODEL, OBS>::LETKFSolverPert(ObsSpaces_ & obspaces, const Geomet
     observationsConfig_(config.getSubConfiguration("observations"))
 {
   Log::trace() << "LETKFSolverPert<MODEL, OBS>::create starting" << std::endl;
-  Log::info() << "Using EIGEN implementation of the PERTURBED LETKF" << std::endl;
+  Log::info()  << "Using EIGEN implementation of the PERTURBED LETKF" << std::endl;
   Log::trace() << "LETKFSolverPert<MODEL, OBS>::create done" << std::endl;
 }
 
@@ -122,10 +120,9 @@ template <typename MODEL, typename OBS>
 Observations<OBS> LETKFSolverPert<MODEL, OBS>::computeHofX(const StateEnsemble4D_ & ens_xx,
 		                                          size_t iteration, bool readFromFile) {
         util::Timer timer(classname(), "computeHofX");
+
 	Observations_ yb_mean(this->obspaces_);
         yb_mean = LETKFSolver<MODEL, OBS>::computeHofX(ens_xx, iteration, readFromFile);
-//	Log::info() << "DCC: yb_mean: " << yb_mean << std::endl;
-//	Log::info() << "DCC: iteration: " << iteration << std::endl;
 	Log::info() << "----------------------------------" << std::endl;	
 	Log::info() << "DCC: COMPUTING HofX" << std::endl;
 	Log::info() << "DCC: this->nens_ : " << this->nens_ << std::endl;
@@ -134,18 +131,9 @@ Observations<OBS> LETKFSolverPert<MODEL, OBS>::computeHofX(const StateEnsemble4D
         // Recover the full HofX from the original ensemble and store them in (this->Yb_):
 	// Remember: Yb_ stands for ensemble perturbations in the observation space: Yb_ = HXb - Hxb
         for (size_t iens = 0; iens < (this->nens_); ++iens) {
-//          (this->Yb_)[iens] += yb_mean.obstodep();  // We do not want to overwrite ensemble perturbations here
-//          HXb_[iens] = (this->Yb_)[iens] + yb_mean;
-//	    HXb_[iens] = (this->Yb_)[iens] + yb_mean.obstodep();
-//	    //
 	    HXb_[iens] = yb_mean + (this->Yb_)[iens];   
-//	    //
-//	    HXb_[iens] = (this->Yb_)[iens];
-//	    HXb_[iens] += yb_mean.obstodep();
         }
 
-
-	
 	// Store original observation in (this->omb_):
         Observations_ yobs(this->obspaces_, "ObsValue");
 	(this->omb_) = yobs.obstodep();
@@ -170,11 +158,6 @@ Observations<OBS> LETKFSolverPert<MODEL, OBS>::computeHofX(const StateEnsemble4D
 
         return yb_mean;
 }
-
-
-
-
-
 
 
 // -----------------------------------------------------------------------------
@@ -211,13 +194,10 @@ void LETKFSolverPert<MODEL, OBS>::measurementUpdate(const IncrementEnsemble4D_ &
 	      // Apply localization:
 	      Eigen::VectorXd localization = locvector.packEigen(locvector);
 	      local_invVarR_vec.array() *= localization.array();
-//	      computeWeights(local_omb_vec, local_HXb_mat, local_YobsPert_mat, local_invVarR_vec);
               computeWeights(local_YobsPert_mat, local_Yb_mat, local_HXb_mat, local_invVarR_vec);
 	      applyWeights(bkg_pert, ana_pert, i);
       }
 }
-
-
 
 
 // -----------------------------------------------------------------------------
@@ -232,7 +212,6 @@ void LETKFSolverPert<MODEL, OBS>::computeWeights(const Eigen::MatrixXd & YobsPer
         Log::info() << "DCC: Using computeWeights in the PERTURBED LETKF" << std::endl;
 	// Compute transformation matix, save in Wa_, wa_
 	const LocalEnsembleSolverInflationParameters & inflopt = (this->options_).infl;
-
         
         Eigen::MatrixXf Yb_f       = Yb.cast<float>(); // cast function converts double to float
 	Eigen::MatrixXf YobsPert_f = YobsPert.cast<float>();
@@ -256,7 +235,6 @@ void LETKFSolverPert<MODEL, OBS>::computeWeights(const Eigen::MatrixXd & YobsPer
 
 	// Computing Pa = [ (Yb^T) R^(-1) Yb + (nens-1)/infl I  ]^(-1):
 	work = eivec_ * (eival_.cwiseInverse().asDiagonal()) * eivec_.transpose(); // cwiseInverse() computes the inverse of the eigenvalues
-
 	
 	// Computing Wa = Pa * (Yb^T) * R^(-1) * (YobsPert - HXb):
 	Eigen::MatrixXf Wa_f(this->nens_, this->nens_);
@@ -266,8 +244,6 @@ void LETKFSolverPert<MODEL, OBS>::computeWeights(const Eigen::MatrixXd & YobsPer
 	this->Wa_ = Wa_f.cast<double>(); // cast function converts float to double
 
 } // End function computeWeights
-
-
 
 
 // -----------------------------------------------------------------------------
