@@ -1,5 +1,0 @@
-# Directory labels
- oops
-# Source files and their labels
-/home/nonroot/shared/oops/build/qg/test/CMakeFiles/test_qg_ens_forecast.x
-/home/nonroot/shared/oops/build/qg/test/CMakeFiles/test_qg_ens_forecast.x.rule

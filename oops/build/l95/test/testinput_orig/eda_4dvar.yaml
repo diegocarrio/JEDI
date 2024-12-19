@@ -1,5 +1,0 @@
-files:
-  - testinput/eda_4dvar_3.yaml
-
-test:
-  reference filename: testoutput/eda_4dvar.test

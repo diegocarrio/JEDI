@@ -1,5 +1,0 @@
-# Directory labels
- oops
-# Source files and their labels
-/home/nonroot/shared/oops/build/CMakeFiles/ContinuousCoverage
-/home/nonroot/shared/oops/build/CMakeFiles/ContinuousCoverage.rule

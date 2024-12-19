@@ -1,5 +1,0 @@
-# Directory labels
- oops
-# Source files and their labels
-/home/nonroot/shared/oops/build/CMakeFiles/ExperimentalBuild
-/home/nonroot/shared/oops/build/CMakeFiles/ExperimentalBuild.rule

@@ -1,5 +1,0 @@
-# Directory labels
- oops
-# Source files and their labels
-/home/nonroot/shared/oops/build/l95/src/executables/CMakeFiles/l95_sqrtofvertloc.x.schema.json
-/home/nonroot/shared/oops/build/l95/src/executables/CMakeFiles/l95_sqrtofvertloc.x.schema.json.rule
